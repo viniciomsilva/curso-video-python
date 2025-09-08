@@ -1,0 +1,15 @@
+# 015
+# ESCREVA UM PROGRAMA QUE PERGUNTE A QUANTIDADE DE KM PERCORRIDOS POR UM CARRO ALUGADO
+# E A QUANTIDADE DE DIAS PELOS QUAIS ELE FOI ALUGADO. CALCULE O PREÇO A PAGAR, SABENDO
+# QUE O CARRO CUSTA R$ 60,00 POR DIA E R$ 0,15 POR KM RODADO
+
+valuePerKm = 0.15
+valuePerDay = 60.00
+
+qntDays = int(input('DIGITE A QUANTIDADE DE DIAS ALUGADOS......: '))
+qntKm = float(input('DIGITE A QUANTIDADE DE QUILÔMETROS RODADOS: '))
+
+
+price = (qntDays * valuePerDay) + (qntKm * valuePerKm)
+
+print('VALOR TOTAL A PAGAR (R$) .................: {:.2f}'.format(price))

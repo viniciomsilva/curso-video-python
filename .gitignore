@@ -1,0 +1,32 @@
+# Files of Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual enviroment
+venv/
+ENV/
+env/
+.venv/
+
+# Log and cache files
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+
+# Local Configs
+*.env
+*.local
+*.ini
+
+# PyCharm (JetBrains) Files
+.idea/
+*.iml
+
+# Other comuns files
+.DS_Store
+Thumbs.db
