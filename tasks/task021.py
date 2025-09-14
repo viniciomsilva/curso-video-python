@@ -56,8 +56,8 @@ class MusicPlayer:
         Prints the songs in a numbered catalog.
         """
         print('\nMÚSICAS DISPONÍVEIS---------------------------------\n')
-        for music in self.__playlist:
-            print('#{} {} - {}'.format((self.__playlist.index(music) + 1), music.title, music.artist))
+        for i, song in enumerate(self.__playlist):
+            print(f'#{(i + 1)} {song.title} - {song.artist}')
         print()
 
     def load(self, playlist_path: str, playlist: list[Song]) -> None:
@@ -99,11 +99,14 @@ class MusicPlayer:
 if __name__ == '__main__':
     player = MusicPlayer()
     player.init()
-    player.load(path.join(path.dirname(getcwd()), 'media', 'task021_songs'),
-                [Song('KILLING IN THE NAME', 'RAGE AGAINST THE MACHINE', 'killing-in-the-name.mp3'),
-                 Song('NINE LIVES', 'AEROSMITH', 'nine-lives.mp3'), Song('PARANOID', 'BLACK SABBATH', 'paranoid.mp3'),
-                 Song('WE WILL ROCK YOU', 'QUEEN', 'we-will-rock-you.mp3'),
-                 Song('YOU SHOOK ME ALL NIGHT LONG', 'AC/CD', 'you-shook-me-all-night-long.mp3')])
+    player.load(
+        path.join(path.dirname(getcwd()), 'media', 'task021_songs'), [
+        Song('KILLING IN THE NAME', 'RAGE AGAINST THE MACHINE', 'killing-in-the-name.mp3'),
+        Song('NINE LIVES', 'AEROSMITH', 'nine-lives.mp3'),
+        Song('PARANOID', 'BLACK SABBATH', 'paranoid.mp3'),
+        Song('WE WILL ROCK YOU', 'QUEEN', 'we-will-rock-you.mp3'),
+        Song('YOU SHOOK ME ALL NIGHT LONG', 'AC/CD', 'you-shook-me-all-night-long.mp3')
+    ])
     player.print_playlist()
 
     while True:
@@ -111,8 +114,7 @@ if __name__ == '__main__':
             option = int(input('SELECIONE UMA MÚSICA................................: #'))
             selected_song = player.select(option)
 
-            print('ESTÁ TOCANDO AGORA..................................: {} - {}'.format(selected_song.title,
-                                                                                         selected_song.artist))
+            print(f'ESTÁ TOCANDO AGORA..................................: {selected_song.title} - {selected_song.artist}')
             player.play(60)
 
             if input('QUER OUVIR OUTRA? [y/n].............................: ') != 'y':
