@@ -1,6 +1,7 @@
 # python files
-.venv
 __pycache__
+
+.vscode
 
 # media files
 *.mp3
