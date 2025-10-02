@@ -22,6 +22,6 @@ def print_separate_numbers(num):
 
 
 if __name__ == "__main__":
-    num = input("DIGITE UM NÚMERO ENTRE 0 E 999999: ")
+    num = input("DIGITE UM NÚMERO ENTRE 0 E 999999: ").strip()
 
     print_separate_numbers(num=num)
