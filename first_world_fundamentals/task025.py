@@ -3,7 +3,7 @@
 # NOME
 
 if __name__ == "__main__":
-    name = input("DIGITE SEU NOME COMPLETO: ").upper()
+    name = input("DIGITE SEU NOME COMPLETO: ").strip().upper()
 
     if "SILVA" in name:
         print(f"\nPARABÉNS, {name}! VOCÊ É UM SILVA")
