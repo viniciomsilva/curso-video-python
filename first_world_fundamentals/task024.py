@@ -5,7 +5,7 @@
 holy = ["SÃO", "SANTO", "SANTA", "SANTOS", "SANTAS"]
 
 if __name__ == "__main__":
-    name_city = input("DIGITE O NOME DA SUA CIDADE: ").upper()
+    name_city = input("DIGITE O NOME DA SUA CIDADE: ").strip().upper()
     first_name_city = name_city.split()[0]
 
     if name_city in holy or first_name_city in holy:
