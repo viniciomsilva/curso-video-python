@@ -6,7 +6,7 @@
 
 
 if __name__ == "__main__":
-    phrase = input("DIGITE UMA FRASE QUALQUER: ").lower()
+    phrase = input("DIGITE UMA FRASE QUALQUER: ").strip().lower()
 
     first = phrase.find("a")
     last = phrase.rfind("a")
