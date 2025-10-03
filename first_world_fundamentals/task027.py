@@ -4,7 +4,7 @@
 
 
 if __name__ == "__main__":
-    name = input("DIGITE O SEU NOME COMPLETO: ").upper()
+    name = input("DIGITE O SEU NOME COMPLETO: ").strip().upper()
 
     last_name_pos = len(name.split()) - 1
 
