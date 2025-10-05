@@ -1,5 +1,9 @@
 # python files
-__pycache__
+/env
+/.env
+/venv
+/.venv
+/__pycache__
 
 # vscode settings
 .vscode
