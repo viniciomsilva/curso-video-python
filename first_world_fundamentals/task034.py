@@ -7,6 +7,6 @@
 if __name__ == "__main__":
     salary = float(input("DIGITE O SALÁRIO DO FUNCIONÁRIO (R$): "))
 
-    print("O NOVO SALÁRIO COM REAJUSTE FICARÁ R$ {:.2f}".format(
-        salary * 1.1 if salary > 1250 else salary * 1.15
-    ))
+    salary *= 1.1 if salary > 1250 else 1.15
+
+    print("O NOVO SALÁRIO COM REAJUSTE FICARÁ R$ {:.2f}".format(salary))
