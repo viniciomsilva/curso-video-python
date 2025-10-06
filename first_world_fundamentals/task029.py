@@ -4,12 +4,10 @@
 # A MULTA VAI CUSTAR R$ 7,00 POR CADA KM ACIMA DO LIMITE.
 
 if __name__ == "__main__":
-    speed_limit = 80.0
-
     speed = float(input("DIGITE A VELOCIDADE DO CARRO (KM/H): "))
 
     print(
         "TUDO BEM!"
-        if speed <= speed_limit
-        else "VOCÊ FOI MULTADO EM {:.2f}".format((speed - speed_limit) * 7)
+        if speed <= 80
+        else "VOCÊ FOI MULTADO EM {:.2f}".format((speed - 80) * 7)
     )
