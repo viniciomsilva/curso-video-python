@@ -3,13 +3,10 @@
 /.env
 /venv
 /.venv
-/__pycache__
+__pycache__
 
-# vscode settings
+# local settings
 .vscode
 
 # media files
 *.mp3
-
-# file to facilitate git merging
-merge.ps1
