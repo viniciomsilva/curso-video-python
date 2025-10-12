@@ -10,3 +10,4 @@ __pycache__
 
 # media files
 *.mp3
+.map.csv

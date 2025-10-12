@@ -5,4 +5,4 @@
 if __name__ == "__main__":
     num = int(input("DIGITE UM NÚMERO INTEIRO QUALQUER: "))
 
-    print("ESTE NÚMERO É PAR!" if num % 2 == 0 else "ESTE NÚMERO É ÍMPAR!")
+    print("ESTE NÚMERO É PAR!" if (num % 2 == 0) else "ESTE NÚMERO É ÍMPAR!")

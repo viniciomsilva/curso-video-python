@@ -4,13 +4,34 @@
 #   EM QUE POSIÇÃO ELA APARECE A PRIMEIRA VEZ
 #   EM QUE POSIÇÃO ELA APARECE A ULTIMA VEZ
 
+from custom import clear
+from custom import customize
+
 
 if __name__ == "__main__":
-    phrase = input("DIGITE UMA FRASE QUALQUER: ").strip().lower()
+    phrase = input("DIGITE UMA FRASE QUALQUER: ").lower().strip()
 
     first = phrase.find("a")
     last = phrase.rfind("a")
 
-    print(f"QUANTIDADE DE 'A': {phrase.count("a")}")
-    print(f"PRIMERO 'A'......: {first + 1 if first > 0 else "NaN"}")
-    print(f"ULTIMO 'A'.......: {last + 1 if last > 0 else "NaN"}")
+    print(
+        "QUANTIDADE DE 'A': {} {:5} {}".format(
+            customize(style="bold", back="yellow"),
+            phrase.count("a"),
+            clear(),
+        )
+    )
+    print(
+        "PRIMERO 'A'......: {} {:5} {}".format(
+            customize(style="bold", back="cyan"),
+            first + 1 if (first >= 0) else "NaN",
+            clear(),
+        )
+    )
+    print(
+        "ULTIMO 'A'.......: {} {:5} {}".format(
+            customize(style="bold", back="lilac"),
+            last + 1 if (last >= 0) else "NaN",
+            clear(),
+        )
+    )

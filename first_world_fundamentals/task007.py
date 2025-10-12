@@ -2,16 +2,32 @@
 # DESENVOLVA UM PROGRAMA QUE LEIA DUAS NOTAS DE UM ALUNO, CALCULE E MOSTRE A SUA
 # MÉDIA
 
-grade1 = float(input("DIGITE A NOTA #1: "))
-grade2 = float(input("DIGITE A NOTA #2: "))
+from custom import customize
 
-average = (grade1 + grade2) / 2
+if __name__ == "__main__":
+    grade1 = float(input("DIGITE A NOTA #1: "))
+    grade2 = float(input("DIGITE A NOTA #2: "))
 
-if average >= 6:
-    print("O ALUNO ESTÁ APROVADO COM MÉDIA {:.1f}".format(average))
+    average = (grade1 + grade2) / 2
 
-elif 6 > average >= 3:
-    print("O ALUNO ESTÁ DE RECUPERAÇÃO COM MÉDIA {:.1f}".format(average))
-
-else:
-    print("O ALUNO ESTÁ REPROVADO COM MÉDIA {:.1f}".format(average))
+    if average >= 6:
+        print(
+            "{}O ALUNO ESTÁ APROVADO COM MÉDIA {:.1f}".format(
+                customize(style="bold", color="cyan"),
+                average,
+            )
+        )
+    elif 6 > average >= 3:
+        print(
+            "{}O ALUNO ESTÁ DE RECUPERAÇÃO COM MÉDIA {:.1f}".format(
+                customize(style="bold", color="yellow"),
+                average,
+            )
+        )
+    else:
+        print(
+            "{}O ALUNO ESTÁ REPROVADO COM MÉDIA {:.1f}".format(
+                customize(style="bold", color="lilac"),
+                average,
+            )
+        )

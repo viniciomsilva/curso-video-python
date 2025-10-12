@@ -2,13 +2,24 @@
 # CRIE UM PROGRAMA QUE LEIA O NOME DE UMA CIDADE E DIGA SE ELA COMEÇA OU NÃO
 # COM A PALAVRA "SANTO"
 
-holy = ["SÃO", "SANTO", "SANTA", "SANTOS", "SANTAS"]
+from custom import customize
+
 
 if __name__ == "__main__":
-    name_city = input("DIGITE O NOME DA SUA CIDADE: ").strip().upper()
-    first_name_city = name_city.split()[0]
+    holy = ["SÃO", "SANTO", "SANTA", "SANTOS", "SANTAS"]
 
-    if name_city in holy or first_name_city in holy:
-        print(f"\nA CIDADE {name_city} É SANTA!")
+    city_name = input("DIGITE O NOME DA SUA CIDADE: ").upper().strip()
+    first_city_name = city_name.split()[0]
+
+    if city_name in holy or first_city_name in holy:
+        print(
+            "\n{}A CIDADE {} É SANTA!".format(
+                customize(style="bold", color="cyan"), city_name
+            )
+        )
     else:
-        print(f"\nA CIDADE {name_city} NÃO É SANTA!")
+        print(
+            "\n{}A CIDADE {} NÃO É SANTA!".format(
+                customize(style="bold", color="lilac"), city_name
+            )
+        )

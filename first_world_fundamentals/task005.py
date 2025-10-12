@@ -2,9 +2,23 @@
 # FAÇA UM PROGRAMA QUE LEIA UM NÚMERO INTEIRO E MOSTRE NA TELA O SEU SUCESSOR E
 # ANTECESSOR
 
-num = int(input("DIGITE UM NÚMERO INTEIRO QUALQUER: "))
+from custom import clear
+from custom import customize
 
-print("ANTECESSOR: {}".format(num - 1))
-print("SUCESSOR..: {}".format(num + 1))
+if __name__ == "__main__":
+    num = int(input("DIGITE UM NÚMERO INTEIRO QUALQUER: "))
 
-# print(f'\n{'FIM':=^19}')
+    print(
+        "{} ANTECESSOR: {:4} {}".format(
+            customize(style="bold", back="cyan"),
+            (num - 1),
+            clear(),
+        )
+    )
+    print(
+        "{} SUCESSOR..: {:4} {}".format(
+            customize(style="bold", back="lilac"),
+            (num + 1),
+            clear(),
+        )
+    )

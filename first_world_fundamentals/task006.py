@@ -4,9 +4,30 @@
 
 from math import sqrt
 
-num = int(input("DIGITE UM NÚMERO INTEIRO: "))
+from custom import clear
+from custom import customize
 
-print("DOBRO........: {}".format(num * 2))
-print("TRIPLO.......: {}".format(num * 3))
-# print('RAIZ QUADRADA: {}'.format(pow(num, 0.5)))
-print("RAIZ QUADRADA: {:.2f}".format(sqrt(num)))
+if __name__ == "__main__":
+    num = int(input("DIGITE UM NÚMERO INTEIRO: "))
+
+    print(
+        "{} DOBRO........: {:8} {}".format(
+            customize(style="bold", back="cyan"),
+            (num * 2),
+            clear(),
+        )
+    )
+    print(
+        "{} TRIPLO.......: {:8} {}".format(
+            customize(style="bold", back="lilac"),
+            (num * 3),
+            clear(),
+        )
+    )
+    print(
+        "{} RAIZ QUADRADA: {:8.2f} {}".format(
+            customize(style="bold", back="yellow"),
+            sqrt(num),
+            clear(),
+        )
+    )

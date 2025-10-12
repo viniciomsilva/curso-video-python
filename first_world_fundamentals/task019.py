@@ -3,20 +3,24 @@
 # FAÇA UM PROGRAMA QUE AJUDE ELE, LENDO O NOME DELES E ESCREVENDO O NOME DO
 # ESCOLHIDO
 
-from random import choice  # , randint
+from random import choice
 
-students = []
-# selectedStudent = 0
+from custom import customize
 
-qntStudents = int(input("DIGITE A QUANTIDADE DE ESTUDANTES: "))
 
-print()
+if __name__ == "__main__":
+    students = []
+    qnt_students = int(input("DIGITE A QUANTIDADE DE ALUNOS: "))
 
-for i in range(0, qntStudents):
-    student = input("DIGITE NO NOME DO ALUNO #{}: ".format((i + 1)))
+    print()
 
-    students.append(student)
+    for i in range(qnt_students):
+        student = input(f"DIGITE O NOME DO(A) ALUNO(A) #{i + 1}: ")
+        students.append(student.upper().strip())
 
-# selectedStudent = randint(0, (len(students) - 1))
-
-print("\nO ALUNO SORTEADO FOI......:", choice(students))
+    print(
+        "\n{}O(A) ALUNO(A) SORTEADO(A) FOI...: {}".format(
+            customize(style="bold", color="cyan"),
+            choice(students),
+        )
+    )

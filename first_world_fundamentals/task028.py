@@ -3,15 +3,64 @@
 # PEÇA AO USUÁRIO PARA ADIVINHAR O NÚMERO ESCOLHIDO.
 # O PROGRAMA DEVERÁ ESCREVER NA TELA SE O USUÁRIO VENCEU OU NÃO.
 
+from time import sleep
 from random import randint
 
-if __name__ == "__main__":
-    chosen_number = randint(0, 5)
+from custom import clear
+from custom import customize
 
-    num = int(input("EM QUAL NÚMERO ESTOU PENSADO? #"))
+if __name__ == "__main__":
+    win = False
+    attempts = 1
+    draw_num = randint(1, 10)
 
     print(
-        "PARABÉNS! VOCÊ GANHOU."
-        if num == chosen_number
-        else f"HA HA! EU GANHEI, ESTAVA PENSANDO EM #{chosen_number}!"
+        "\n{}ENTRE 1 E 10, EM QUAL NÚMERO ESTOU PENSADO?{}".format(
+            customize(style="bold", color="cyan"), clear()
+        )
     )
+    print(
+        "{}VOCÊ TEM {} TENTATIVAS. BOA SORTE!{}".format(
+            customize(color="yellow"), attempts, clear()
+        )
+    )
+
+    while (not win) and (attempts <= 3):
+        num = int(input("\nDIGITE SUA {}º TENTATIVA: #".format(attempts)))
+
+        print(
+            "{}PROCESSANDO...{}".format(
+                customize(style="bold", color="cyan"),
+                clear(),
+            )
+        )
+        sleep(1)
+
+        if num == draw_num:
+            print(
+                "\n{}PARABÉNS! VOCÊ GANHOU.{}".format(
+                    customize(style="bold", color="green"),
+                    clear(),
+                )
+            )
+
+            win = True
+            break
+        else:
+            print(
+                "{}HA HA!!! TENTE NOVAMENTE.{}".format(
+                    customize(style="bold", color="yellow"),
+                    clear(),
+                )
+            )
+
+        attempts += 1
+
+    if not win:
+        print(
+            "\n{}HA HA!!! EU GANHEI! ESTAVA PENSANDO NO #{}{}".format(
+                customize(style="bold", color="lilac"),
+                draw_num,
+                clear(),
+            )
+        )

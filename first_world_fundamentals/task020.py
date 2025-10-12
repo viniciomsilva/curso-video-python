@@ -5,21 +5,40 @@
 
 from random import sample
 
-students = []
-drawnOrder = []
+from custom import clear
+from custom import customize
 
-qntStudents = int(input("DIGITE A QUANTIDADE DE ALUNOS: "))
+if __name__ == "__main__":
+    students = []
+    drawn_order = []
 
-print("\nAGORA DIGITE OS SEUS NOMES")
+    qnt_students = int(input("DIGITE A QUANTIDADE DE ALUNOS: "))
 
-for i in range(0, qntStudents):
-    student = input("NOME DO ALUNO #{}: ".format((i + 1)))
+    print(
+        "\n{}AGORA DIGITE OS NOMES DELES{}".format(
+            customize(style="bold", color="yellow"),
+            clear(),
+        )
+    )
 
-    students.append(student)
+    for i in range(qnt_students):
+        student = input("NOME DO ALUNO #{}: ".format((i + 1)))
+        students.append(student.upper().strip())
 
-drawnOrder = sample(students, len(students))
+    drawn_order = sample(students, len(students))
 
-print(f"\n{'ORDEM SORTEADA ':-<40}\n")
+    print(
+        "\n{}ORDEM SORTEADA{}".format(
+            customize(style="bold", color="cyan"),
+            clear(),
+        )
+    )
 
-for student in drawnOrder:
-    print("ALUNO #{}: {}".format((drawnOrder.index(student) + 1), student))
+    for i, student in enumerate(drawn_order):
+        print(
+            "{}ALUNO #{}: {}".format(
+                customize(style="bold"),
+                (i + 1),
+                student,
+            )
+        )

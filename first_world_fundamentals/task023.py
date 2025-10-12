@@ -2,26 +2,36 @@
 # FAÇA UM PROGRAMA QUE LEIA UM NÚMERO ENTRE 0 E 9999 E MOSTRE CADA UM DOS
 # DÍGITOS SEPARADOS
 
-
-decimal_orders = [
-    "UNIDADE", "DEZENA", "CENTENA",
-    "UNIDADE DE MILHAR", "DEZENA DE MILHAR", "CENTENA DE MILHAR"
-]
-
-
-def print_separate_numbers(num):
-    length = len(num)
-    num = int(num)
-    divisor = 1
-
-    print()
-    for i in range(length):
-        print(f"{decimal_orders[i]}: {num // divisor % 10}")
-
-        divisor *= 10
+from classes.separate_number import SeparateNumber
+from custom import clear
+from custom import customize
 
 
 if __name__ == "__main__":
-    num = input("DIGITE UM NÚMERO ENTRE 0 E 999999: ").strip()
+    while True:
+        try:
+            value = int(input("DIGITE UM NÚMERO INTEIRO QUALQUER: "))
 
-    print_separate_numbers(num=num)
+            print(
+                "\n{}ESTE É O NÚMERO {} SEPARADO EM CASAS DECIMAIS!{}".format(
+                    customize(style="bold", color="cyan"), value, clear()
+                )
+            )
+            for digit in SeparateNumber(value).separated:
+                print("{}: {}".format(digit["decimal_order"], digit["digit"]))
+
+            break
+
+        except:
+            print(
+                "{}POR FAVOR, DIGITE UM NÚMERO VÁLIDO!{}".format(
+                    customize(style="bold", color="red"), clear()
+                )
+            )
+            print(
+                "{}NÚMERO INTEIRO E SEM PONTUAÇÕES!{}\n".format(
+                    customize(style="bold", color="yellow"), clear()
+                )
+            )
+
+            continue

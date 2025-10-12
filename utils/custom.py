@@ -1,4 +1,8 @@
-styles = {"bold": "1", "underline": "4", "negative": "7"}
+styles = {
+    "bold": "1",
+    "underline": "4",
+    "negative": "7",
+}
 
 colors = {
     "white": ";30",
@@ -30,8 +34,8 @@ def clear():
 def customize(style="", color="", back="") -> str:
     cod = "\033["
 
-    cod += styles[style] if style != "" else ""
-    cod += colors[color] if color != "" else ""
-    cod += backs[back] if back != "" else "m"
+    cod += styles[style] if (style != "") else ""
+    cod += colors[color] if (color != "") else ""
+    cod += backs[back] if (back != "") else "m"
 
     return cod

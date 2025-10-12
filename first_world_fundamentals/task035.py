@@ -5,13 +5,22 @@
 # REGRA DA DESIGUALDADE TRIANGULAR
 #   A SOMA DE DOIS QUAISQUER SEGMENTOS DEVE SER MAIOR QUE O TERCEIRO
 
+from custom import customize
+
 if __name__ == "__main__":
     seg1 = float(input("DIGITE O VALOR DO 1º SEGMENTO: "))
     seg2 = float(input("DIGITE O VALOR DO 2º SEGMENTO: "))
     seg3 = float(input("DIGITE O VALOR DO 3º SEGMENTO: "))
 
-    print(
-        "FORMAM UM TRIÂNGULO!"
-        if seg1 + seg2 > seg3 and seg1 + seg3 > seg2 and seg2 + seg3 > seg1
-        else "NÃO FORMAM UM TRIÂNGULO!"
-    )
+    if (seg1 + seg2 > seg3) and (seg1 + seg3 > seg2) and (seg2 + seg3 > seg1):
+        print(
+            "{}PODEM FORMAR UM TRIÂNGULO!".format(
+                customize(style="bold", color="cyan"),
+            )
+        )
+    else:
+        print(
+            "{}NÃO PODEM FORMAR UM TRIÂNGULO!".format(
+                customize(style="bold", color="lilac"),
+            )
+        )
