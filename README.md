@@ -8,13 +8,14 @@ Este curso é de 2017, mas estas resoluções foram desenvolvidas em 2025.
   - [🧭 Preparando o Ambiente](#-preparando-o-ambiente)
   - [🗺️ Sobre o Curso](#️-sobre-o-curso)
     - [🌎 Mundo #1: Fundamentos](#-mundo-1-fundamentos)
+    - [🌎 Mundo #2: Estruturas de Controle](#-mundo-2-estruturas-de-controle)
   - [💡 Desenvolvimento Próprio](#-desenvolvimento-próprio)
 
 ## 🧭 Preparando o Ambiente
 
 **Versão do Python3:** `python3.12` ou superior.
 
-**Criar ambiente virtual do Python:**\
+**Criar ambiente virtual do Python:**
 
 Windows:
 
@@ -55,7 +56,7 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task006](first_world_fundamentals/task006.py):
   Calcular o dobro, o triplo e a raiz quadrada dum número;
 - 📍 [Task007](first_world_fundamentals/task007.py):
-  Calcula a média entre duas notas;
+  Calcular a média entre duas notas;
 - 📍 [Task008](first_world_fundamentals/task008.py):
   Mostra as variações dum valor em metros;
 - 📍 [Task009](first_world_fundamentals/task009.py):
@@ -112,6 +113,21 @@ avanço no conhecimento geral básico da linguagem Python.
   Calcular o novo salário corrigido de acordo com o valor atual;
 - 📍 [Task035](first_world_fundamentals/task035.py):
   Dizer se três segmentos podem ou não formar um triângulo.
+
+### 🌎 Mundo \#2: Estruturas de Controle
+
+- 📍 [Task036](/second_world_control_structures/task036.py):
+  Analisar se um empréstimo pode ou não ser aprovado referente ao valor do
+  salário do cliente;
+- 📍 [Task037](/second_world_control_structures/task037.py):
+  Converter um número inteiro em base decimal para binário, octal ou hexadecimal;
+- 📍 [Task038](/second_world_control_structures/task038.py):
+  Mostrar qual dos dois valores é maior, ou se são iguais;
+- 📍 [Task039](/second_world_control_structures/task039.py):
+  Mostrar o prazo do alistamento militar obrigatório;
+- 📍 [Task040](first_world_fundamentals/task007.py):
+  Calcular a média de duas notas de um aluno e mostrar a situação;\
+  *Essa tarefa já foi resolvida na **Task007!***
 
 ## 💡 Desenvolvimento Próprio
 
