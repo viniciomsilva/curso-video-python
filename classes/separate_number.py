@@ -1,6 +1,4 @@
-from csv import reader
-from re import sub
-from pathlib import Path
+from scripts import database as db
 
 
 class SeparateNumber:
@@ -8,10 +6,10 @@ class SeparateNumber:
     def __init__(self, number: int):
         self.__number = number
         self.__divisor: int = 1
-        self.__digits: list[int]
+        self.__digits: list = []
 
         self.__decimal_orders: list = [
-            str(data[0]).title() for data in self.__get_decimal_orders()
+            data[0] for data in db.read_csv("decimal_orders.csv")
         ]
         self.__separate()
 
@@ -22,16 +20,11 @@ class SeparateNumber:
             for i, digit in enumerate(self.__digits)
         ]
 
-    # TODO Passar método read files para script
-    def __get_decimal_orders(self) -> list:
-        with open(
-            Path(__file__)
-            .parent.parent.joinpath("data", "decimal_orders.csv")
-            .resolve(),
-        ) as file:
-            return list(reader(file))
+    @property
+    def decimal_orders(self) -> list:
+        return self.__decimal_orders
 
-    def __get_digit_value(self) -> int:
+    def __get_digit(self) -> int:
         digit = self.__number // self.__divisor % 10
         self.__divisor *= 10
 
@@ -39,4 +32,4 @@ class SeparateNumber:
 
     def __separate(self) -> None:
         length = len(str(self.__number))
-        self.__digits = [self.__get_digit_value() for _ in range(length)]
+        self.__digits = [self.__get_digit() for _ in range(length)]

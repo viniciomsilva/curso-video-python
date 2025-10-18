@@ -6,11 +6,17 @@ from utils import custom as cs
 from utils import terminal as tm
 
 
-def print_playlist(playlist):
+def print_playlist(playlist: list):
     tm.clear()
     print(cs.colorize("\nMúsicas Disponíveis\n", color="cyan"))
     for i, song in enumerate(playlist):
-        print(cs.bold(f"[{(i + 1):3}] {song["title"]} ({song['artist']})"))
+        print(
+            "[ {:2} ] {} ({})".format(
+                (i + 1),
+                str(song["title"]).title(),
+                str(song["artist"]).title(),
+            ),
+        )
     print()
 
 
@@ -21,11 +27,14 @@ def run():
 
     while True:
         try:
-            song = player.select(int(input("Selecione um música: ")))
+            song = player.select(int(input("Selecione uma música: ")))
 
             print(
                 cs.colorize(
-                    f"Tocando {song["title"]} ({song['artist']})",
+                    "Tocando {} ({})".format(
+                        str(song["title"]).title(),
+                        str(song["artist"]).title(),
+                    ),
                     color="green",
                 )
             )
@@ -40,7 +49,7 @@ def run():
         except:
             print(
                 cs.colorize(
-                    "Por favor! Escolha uma opção válida.",
+                    "\nPor favor! Escolha uma opção válida.",
                     color="lilac",
                 )
             )

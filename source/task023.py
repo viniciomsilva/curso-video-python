@@ -18,7 +18,12 @@ def run():
                 )
             )
             for digit in SeparateNumber(value).separated:
-                print("{}: {}".format(digit["decimal_order"], digit["digit"]))
+                print(
+                    "{}: {}".format(
+                        str(digit["decimal_order"]).title(),
+                        digit["digit"],
+                    )
+                )
 
             break
         except:

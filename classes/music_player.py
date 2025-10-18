@@ -1,7 +1,8 @@
-from csv import reader
 from pathlib import Path
 from pygame import mixer
 from pygame import time
+
+from scripts import database as db
 
 
 class MusicPlayer:
@@ -9,7 +10,7 @@ class MusicPlayer:
     def __init__(self):
         self.__song_filename: Path
 
-        self.__playlist_path = (
+        self.__playlist_path: Path = (
             Path(__file__)
             .parent.parent.joinpath(
                 "data",
@@ -17,7 +18,7 @@ class MusicPlayer:
             )
             .resolve()
         )
-        self.__playlist = self.__load_playlist()
+        self.__playlist: list = self.__load_playlist()
         mixer.init()
 
     @staticmethod
@@ -25,33 +26,21 @@ class MusicPlayer:
         mixer.quit()
 
     @property
-    def playlist(self) -> list[dict]:
+    def playlist(self) -> list:
         return self.__playlist
 
-    # TODO Passar método read_file para scripts
-    def __read_map_file(self) -> list:
-        with open(
-            Path(__file__)
-            .parent.parent.joinpath(
-                "data",
-                ".playlist.csv",
-            )
-            .resolve()
-        ) as file:
-            return list(reader(file))
-
-    def __load_playlist(self) -> list[dict]:
+    def __load_playlist(self) -> list:
         return [
             {
-                "title": str(data[0]).title(),
-                "artist": str(data[1]).title(),
-                "filename": str(data[2]),
+                "title": data[0],
+                "artist": data[1],
+                "filename": data[2],
             }
-            for data in self.__read_map_file()
+            for data in db.read_csv("playlist.csv")
         ]
 
     def select(self, option: int) -> dict:
-        if (option <= 0) or (option > len(self.__playlist)):
+        if option <= 0 or option > len(self.__playlist):
             raise Exception("Music does not exists.")
 
         option -= 1

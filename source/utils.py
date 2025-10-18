@@ -9,5 +9,5 @@ sys.append(path.join(path.dirname(__file__), ".."))
 from classes.music_player import MusicPlayer
 from classes.separate_number import SeparateNumber
 from scripts import custom
-from scripts import db
+from scripts import database
 from scripts import terminal
