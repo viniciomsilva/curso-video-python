@@ -1,51 +1,46 @@
 STYLES = {
     "bold": "1",
-    "underline": "4",
-    "negative": "7",
+    "under": "4",
+    "invert": "7",
+    "through": "9",
 }
 
 COLORS = {
-    "white": ";30",
-    "red": ";31",
-    "green": ";32",
-    "yellow": ";33",
-    "blue": ";34",
-    "lilac": ";35",
-    "cyan": ";36",
-    "gray": ";37",
+    "black": "30",
+    "red": "31",
+    "green": "32",
+    "yellow": "33",
+    "blue": "34",
+    "magenta": "35",
+    "cyan": "36",
+    "white": "37",
 }
 
 BACKS = {
-    "white": ";40m",
-    "red": ";41m",
-    "green": ";42m",
-    "yellow": ";43m",
-    "blue": ";44m",
-    "lilac": ";45m",
-    "cyan": ";46m",
-    "gray": ";47m",
+    "black": "40",
+    "red": "41",
+    "green": "42",
+    "yellow": "43",
+    "blue": "44",
+    "magenta": "45",
+    "cyan": "46",
+    "white": "47",
 }
 
 
-def clean():
-    return "\033[m"
+def __clear() -> str:
+    return "\033[0m"
 
 
-def customize(style="", color="", back="") -> str:
+def __code(style: str, color: str, back: str) -> str:
     cod = "\033["
 
-    cod += STYLES[style] if (style != "") else ""
-    cod += COLORS[color] if (color != "") else ""
-    cod += BACKS[back] if (back != "") else "m"
+    cod += "" if not style else f"{STYLES[style]}"
+    cod += "" if not color else f";{COLORS[color]}"
+    cod += "m" if not back else f";{BACKS[back]}m"
 
     return cod
 
 
-def bold(text):
-    return f"{customize("bold")}{text}{clean()}"
-
-
-def colorize(text, color="", back=""):
-    return f"{customize("bold", color, back)}{text}{clean()}"
-
-# TODO Desenvolver função printf
+def customize(txt, style: str = "", color: str = "", back: str = "") -> str:
+    return f"{__code(style, color, back)}{txt}{__clear()}"
