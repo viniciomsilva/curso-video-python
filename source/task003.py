@@ -1,7 +1,7 @@
 # 003
 # FAÇA UM PROGRAMA QUE LEIA DOIS NÚMEROS E MOSTRE A SOMA ENTRE ELES
 
-from utils import custom as cs
+from scripts.custom import customize as cs
 
 
 def run():
@@ -9,12 +9,7 @@ def run():
     num2 = float(input("Digite o 2º número: "))
 
     print(
-        "A soma é igual a: {}{}".format(
-            cs.customize(style="bold", color="cyan"),
-            (num1 + num2),
+        "A soma é igual a: {}".format(
+            cs((num1 + num2), "bold", "cyan"),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

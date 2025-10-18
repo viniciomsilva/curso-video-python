@@ -1,13 +1,5 @@
-from utils import custom as cs
+from scripts.custom import customize as cs
 
 
 def run():
-    print(
-        "🌎 {}Hello World!".format(
-            cs.customize(style="bold", color="green"),
-        )
-    )
-
-
-if __name__ == "__main__":
-    run()
+    print(cs("🌎 Hello World!", "bold", "cyan"))

@@ -2,7 +2,7 @@
 # ESCREVA UM PROGRAMA QUE LEIA O DIA, O MÊS E O ANO DE NASCIMENTO DE UMA PESSOA
 # E MOSTRE-OS
 
-from utils import custom as cs
+from scripts.custom import customize as cs
 
 
 def run():
@@ -11,15 +11,7 @@ def run():
     yy = input("Ano = ")
 
     print(
-        "Que bom! Você nasceu em: {}{}/{}/{}{}!".format(
-            cs.customize(style="bold", color="cyan"),
-            dd,
-            mm,
-            yy,
-            cs.clean(),
+        "Que bom! Você nasceu em: {}!".format(
+            cs(f"{dd}/{mm}/{yy}", color="cyan"),
         )
     )
-
-
-if __name__ == "__main__":
-    run()
