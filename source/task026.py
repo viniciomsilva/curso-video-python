@@ -14,7 +14,7 @@ def run():
     last = phrase.rfind("a")
 
     print(
-        "Quantidade de 'A': {}".format(
+        "\nQuantidade de 'A': {}".format(
             customize(
                 " {:5} ".format(phrase.count("a")),
                 style="bold",

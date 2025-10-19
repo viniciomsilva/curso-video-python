@@ -1,7 +1,7 @@
 # 014
 # ESCREVA UM PROGRAMA QUE CONVERTA UMA TEMPERATURA EM ºC PARA ºF
 
-from scripts.custom import customize
+from cli.io import printf
 
 
 def fahrenheit(celsius):
@@ -11,15 +11,16 @@ def fahrenheit(celsius):
 def run():
     celsius = float(input("Digite a temperatura (ºC): "))
 
-    print(
-        "{} = {}".format(
-            customize(
-                "{:.1f}ºC".format(celsius),
-                color="magenta",
-            ),
-            customize(
-                "{:.1f}ºF".format(fahrenheit(celsius)),
-                color="cyan",
-            ),
-        )
+    printf(
+        "{:.1f}ºC".format(celsius),
+        start="\n",
+        end="",
+        style="bold",
+        color="magenta",
+    )
+    print(" equivalem a ", end="")
+    printf(
+        "{:.1f}ºF".format(fahrenheit(celsius)),
+        style="bold",
+        color="cyan",
     )

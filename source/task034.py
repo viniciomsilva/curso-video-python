@@ -4,20 +4,19 @@
 # PARA SALÁRIO ACIMA DE R$ 1250,00, CALCULE UM AUMENTO DE 10%.
 # PARA OS INFERIORES OU IGUAIS, O AUMENTO É DE 15%.
 
-from scripts.custom import customize
+from cli.io import printf
 
 
-def new_salary(salary):
+def __calc(salary):
     return salary * 1.1 if salary > 1250 else salary * 1.15
 
 
 def run():
     salary = float(input("Digite o salário do funcionário: R$ "))
 
-    print(
-        customize(
-            "O novo salário com ficará R$ {:.2f}".format(new_salary(salary)),
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "O novo salário com ficará R$ {:.2f}".format(__calc(salary)),
+        start="\n",
+        style="bold",
+        color="cyan",
     )

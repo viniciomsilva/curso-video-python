@@ -2,23 +2,17 @@
 # ESCREVA UM PROGRAMA QUE LEIA O DIA, O MÊS E O ANO DE NASCIMENTO DE UMA PESSOA
 # E MOSTRE-OS
 
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
-    dd = input("Dia = ")
-    mm = input("Mês = ")
-    yy = input("Ano = ")
+    dd = input("Digite o dia: ")
+    mm = input("Digite o mês: ")
+    yy = input("Agora, digite o ano: ")
 
-    print(
-        "Que bom! Você nasceu em: {}!".format(
-            customize(
-                "{}/{}/{}".format(
-                    dd,
-                    mm,
-                    yy,
-                ),
-                color="cyan",
-            ),
-        )
+    printf(
+        "Que bom! Você nasceu em: {}/{}/{}!".format(dd, mm, yy),
+        start="\n",
+        style="bold",
+        color="cyan",
     )

@@ -2,17 +2,17 @@
 # FAÇA UM PROGRAMA QUE LEIA O NOME DE UMA PESSOA E MOSTRE UMA MENSAGEM
 # DE BOAS VINDAS
 
-from scripts.custom import customize
+from cli.io import inputf
+from cli.io import printf
 
 
 def run():
-    name = input("Qual é o seu nome? ")
+    name = inputf("Qual é o seu nome? ", style="bold")
 
-    print(
-        customize(
-            "\nOlá, {}, seja bem-vindo(a) ao Mundo do 🐍 Python!".format(
-                name.title(),
-            ),
-            style="bold",
-        )
+    printf(
+        "Olá, {}, seja bem-vindo(a) ao Mundo do 🐍 Python!".format(
+            name.title(),
+        ),
+        start="\n",
+        style="bold",
     )

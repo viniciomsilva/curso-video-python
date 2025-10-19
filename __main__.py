@@ -1,17 +1,17 @@
 from time import sleep
 
 from classes.app import App
-from scripts import terminal
-from scripts.custom import customize
+from cli.io import printf
+from cli.io import inputf
+from scripts.terminal import clear
 
 
 def print_menu(mini_apps) -> None:
-    print(
-        customize(
-            "Mini-apps\n",
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "Mini-apps",
+        end="\n\n",
+        style="bold",
+        color="cyan",
     )
     for i, mini_app in enumerate(mini_apps):
         print(
@@ -19,7 +19,7 @@ def print_menu(mini_apps) -> None:
                 i,
                 mini_app["mini_app"],
                 mini_app["description"],
-            ),
+            )
         )
 
 
@@ -28,26 +28,39 @@ def main() -> None:
 
     while True:
         try:
-            terminal.clear()
+            clear()
             print_menu(app.mini_apps)
 
-            option = int(input("\nEscolha um mini-app: "))
+            option = int(
+                inputf(
+                    "Escolha um mini-app: ",
+                    start="\n",
+                    style="bold",
+                    color="yellow",
+                )
+            )
 
             if option < 0:
                 break
 
-            terminal.clear()
+            clear()
             app.execute(option)
 
-            if input("\nQuer executar outro mini-app? [y/n]: ") == "n":
+            if (
+                inputf(
+                    "Quer executar outro mini-app? [y/n]: ",
+                    start="\n",
+                    style="bold",
+                    color="yellow",
+                )
+                == "n"
+            ):
                 break
         except Exception as e:
-            print(
-                customize(
-                    e,
-                    style="bold",
-                    color="magenta",
-                )
+            printf(
+                e,
+                style="bold",
+                color="magenta",
             )
             sleep(2)
 

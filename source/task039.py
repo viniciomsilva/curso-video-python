@@ -8,7 +8,7 @@
 
 from datetime import date
 
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
@@ -18,40 +18,33 @@ def run():
     age = this_year - year_birth
 
     if year_birth > this_year:
-        print(
-            customize(
-                "Ops! Ano de nascimento inválido.",
+        printf(
+            "Ops! Ano de nascimento inválido.",
+            style="bold",
+            color="magenta",
+        )
+    else:
+        printf(
+            "Ele tem {} anos. ".format(age),
+            start="\n",
+            end="",
+            style="bold",
+        )
+        if age < 18:
+            printf(
+                "Faltam {} anos para o alistamento militar.".format(18 - age),
+                style="bold",
+                color="green",
+            )
+        elif age > 18:
+            printf(
+                "Passaram {} anos do alistamento militar.".format(age - 18),
                 style="bold",
                 color="magenta",
             )
-        )
-    else:
-        print("Ele tem {} anos. ".format(age), end="")
-        if age < 18:
-            print(
-                customize(
-                    "Faltam {} anos para o alistamento militar.".format(
-                        18 - age,
-                    ),
-                    style="bold",
-                    color="green",
-                ),
-            )
-        elif age > 18:
-            print(
-                customize(
-                    "Passaram {} anos do alistamento militar.".format(
-                        age - 18,
-                    ),
-                    style="bold",
-                    color="magenta",
-                ),
-            )
         else:
-            print(
-                customize(
-                    "Está na data para o alistamento militar.",
-                    style="bold",
-                    color="cyan",
-                )
+            printf(
+                "Está na data de se alistar.",
+                style="bold",
+                color="cyan",
             )

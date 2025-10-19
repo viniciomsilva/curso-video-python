@@ -3,7 +3,7 @@
 # DÍGITOS SEPARADOS
 
 from classes.separate_number import SeparateNumber
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
@@ -11,12 +11,11 @@ def run():
         try:
             num = int(input("Digite um número inteiro qualquer: "))
 
-            print(
-                customize(
-                    "\nEste é o número separado em casas decimais",
-                    style="bold",
-                    color="cyan",
-                )
+            printf(
+                "Este é o número separado em casas decimais",
+                start="\n",
+                style="bold",
+                color="cyan",
             )
             for digit in SeparateNumber(num).separated:
                 print(
@@ -27,18 +26,14 @@ def run():
                 )
             break
         except:
-            print(
-                customize(
-                    "Por favor, digite um número válido!",
-                    style="bold",
-                    color="magenta",
-                )
+            printf(
+                "Por favor, digite um número válido!",
+                style="bold",
+                color="magenta",
             )
-            print(
-                customize(
-                    "Número inteiro e sem pontuações!",
-                    style="bold",
-                    color="yellow",
-                )
+            printf(
+                "Número inteiro e sem pontuações!",
+                style="bold",
+                color="yellow",
             )
             continue

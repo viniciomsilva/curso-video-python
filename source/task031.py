@@ -3,16 +3,19 @@
 # PREÇO DA PASSAGEM, COBRANDO R$ 0,50 POR KM PARA VIAGENS DE ATÉ 200KM E R$ 0,45
 # POR KM PARA VIAGENS MAIS DISTANTES.
 
+from cli.io import printf
 
-def calc_ticket_price(distance):
+
+def __calc(distance):
     return distance * 0.45 if distance > 200 else distance * 0.5
 
 
 def run():
     distance = float(input("Digite a distância da viagem (km): "))
 
-    print(
-        "O valor da passagem é R${:.2f}".format(
-            calc_ticket_price(distance),
-        )
+    printf(
+        "O valor da passagem é R${:.2f}".format(__calc(distance)),
+        start="\n",
+        style="bold",
+        color="cyan",
     )

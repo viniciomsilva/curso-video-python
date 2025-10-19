@@ -1,11 +1,9 @@
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
-    print(
-        customize(
-            "🌎 Hello World!",
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "🌎 Hello World!",
+        style="bold",
+        color="cyan",
     )

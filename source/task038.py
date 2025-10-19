@@ -13,16 +13,6 @@ def run():
     if num1 == num2:
         print("Ambos os valores são iguais!")
     elif num1 > num2:
-        print(
-            "{} é maior que {}".format(
-                num1,
-                num2,
-            )
-        )
+        print("{} é maior que {}".format(num1, num2))
     else:
-        print(
-            "{} é maior que {}".format(
-                num2,
-                num1,
-            )
-        )
+        print("{} é maior que {}".format(num2, num1))

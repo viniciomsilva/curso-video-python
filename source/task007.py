@@ -11,7 +11,8 @@
 
 from time import sleep
 
-from scripts.custom import customize
+from cli.io import printf
+from cli.wait import wait
 
 
 def run():
@@ -20,36 +21,23 @@ def run():
 
     average = (grade1 + grade2) / 2
 
-    print(customize("\nCalculando...\n", style="bold", color="green"))
-    sleep(1)
+    wait("Calculando...")
 
     if average >= 7:
-        print(
-            customize(
-                "Aluno(a) APROVADO(A) com média {:.1f}!".format(
-                    average,
-                ),
-                style="bold",
-                color="cyan",
-            )
+        printf(
+            "Aluno(a) APROVADO(A) com média {:.1f}!".format(average),
+            style="bold",
+            color="cyan",
         )
     elif 7 > average >= 5:
-        print(
-            customize(
-                "Aluno(a) DE RECUPERAÇÃO com média {:.1f}!".format(
-                    average,
-                ),
-                style="bold",
-                color="yellow",
-            )
+        printf(
+            "Aluno(a) DE RECUPERAÇÃO com média {:.1f}!".format(average),
+            style="bold",
+            color="yellow",
         )
     else:
-        print(
-            customize(
-                "Aluno(a) REPROVADO(A) com média {:.1f}!".format(
-                    average,
-                ),
-                style="bold",
-                color="magenta",
-            )
+        printf(
+            "Aluno(a) REPROVADO(A) com média {:.1f}!".format(average),
+            style="bold",
+            color="magenta",
         )

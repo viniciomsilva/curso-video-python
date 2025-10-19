@@ -6,73 +6,56 @@
 from time import sleep
 from random import randint
 
-from scripts import terminal
-from scripts.custom import customize
+from cli.io import inputf
+from cli.io import printf
+from cli.wait import wait
 
 
 def run():
     win = False
-    attempts = 3
+    attempt = 1
     draw_num = randint(1, 10)
 
-    terminal.clear()
-    print(
-        customize(
-            "Entre 0 e 10, em qual número estou pensando?",
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "Entre 0 e 10, em qual número estou pensando?",
+        style="bold",
+        color="cyan",
     )
-    print(
-        customize(
-            "Você tem {} tentativas. Boa sorte!".format(attempts),
-            style="bold",
-            color="yellow",
-        )
+    printf(
+        "Você tem 4 tentativas. Boa sorte!",
+        style="bold",
+        color="yellow",
     )
 
-    while not win and attempts > 0:
+    while not win and attempt <= 4:
         num = int(
-            input(
-                "\nDigite sua {}º tentativa: ".format(
-                    attempts,
-                )
+            inputf(
+                "Digite sua {}º tentativa: ".format(attempt),
+                start="\n",
             )
         )
 
-        print(
-            customize(
-                "Processando...",
-                style="bold",
-                color="green",
-            )
-        )
-        sleep(1)
+        wait("Processando...", end="\n")
 
         if num == draw_num:
-            print(
-                customize(
-                    "\n🥳 Parabéns! Você ganhou!",
-                    style="bold",
-                    color="green",
-                )
+            printf(
+                "🥳 Parabéns! Você ganhou!",
+                style="bold",
+                color="cyan",
             )
             win = True
-        else:
-            print(
-                customize(
-                    "HA HA!!! Tente novamente!",
-                    style="bold",
-                    color="yellow",
-                )
+        elif not win:
+            printf(
+                "HA HA!!! Tente novamente!",
+                style="bold",
+                color="yellow",
             )
-        attempts -= 1
+            attempt += 1
 
     if not win:
-        print(
-            customize(
-                "\nHA HA!!! Eu ganhei! Estava pensando no {}".format(draw_num),
-                style="bold",
-                color="magenta",
-            )
+        printf(
+            "HA HA!!! Eu ganhei! Estava pensando no {}".format(draw_num),
+            start="\n",
+            style="bold",
+            color="magenta",
         )

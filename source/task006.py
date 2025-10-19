@@ -4,36 +4,25 @@
 
 from math import sqrt
 
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
     num = int(input("Digite um número inteiro: "))
 
-    print(
-        customize(
-            " Dobro........: {:8} ".format(
-                num * 2,
-            ),
-            style="bold",
-            back="cyan",
-        )
+    printf(
+        " Dobro........: {:8} ".format(num * 2),
+        start="\n",
+        style="bold",
+        back="cyan",
     )
-    print(
-        customize(
-            " Triplo.......: {:8} ".format(
-                num * 3,
-            ),
-            style="bold",
-            back="magenta",
-        )
+    printf(
+        " Triplo.......: {:8} ".format(num * 3),
+        style="bold",
+        back="magenta",
     )
-    print(
-        customize(
-            " Raiz Quadrada: {:8} ".format(
-                sqrt(num),
-            ),
-            style="bold",
-            back="yellow",
-        )
+    printf(
+        " Raiz Quadrada: {:8} ".format(sqrt(num)),
+        style="bold",
+        back="yellow",
     )

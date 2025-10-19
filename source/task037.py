@@ -5,9 +5,9 @@
 # 	2 PARA OCTAL
 # 	3 PARA HEXADECIMAL
 
-from time import sleep
-
-from scripts.custom import customize
+from cli.io import inputf
+from cli.io import printf
+from cli.wait import wait
 
 
 def run():
@@ -19,62 +19,43 @@ def run():
             num = int(input("\nDigite um número inteiro: "))
             base = int(input("Para qual base você quer converter? "))
 
-            print(
-                customize(
-                    "\nCalculando...\n",
-                    style="bold",
-                    color="green",
-                )
-            )
-            sleep(1)
+            wait("Convertendo...")
 
             match base:
                 case 2:
-                    print(
-                        customize(
-                            "{} em binário = {}".format(
-                                num,
-                                bin(num)[2:],
-                            ),
-                            style="bold",
-                        )
+                    printf(
+                        "{} em binário: {}".format(num, bin(num)[2:]),
+                        style="bold",
                     )
                 case 8:
-                    print(
-                        customize(
-                            "{} em octal = {}".format(
-                                num,
-                                oct(num)[2:],
-                            ),
-                            style="bold",
-                        )
+                    printf(
+                        "{} em octal: {}".format(num, oct(num)[2:]),
+                        style="bold",
                     )
                 case 16:
-                    print(
-                        customize(
-                            "{} em hexadecimal = {}".format(
-                                num,
-                                hex(num)[2:],
-                            ),
-                            style="bold",
-                        )
+                    printf(
+                        "{} em hexadecimal: {}".format(num, hex(num)[2:]),
+                        style="bold",
                     )
                 case _:
-                    print(
-                        customize(
-                            "Base de conversão inválida!",
-                            style="bold",
-                            color="magenta",
-                        )
+                    printf(
+                        "Base de conversão inválida!",
+                        style="bold",
+                        color="magenta",
                     )
         except Exception as e:
-            print(
-                customize(
-                    e,
-                    style="bold",
-                    color="magenta",
-                )
+            printf(
+                e,
+                style="bold",
+                color="magenta",
             )
         finally:
-            if input("\nQuer converter outro? [y/n] ") == "n":
+            if (
+                inputf(
+                    "\nQuer converter outro? [y/n] ",
+                    style="bold",
+                    color="yellow",
+                )
+                == "n"
+            ):
                 break

@@ -13,7 +13,7 @@ def run():
     area = width * height
 
     print(
-        "Você precisará de {} de tinta para pintar uma área de {}".format(
+        "\nVocê precisará de {} de tinta para pintar uma área de {}".format(
             customize(
                 "{:.1f}L".format(area / 2),
                 style="under",

@@ -10,7 +10,7 @@ def run():
     num = float(input("Digite um número real qualquer: "))
 
     print(
-        "A parte inteira do número digitado é: {}".format(
+        "\nA parte inteira do número digitado é: {}".format(
             customize(
                 trunc(num),
                 style="bold",

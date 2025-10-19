@@ -4,12 +4,12 @@
 # MOSTRE A ORDEM SORTEADA
 
 from random import sample
-from time import sleep
 
-from scripts.custom import customize
+from cli.io import printf
+from cli.wait import wait
 
 
-def reorder(data):
+def __reorder(data):
     return sample(data, len(data))
 
 
@@ -17,36 +17,25 @@ def run():
     students = []
     qnt_students = int(input("Digite a quantidade de alunos: "))
 
-    print(
-        customize(
-            "\nAgora digite os nomes deles",
-            style="bold",
-            color="yellow",
-        )
+    printf(
+        "Agora digite os nomes deles",
+        start="\n",
+        style="bold",
+        color="yellow",
     )
-
     for i in range(qnt_students):
         student = input("Nome do(a) {}º aluno(a): ".format(i + 1))
         students.append(student.title().strip())
 
-    print(customize("\nSorteando...", color="green"))
-    sleep(3)
+    wait("Sorteando...")
 
-    print(
-        customize(
-            "\nOrdem sorteada",
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "Ordem sorteada",
+        style="bold",
+        color="cyan",
     )
-
-    for i, student in enumerate(reorder(students)):
-        print(
-            customize(
-                "{}º aluno(a): {}".format(
-                    i + 1,
-                    student,
-                ),
-                style="bold",
-            )
+    for i, student in enumerate(__reorder(students)):
+        printf(
+            "{}º aluno(a): {}".format(i + 1, student),
+            style="bold",
         )

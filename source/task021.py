@@ -2,18 +2,19 @@
 # FAÇA UM PROGRAMA EM PYTHON QUE ABRA E REPRODUZA UM ÁUDIO DE UM ARQUIVO MP3
 
 from classes.music_player import MusicPlayer
-from scripts import terminal
-from scripts.custom import customize
+from cli.io import inputf
+from cli.io import printf
+from scripts.terminal import clear
 
 
 def print_playlist(playlist: list):
-    terminal.clear()
-    print(
-        customize(
-            "\nMúsicas Disponíveis\n",
-            style="bold",
-            color="cyan",
-        )
+    clear()
+    printf(
+        "Músicas Disponíveis",
+        start="\n",
+        end="\n\n",
+        style="bold",
+        color="cyan",
     )
     for i, song in enumerate(playlist):
         print(
@@ -32,30 +33,34 @@ def run():
     while True:
         try:
             print_playlist(player.playlist)
-            song = player.select(int(input("Selecione uma música: ")))
+            song = player.select(int(input("Escolha uma música: ")))
 
-            print(
-                customize(
-                    "Tocando {}, {}".format(
-                        str(song["title"]).title(),
-                        str(song["artist"]).title(),
-                    ),
-                    style="bold",
-                    color="green",
-                )
+            printf(
+                "Tocando: {}, {}".format(
+                    str(song["title"]).title(),
+                    str(song["artist"]).title(),
+                ),
+                style="bold",
+                color="green",
             )
 
             player.play()
         except:
-            print(
-                customize(
-                    "\nPor favor! Escolha uma opção válida.",
-                    style="bold",
-                    color="magenta",
-                )
+            printf(
+                "Por favor! Escolha uma opção válida.",
+                start="\n",
+                style="bold",
+                color="magenta",
             )
         finally:
-            if input("Quer ouvir outra? [y/n]: ") == "n":
+            if (
+                inputf(
+                    "Quer ouvir outra? [y/n]: ",
+                    style="bold",
+                    color="yellow",
+                )
+                == "n"
+            ):
                 break
 
     player.quit()

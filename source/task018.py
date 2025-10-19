@@ -7,36 +7,34 @@ from math import radians
 from math import sin
 from math import tan
 
-from scripts.custom import customize
+from cli.io import printf
 
 
 def run():
     angle = float(input("Digite um ângulo: "))
 
-    print(
-        customize(
-            "\n Sin({:.1f}º) = {:.6f} ".format(
-                angle,
-                sin(radians(angle)),
-            ),
-            back="cyan",
-        )
+    printf(
+        " Sin({:.1f}º) = {:.6f} ".format(
+            angle,
+            sin(radians(angle)),
+        ),
+        start="\n",
+        style="bold",
+        back="cyan",
     )
-    print(
-        customize(
-            " Cos({:.1f}º) = {:.6f} ".format(
-                angle,
-                cos(radians(angle)),
-            ),
-            back="yellow",
-        )
+    printf(
+        " Cos({:.1f}º) = {:.6f} ".format(
+            angle,
+            cos(radians(angle)),
+        ),
+        style="bold",
+        back="yellow",
     )
-    print(
-        customize(
-            " Tan({:.1f}º) = {:.6f} ".format(
-                angle,
-                tan(radians(angle)),
-            ),
-            back="magenta",
-        )
+    printf(
+        " Tan({:.1f}º) = {:.6f} ".format(
+            angle,
+            tan(radians(angle)),
+        ),
+        style="bold",
+        back="magenta",
     )

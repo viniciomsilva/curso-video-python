@@ -4,30 +4,29 @@
 # ESCOLHIDO
 
 from random import choice
-from time import sleep
 
-from scripts.custom import customize
+from cli.io import printf
+from cli.wait import wait
 
 
 def run():
     students = []
     qnt_students = int(input("Digite a quantidade alunos: "))
 
-    print()
-
+    printf(
+        "Agora digite os nomes deles",
+        start="\n",
+        style="bold",
+        color="yellow",
+    )
     for i in range(qnt_students):
-        student = input("Digite o nome do(a) {}º aluno(a): ".format(i + 1))
+        student = input("Nome do(a) {}º aluno(a): ".format(i + 1))
         students.append(student.title().strip())
 
-    print(customize("\nSorteando...", color="green"))
-    sleep(2)
+    wait("Sorteando...")
 
-    print(
-        customize(
-            "\nO(A) aluno(a) sorteado(a) foi: {}".format(
-                choice(students),
-            ),
-            style="bold",
-            color="cyan",
-        )
+    printf(
+        "O(A) aluno(a) sorteado(a) foi: {}".format(choice(students)),
+        style="bold",
+        color="cyan",
     )

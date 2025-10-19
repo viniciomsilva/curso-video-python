@@ -8,7 +8,7 @@
 from scripts.custom import customize
 
 
-def form_triangle(a, b, c):
+def __calc(a, b, c):
     return a + b > c and a + c > b and b + c > a
 
 
@@ -23,7 +23,7 @@ def run():
             style="bold",
             color="cyan",
         )
-        if form_triangle(a, b, c)
+        if __calc(a, b, c)
         else customize(
             "Não podem formar um triângulo",
             style="bold",

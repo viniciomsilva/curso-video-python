@@ -10,10 +10,10 @@
 
 from datetime import date
 
-from scripts.custom import customize
+from cli.io import printf
 
 
-def is_leap_year(year):
+def __calc(year):
     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 
 
@@ -22,19 +22,17 @@ def run():
 
     year = year if year > 0 else date.today().year
 
-    if is_leap_year(year):
-        print(
-            customize(
-                "{} é um ano bissexto!".format(year),
-                style="bold",
-                color="cyan",
-            )
+    if __calc(year):
+        printf(
+            "👍 {} é um ano bissexto!".format(year),
+            start="\n",
+            style="bold",
+            color="cyan",
         )
     else:
-        print(
-            customize(
-                "{} NÃO é um ano bissexto!".format(year),
-                style="bold",
-                color="magenta",
-            )
+        printf(
+            "👎 {} NÃO é um ano bissexto!".format(year),
+            start="\n",
+            style="bold",
+            color="magenta",
         )
