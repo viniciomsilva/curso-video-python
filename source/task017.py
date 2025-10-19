@@ -4,7 +4,7 @@
 
 from math import hypot
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -13,10 +13,10 @@ def run():
 
     print(
         "A hipotenusa vale: {}".format(
-            cs.colorize(f"{hypot(a, b):.2f}", color="cyan"),
+            customize(
+                "{:.2f}".format(hypot(a, b)),
+                style="under",
+                color="cyan",
+            ),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

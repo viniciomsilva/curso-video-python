@@ -4,15 +4,15 @@
 # POR KM PARA VIAGENS MAIS DISTANTES.
 
 
+def calc_ticket_price(distance):
+    return distance * 0.45 if distance > 200 else distance * 0.5
+
+
 def run():
     distance = float(input("Digite a distância da viagem (km): "))
 
     print(
         "O valor da passagem é R${:.2f}".format(
-            distance * 0.45 if distance > 200 else distance * 0.5
+            calc_ticket_price(distance),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

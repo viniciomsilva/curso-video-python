@@ -2,7 +2,7 @@
 # FAÇA UM ALGORITMO QUE LEIA O SALÁRIO DE UM FUNCIONÁRIO E MOSTRE-O COM 15% DE
 # AUMENTO
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def calc_increase(salary, increase):
@@ -10,16 +10,15 @@ def calc_increase(salary, increase):
 
 
 def run():
-    salary = float(input("Digite o salário....: R$ "))
-    increase = float(input("Digite o aumento (%):    "))
+    salary = float(input("Digite o salário: R$ "))
+    increase = float(input("Digite o aumento (%): "))
 
     print(
-        cs.colorize(
-            f"\nNovo salário: R$ {calc_increase(salary, increase):.2f}",
+        customize(
+            "\nNovo salário: R$ {:.2f}".format(
+                calc_increase(salary, increase),
+            ),
+            style="bold",
             color="cyan",
         )
     )
-
-
-if __name__ == "__main__":
-    run()

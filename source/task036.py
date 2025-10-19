@@ -7,7 +7,7 @@
 
 from time import sleep
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def grant_loan(monthly_installment, salary):
@@ -17,21 +17,43 @@ def grant_loan(monthly_installment, salary):
 def run():
     house_value = float(input("Digite o valor total do imóvel: R$ "))
     salary = float(input("Digite o salário do comprador: R$ "))
-    years = float(input("Digite o quantidade de anos:    "))
+    years = float(input("Digite o quantidade de anos: "))
 
     monthly_installment = house_value / years / 12
 
-    print(cs.colorize("\nCalculando...\n", color="green"))
+    print(
+        customize(
+            "\nCalculando...\n",
+            style="bold",
+            color="green",
+        )
+    )
     sleep(1)
 
     if grant_loan(monthly_installment, salary):
-        print(cs.colorize("Empréstimo aprovado!", color="cyan"))
+        print(
+            customize(
+                "Empréstimo aprovado!",
+                style="bold",
+                color="cyan",
+            )
+        )
     else:
-        print(cs.colorize("Empréstimo negado!", color="lilac"))
+        print(
+            customize(
+                "Empréstimo negado!",
+                style="bold",
+                color="magenta",
+            )
+        )
 
-    print(f"Parcela mensal de R$ {monthly_installment:.2f}")
-    print(f"Equivale a {(monthly_installment / salary * 100):.1f}% da renda.")
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        "Parcela mensal de R$ {:.2f}".format(
+            monthly_installment,
+        )
+    )
+    print(
+        "Equivale a {:.1f}% da renda.".format(
+            monthly_installment / salary * 100,
+        )
+    )

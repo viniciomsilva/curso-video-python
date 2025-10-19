@@ -9,9 +9,15 @@ def run():
 
     brl = float(input("Digite um valor em R$: "))
 
-    print("BRL R$ {:.4f} = USD US$ {:.4f}".format(brl, (brl / brl_usd)))
-    print("BRL R$ {:.4f} = EUR   € {:.4f}".format(brl, (brl / brl_eur)))
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        "BRL R$ {:.4f} = USD US$ {:.4f}".format(
+            brl,
+            brl / brl_usd,
+        )
+    )
+    print(
+        "BRL R$ {:.4f} = EUR   € {:.4f}".format(
+            brl,
+            brl / brl_eur,
+        )
+    )

@@ -2,7 +2,7 @@
 # CRIE UM PROGRAMA QUE LEIA O NOME DE UMA PESSOA E DIGA SE ELA TEM "SILVA" NO
 # NOME
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -10,19 +10,17 @@ def run():
 
     if "silva" in name:
         print(
-            cs.colorize(
+            customize(
                 "Parabéns! Você é um(a) Silva",
+                style="bold",
                 color="cyan",
             )
         )
     else:
         print(
-            cs.colorize(
+            customize(
                 "Que pena! Você NÃO faz parte dos Silvas",
+                style="bold",
                 color="cyan",
             )
         )
-
-
-if __name__ == "__main__":
-    run()

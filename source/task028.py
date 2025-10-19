@@ -6,35 +6,44 @@
 from time import sleep
 from random import randint
 
-from utils import custom as cs
-from utils import terminal as tm
+from scripts import terminal
+from scripts.custom import customize
 
 
 def run():
     win = False
-    attempts = 1
+    attempts = 3
     draw_num = randint(1, 10)
 
-    tm.clear()
+    terminal.clear()
     print(
-        cs.colorize(
+        customize(
             "Entre 0 e 10, em qual número estou pensando?",
+            style="bold",
             color="cyan",
         )
     )
     print(
-        cs.colorize(
-            f"Você tem {attempts} tentativas. Boa sorte!",
+        customize(
+            "Você tem {} tentativas. Boa sorte!".format(attempts),
+            style="bold",
             color="yellow",
         )
     )
 
-    while not win and attempts <= 3:
-        num = int(input(f"\nDigite sua {attempts}º tentativa: "))
+    while not win and attempts > 0:
+        num = int(
+            input(
+                "\nDigite sua {}º tentativa: ".format(
+                    attempts,
+                )
+            )
+        )
 
         print(
-            cs.colorize(
+            customize(
                 "Processando...",
+                style="bold",
                 color="green",
             )
         )
@@ -42,31 +51,28 @@ def run():
 
         if num == draw_num:
             print(
-                cs.colorize(
-                    "\nParabéns! Você ganhou!",
+                customize(
+                    "\n🥳 Parabéns! Você ganhou!",
+                    style="bold",
                     color="green",
                 )
             )
-
             win = True
         else:
             print(
-                cs.colorize(
+                customize(
                     "HA HA!!! Tente novamente!",
+                    style="bold",
                     color="yellow",
                 )
             )
-
-        attempts += 1
+        attempts -= 1
 
     if not win:
         print(
-            cs.colorize(
-                f"\nHA HA!!! Eu ganhei! Estava pensando no {draw_num}",
-                color="lilac",
+            customize(
+                "\nHA HA!!! Eu ganhei! Estava pensando no {}".format(draw_num),
+                style="bold",
+                color="magenta",
             )
         )
-
-
-if __name__ == "__main__":
-    run()

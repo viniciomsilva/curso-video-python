@@ -8,7 +8,7 @@
 
 from datetime import date
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -18,31 +18,40 @@ def run():
     age = this_year - year_birth
 
     if year_birth > this_year:
-        print(cs.colorize("Ops! Ano de nascimento inválido.", "red"))
+        print(
+            customize(
+                "Ops! Ano de nascimento inválido.",
+                style="bold",
+                color="magenta",
+            )
+        )
     else:
         print("Ele tem {} anos. ".format(age), end="")
         if age < 18:
             print(
-                cs.colorize(
-                    f"Faltam {(18 - age)} anos para o alistamento militar.",
+                customize(
+                    "Faltam {} anos para o alistamento militar.".format(
+                        18 - age,
+                    ),
+                    style="bold",
                     color="green",
                 ),
             )
         elif age > 18:
             print(
-                cs.colorize(
-                    f"Passaram {(age - 18)} anos do alistamento militar.",
-                    color="lilac",
+                customize(
+                    "Passaram {} anos do alistamento militar.".format(
+                        age - 18,
+                    ),
+                    style="bold",
+                    color="magenta",
                 ),
             )
         else:
             print(
-                cs.colorize(
+                customize(
                     "Está na data para o alistamento militar.",
+                    style="bold",
                     color="cyan",
                 )
             )
-
-
-if __name__ == "__main__":
-    run()

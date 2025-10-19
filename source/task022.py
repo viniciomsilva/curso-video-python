@@ -9,11 +9,23 @@
 def run():
     name = str(input("Digite o seu nome completo: ")).strip()
 
-    print(f"\nSeu nome em letras maiúsculas: {name.upper()}")
-    print(f"Seu nome em letras minúsculas: {name.lower()}")
-    print(f"Quantidade de letras no seu nome: {len(name.replace(" ", ""))}")
-    print(f"Quantidade de letras no seu primeiro nome: {len(name.split()[0])}")
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        "\nSeu nome em letras maiúsculas: {}".format(
+            name.upper(),
+        )
+    )
+    print(
+        "Seu nome em letras minúsculas: {}".format(
+            name.lower(),
+        )
+    )
+    print(
+        "Quantidade de letras no seu nome: {}".format(
+            len(name.replace(" ", "")),
+        )
+    )
+    print(
+        "Quantidade de letras no seu primeiro nome: {}".format(
+            len(name.split()[0]),
+        )
+    )

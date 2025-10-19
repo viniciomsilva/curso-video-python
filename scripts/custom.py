@@ -43,4 +43,8 @@ def __code(style: str, color: str, back: str) -> str:
 
 
 def customize(txt, style: str = "", color: str = "", back: str = "") -> str:
-    return f"{__code(style, color, back)}{txt}{__clear()}"
+    return "{}{}{}".format(
+        __code(style, color, back),
+        txt,
+        __clear(),
+    )

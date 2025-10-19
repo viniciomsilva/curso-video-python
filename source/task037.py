@@ -7,36 +7,74 @@
 
 from time import sleep
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
     print("Conversor decimal para:")
-    print("[2] Binário - [8] Octal - [16] Hexadecimal")
+    print("[2] Binário | [8] Octal | [16] Hexadecimal")
 
     while True:
         try:
             num = int(input("\nDigite um número inteiro: "))
-            base = int(input("Para qual base você quer converter? #"))
+            base = int(input("Para qual base você quer converter? "))
 
-            print(cs.colorize("\nCalculando...\n", "green"))
+            print(
+                customize(
+                    "\nCalculando...\n",
+                    style="bold",
+                    color="green",
+                )
+            )
             sleep(1)
 
             match base:
                 case 2:
-                    print(cs.bold(f"{num} em binário = {bin(num)[2:]}"))
+                    print(
+                        customize(
+                            "{} em binário = {}".format(
+                                num,
+                                bin(num)[2:],
+                            ),
+                            style="bold",
+                        )
+                    )
                 case 8:
-                    print(cs.bold(f"{num} em octal = {oct(num)[2:]}"))
+                    print(
+                        customize(
+                            "{} em octal = {}".format(
+                                num,
+                                oct(num)[2:],
+                            ),
+                            style="bold",
+                        )
+                    )
                 case 16:
-                    print(cs.bold(f"{num} em hexadecimal = {hex(num)[2:]}"))
+                    print(
+                        customize(
+                            "{} em hexadecimal = {}".format(
+                                num,
+                                hex(num)[2:],
+                            ),
+                            style="bold",
+                        )
+                    )
                 case _:
-                    print(cs.colorize("Base de conversão inválida!", "lilac"))
-        except:
-            print(cs.colorize("Ops! Algo deu errado.", "red"))
+                    print(
+                        customize(
+                            "Base de conversão inválida!",
+                            style="bold",
+                            color="magenta",
+                        )
+                    )
+        except Exception as e:
+            print(
+                customize(
+                    e,
+                    style="bold",
+                    color="magenta",
+                )
+            )
         finally:
-            if input("\nQuer converter outro? [y/n] ") != "y":
+            if input("\nQuer converter outro? [y/n] ") == "n":
                 break
-
-
-if __name__ == "__main__":
-    run()

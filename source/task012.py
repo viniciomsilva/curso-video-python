@@ -1,7 +1,7 @@
 # 012
 # FAÇA UM PROGRAMA QUE LEIA O PREÇO DE UM PRODUTO E MOSTRE-O COM 5% DE DESCONTO
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def calc_discount(price, discount):
@@ -9,16 +9,15 @@ def calc_discount(price, discount):
 
 
 def run():
-    price = float(input("Digite o valor do produto...........: R$ "))
-    discount = float(input("Digite a porcentagem de desconto (%):    "))
+    price = float(input("Digite o valor do produto: R$ "))
+    discount = float(input("Digite o desconto (%): "))
 
     print(
-        cs.colorize(
-            f"\nValor total: R$ {calc_discount(price, discount):.2f}",
+        customize(
+            "\nValor total: R$ {:.2f}".format(
+                calc_discount(price, discount),
+            ),
+            style="bold",
             color="cyan",
         )
     )
-
-
-if __name__ == "__main__":
-    run()

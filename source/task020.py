@@ -6,7 +6,7 @@
 from random import sample
 from time import sleep
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def reorder(data):
@@ -17,20 +17,36 @@ def run():
     students = []
     qnt_students = int(input("Digite a quantidade de alunos: "))
 
-    print(cs.colorize("\nAgora digite o nome deles", color="yellow"))
+    print(
+        customize(
+            "\nAgora digite os nomes deles",
+            style="bold",
+            color="yellow",
+        )
+    )
 
     for i in range(qnt_students):
-        student = input(f"Nome do(a) {(i + 1)}º aluno(a): ")
+        student = input("Nome do(a) {}º aluno(a): ".format(i + 1))
         students.append(student.title().strip())
 
-    print(cs.colorize("\nSorteando...", color="green"))
+    print(customize("\nSorteando...", color="green"))
     sleep(3)
 
-    print(cs.colorize("\nOrdem sorteada", color="cyan"))
+    print(
+        customize(
+            "\nOrdem sorteada",
+            style="bold",
+            color="cyan",
+        )
+    )
 
     for i, student in enumerate(reorder(students)):
-        print(cs.bold(f"{(i + 1)}º aluno(a): {student}"))
-
-
-if __name__ == "__main__":
-    run()
+        print(
+            customize(
+                "{}º aluno(a): {}".format(
+                    i + 1,
+                    student,
+                ),
+                style="bold",
+            )
+        )

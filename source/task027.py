@@ -6,9 +6,5 @@
 def run():
     name = input("Digite o seu nome completo: ").strip().title().split()
 
-    print(f"Seu primeiro nome é: {name[0]}")
-    print(f"Seu sobrenome é: {name[(len(name) - 1)]}")
-
-
-if __name__ == "__main__":
-    run()
+    print("Seu primeiro nome é: {}".format(name[0]))
+    print("Seu sobrenome é: {}".format(name[len(name) - 1]))

@@ -4,16 +4,36 @@
 
 from math import sqrt
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
     num = int(input("Digite um número inteiro: "))
 
-    print(cs.colorize(f" Dobro........: {(num * 2):8} ", back="cyan"))
-    print(cs.colorize(f" Triplo.......: {(num * 3):8} ", back="lilac"))
-    print(cs.colorize(f" Raiz Quadrada: {sqrt(num):8} ", back="yellow"))
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        customize(
+            " Dobro........: {:8} ".format(
+                num * 2,
+            ),
+            style="bold",
+            back="cyan",
+        )
+    )
+    print(
+        customize(
+            " Triplo.......: {:8} ".format(
+                num * 3,
+            ),
+            style="bold",
+            back="magenta",
+        )
+    )
+    print(
+        customize(
+            " Raiz Quadrada: {:8} ".format(
+                sqrt(num),
+            ),
+            style="bold",
+            back="yellow",
+        )
+    )

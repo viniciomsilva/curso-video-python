@@ -6,8 +6,4 @@
 def run():
     num = int(input("Digite um número inteiro qualquer: "))
 
-    print("Este número é par!" if (num % 2 == 0) else "Este número é ímpar!")
-
-
-if __name__ == "__main__":
-    run()
+    print("Este número é par!" if num % 2 == 0 else "Este número é ímpar!")

@@ -3,35 +3,60 @@
 
 
 def print_add(num):
-    print(f"\n{'ADIÇÃO ':-<26}\n")
+    print("\n{:=<30}\n".format("ADIÇÃO "))
     for i in range(1, 11):
-        print("{} + {:2} = {}".format(num, i, (num + i)))
+        print(
+            "{} + {:2} = {}".format(
+                num,
+                i,
+                num + i,
+            )
+        )
 
 
 def print_sub(num):
-    print(f"\n{'SUBTRAÇÃO ':-<26}\n")
+    print("\n{:=<30}\n".format("SUBTRAÇÃO "))
     for i in range(1, 11):
-        print("{} - {:2} = {}".format(num, i, (num - i)))
+        print(
+            "{} - {:2} = {}".format(
+                num,
+                i,
+                num - i,
+            )
+        )
 
 
 def print_mul(num):
-    print(f"\n{'MULTIPLICAÇÃO ':-<26}\n")
+    print("\n{:=<30}\n".format("MULTIPLICAÇÃO "))
 
     if num == 0:
         print("0 x  n = 0")
     else:
         for i in range(1, 11):
-            print("{} x {:2} = {}".format(num, i, (num * i)))
+            print(
+                "{} x {:2} = {}".format(
+                    num,
+                    i,
+                    num * i,
+                )
+            )
 
 
 def print_div(num):
-    print(f"\n{'DIVISÃO ':-<26}\n")
+    print("\n{:=<30}\n".format("DIVISÃO "))
 
     if num == 0:
         print("0 ÷  n = ε")
     else:
         for i in range(1, 11):
-            print("{} ÷ {:2} = {:<6} |{}|".format(num, i, (num // i), (num % i)))
+            print(
+                "{} ÷ {:2} = {:<6} |{}|".format(
+                    num,
+                    i,
+                    num // i,
+                    num % i,
+                )
+            )
 
 
 def run():
@@ -41,7 +66,3 @@ def run():
     print_sub(num)
     print_mul(num)
     print_div(num)
-
-
-if __name__ == "__main__":
-    run()

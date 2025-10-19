@@ -1,16 +1,21 @@
 from time import sleep
 
 from classes.app import App
-
 from scripts import terminal
-from scripts.custom import customize as cs
+from scripts.custom import customize
 
 
 def print_menu(mini_apps) -> None:
-    print(cs("Mini-apps\n", "bold", "cyan"))
+    print(
+        customize(
+            "Mini-apps\n",
+            style="bold",
+            color="cyan",
+        )
+    )
     for i, mini_app in enumerate(mini_apps):
         print(
-            "[ {:^3} ] {} {}".format(
+            "[{:3}] {} {}".format(
                 i,
                 mini_app["mini_app"],
                 mini_app["description"],
@@ -34,18 +39,16 @@ def main() -> None:
             terminal.clear()
             app.execute(option)
 
-            if (
-                input(
-                    cs(
-                        "\nQuer executar outro mini-app? [y/n] ",
-                        color="green",
-                    )
-                )
-                == "n"
-            ):
+            if input("\nQuer executar outro mini-app? [y/n]: ") == "n":
                 break
         except Exception as e:
-            print(cs(e, "bold", "red"))
+            print(
+                customize(
+                    e,
+                    style="bold",
+                    color="magenta",
+                )
+            )
             sleep(2)
 
 

@@ -4,7 +4,7 @@
 # PARA SALÁRIO ACIMA DE R$ 1250,00, CALCULE UM AUMENTO DE 10%.
 # PARA OS INFERIORES OU IGUAIS, O AUMENTO É DE 15%.
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def new_salary(salary):
@@ -12,15 +12,12 @@ def new_salary(salary):
 
 
 def run():
-    salary = float(input("Digite o salário do funcionário (R$): "))
+    salary = float(input("Digite o salário do funcionário: R$ "))
 
     print(
-        cs.colorize(
-            f"O novo salário com ficará R$ {new_salary(salary):.2f}",
+        customize(
+            "O novo salário com ficará R$ {:.2f}".format(new_salary(salary)),
+            style="bold",
             color="cyan",
         )
     )
-
-
-if __name__ == "__main__":
-    run()

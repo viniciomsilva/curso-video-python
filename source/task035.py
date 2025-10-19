@@ -5,11 +5,11 @@
 # REGRA DA DESIGUALDADE TRIANGULAR
 #   A SOMA DE DOIS QUAISQUER SEGMENTOS DEVE SER MAIOR QUE O TERCEIRO
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def form_triangle(a, b, c):
-    return (a + b > c) and (a + c > b) and (b + c > a)
+    return a + b > c and a + c > b and b + c > a
 
 
 def run():
@@ -18,11 +18,15 @@ def run():
     c = float(input("Digite o valor do 3º segmento: "))
 
     print(
-        cs.colorize("Podem formar um triângulo", color="cyan")
+        customize(
+            "Podem formar um triângulo",
+            style="bold",
+            color="cyan",
+        )
         if form_triangle(a, b, c)
-        else cs.colorize("Não podem formar um triângulo", color="lilac")
+        else customize(
+            "Não podem formar um triângulo",
+            style="bold",
+            color="magenta",
+        )
     )
-
-
-if __name__ == "__main__":
-    run()

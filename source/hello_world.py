@@ -1,5 +1,11 @@
-from scripts.custom import customize as cs
+from scripts.custom import customize
 
 
 def run():
-    print(cs("🌎 Hello World!", "bold", "cyan"))
+    print(
+        customize(
+            "🌎 Hello World!",
+            style="bold",
+            color="cyan",
+        )
+    )

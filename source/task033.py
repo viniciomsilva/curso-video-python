@@ -1,18 +1,27 @@
 # 033
 # FAÇA UM PROGRAMA QUE LEIA TRÊS NÚMEROS E MOSTRE QUAL É O MAIOR E QUAL O MENOR.
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
     numbers = []
 
     for i in range(3):
-        numbers.append(int(input(f"Digite o {(i + 1)}º número: ")))
+        number = int(input("Digite o {}º número: ".format(i + 1)))
+        numbers.append(number)
 
-    print(cs.colorize(f" {max(numbers):<4} é o maior ", back="cyan"))
-    print(cs.colorize(f" {min(numbers):<4} é o menor ", back="lilac"))
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        customize(
+            " {:<4} é o maior ".format(max(numbers)),
+            style="bold",
+            back="cyan",
+        )
+    )
+    print(
+        customize(
+            " {:<4} é o menor ".format(min(numbers)),
+            style="bold",
+            back="magenta",
+        )
+    )

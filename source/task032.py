@@ -10,29 +10,31 @@
 
 from datetime import date
 
-from utils import custom as cs
+from scripts.custom import customize
+
+
+def is_leap_year(year):
+    return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 
 
 def run():
     year = int(input("Digite um ano qualquer (yyyy): "))
 
-    year = year if year >= 0 else date.today().year
+    year = year if year > 0 else date.today().year
 
-    if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0):
+    if is_leap_year(year):
         print(
-            cs.colorize(
-                f"{year} é um ano bissexto!",
+            customize(
+                "{} é um ano bissexto!".format(year),
+                style="bold",
                 color="cyan",
             )
         )
     else:
         print(
-            cs.colorize(
-                f"{year} NÃO é um ano bissexto!",
-                color="lilac",
+            customize(
+                "{} NÃO é um ano bissexto!".format(year),
+                style="bold",
+                color="magenta",
             )
         )
-
-
-if __name__ == "__main__":
-    run()

@@ -4,7 +4,7 @@
 #   EM QUE POSIÇÃO ELA APARECE A PRIMEIRA VEZ
 #   EM QUE POSIÇÃO ELA APARECE A ULTIMA VEZ
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -15,27 +15,32 @@ def run():
 
     print(
         "Quantidade de 'A': {}".format(
-            cs.colorize(
-                f" {phrase.count("a"):5} ",
+            customize(
+                " {:5} ".format(phrase.count("a")),
+                style="bold",
                 back="yellow",
             )
         )
     )
     print(
-        "Primeiro 'A'......: {} {:5} {}".format(
-            cs.customize(style="bold", back="cyan"),
-            first + 1 if (first >= 0) else "NaN",
-            cs.clean(),
+        "Primeiro 'A'.....: {}".format(
+            customize(
+                " {:5} ".format(
+                    first + 1 if first >= 0 else "NaN",
+                ),
+                style="bold",
+                back="cyan",
+            )
         )
     )
     print(
-        "Último 'A'.......: {} {:5} {}".format(
-            cs.customize(style="bold", back="lilac"),
-            last + 1 if (last >= 0) else "NaN",
-            cs.clean(),
+        "Último 'A'.......: {}".format(
+            customize(
+                " {:5} ".format(
+                    last + 1 if last >= 0 else "NaN",
+                ),
+                style="bold",
+                back="cyan",
+            )
         )
     )
-
-
-if __name__ == "__main__":
-    run()

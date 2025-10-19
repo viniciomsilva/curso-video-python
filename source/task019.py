@@ -6,7 +6,7 @@
 from random import choice
 from time import sleep
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -16,19 +16,18 @@ def run():
     print()
 
     for i in range(qnt_students):
-        student = input(f"Digite o nome do(a) {(i + 1)}º aluno(a): ")
+        student = input("Digite o nome do(a) {}º aluno(a): ".format(i + 1))
         students.append(student.title().strip())
 
-    print(cs.colorize("\nSorteando...", color="green"))
+    print(customize("\nSorteando...", color="green"))
     sleep(2)
 
     print(
-        "\n{}O(A) aluno(a) sorteado(a) foi: {}".format(
-            cs.customize(style="bold", color="cyan"),
-            choice(students),
+        customize(
+            "\nO(A) aluno(a) sorteado(a) foi: {}".format(
+                choice(students),
+            ),
+            style="bold",
+            color="cyan",
         )
     )
-
-
-if __name__ == "__main__":
-    run()

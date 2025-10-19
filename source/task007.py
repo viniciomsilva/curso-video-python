@@ -11,7 +11,7 @@
 
 from time import sleep
 
-from utils import custom as cs
+from scripts.custom import customize
 
 
 def run():
@@ -20,31 +20,36 @@ def run():
 
     average = (grade1 + grade2) / 2
 
-    print(cs.colorize("\nCalculando...\n", color="green"))
+    print(customize("\nCalculando...\n", style="bold", color="green"))
     sleep(1)
 
     if average >= 7:
         print(
-            cs.colorize(
-                f"Aluno(a) APROVADO(A) com média {average:.1f}!",
+            customize(
+                "Aluno(a) APROVADO(A) com média {:.1f}!".format(
+                    average,
+                ),
+                style="bold",
                 color="cyan",
             )
         )
     elif 7 > average >= 5:
         print(
-            cs.colorize(
-                f"Aluno(a) DE RECUPERAÇÃO com média {average:.1f}!",
+            customize(
+                "Aluno(a) DE RECUPERAÇÃO com média {:.1f}!".format(
+                    average,
+                ),
+                style="bold",
                 color="yellow",
             )
         )
     else:
         print(
-            cs.colorize(
-                f"Aluno(a) REPROVADO(A) com média {average:.1f}!",
-                color="lilac",
+            customize(
+                "Aluno(a) REPROVADO(A) com média {:.1f}!".format(
+                    average,
+                ),
+                style="bold",
+                color="magenta",
             )
         )
-
-
-if __name__ == "__main__":
-    run()

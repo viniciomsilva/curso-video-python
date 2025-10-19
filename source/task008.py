@@ -12,7 +12,3 @@ def run():
     print("Em decímetros.: {:.0f}dc".format(num * 10))
     print("Em centímetros: {:.0f}cm".format(num * 100))
     print("Em milímetros.: {:.0f}mm".format(num * 1000))
-
-
-if __name__ == "__main__":
-    run()
