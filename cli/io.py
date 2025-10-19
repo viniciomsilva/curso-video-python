@@ -3,10 +3,11 @@ from scripts.custom import customize
 
 def inputf(
     prompt: object = "",
+    start: str = "",
     style: str = "",
     color: str = "",
 ) -> str:
-    return input(customize(prompt, style, color))
+    return input(customize(f"{start}{prompt}", style, color))
 
 
 def printf(

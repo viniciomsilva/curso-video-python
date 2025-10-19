@@ -32,7 +32,11 @@ def __clear() -> str:
     return "\033[0m"
 
 
-def __code(style: str, color: str, back: str) -> str:
+def __code(
+    style: str,
+    color: str,
+    back: str,
+) -> str:
     cod = "\033["
 
     cod += "" if not style else f"{STYLES[style]}"
@@ -42,9 +46,14 @@ def __code(style: str, color: str, back: str) -> str:
     return cod
 
 
-def customize(txt, style: str = "", color: str = "", back: str = "") -> str:
+def customize(
+    value: object,
+    style: str = "",
+    color: str = "",
+    back: str = "",
+) -> str:
     return "{}{}{}".format(
         __code(style, color, back),
-        txt,
+        value,
         __clear(),
     )
