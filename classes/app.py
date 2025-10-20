@@ -39,6 +39,7 @@ from source import task036
 from source import task037
 from source import task038
 from source import task039
+from source import task041
 
 
 class App:
@@ -56,7 +57,7 @@ class App:
         self.__mini_apps = [
             {
                 "mini_app": str(data[0]).title(),
-                "description": str(data[1]).capitalize(),
+                "description": str(data[1]),
             }
             for data in read_csv(
                 ".mini_apps.csv",
@@ -146,5 +147,7 @@ class App:
                 task038.run()
             case 39:
                 task039.run()
+            case 40:
+                task041.run()
             case _:
                 raise Exception("Mini-app not found.")

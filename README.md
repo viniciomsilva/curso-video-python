@@ -128,6 +128,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task040](source/task007.py):
   Calcular a média de duas notas de um aluno e mostrar a situação;\
   *Essa tarefa já foi resolvida na **Task007!***
+- 📍 [Task041](source/task041.py):
+  Mostrar a classificação de natação referente à idade;
 
 ## 💡 Desenvolvimento Próprio
 
