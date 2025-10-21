@@ -133,6 +133,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task042](source/task035.py):
   Classificar o tipo de triângulo;\
   *Essa tarefa já foi resolvida na **Task035**!*
+- 📍 [Task043](source/task043.py):
+  Mostrar e classificar o Índice de Massa Corpórea (IMC) duma pessoa;
 
 ## 💡 Desenvolvimento Próprio
 
