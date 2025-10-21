@@ -15,7 +15,7 @@ def print_menu(mini_apps) -> None:
     )
     for i, mini_app in enumerate(mini_apps):
         print(
-            "[{:3}] {} {}".format(
+            "[{:3}] {}, {}".format(
                 i,
                 mini_app["mini_app"],
                 mini_app["description"],
