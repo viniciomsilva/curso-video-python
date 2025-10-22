@@ -137,6 +137,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Mostrar e classificar o Índice de Massa Corpórea (IMC) duma pessoa;
 - 📍 [Task044](source/task044.py):
   Calcular valor total dum produto referente à forma de pagamento;
+- 📍 [Task044](source/task045.py):
+  Jogo Jokenpô ✊ 🖐️ ✌️;
 
 ## 💡 Desenvolvimento Próprio
 
