@@ -135,6 +135,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task035**!*
 - 📍 [Task043](source/task043.py):
   Mostrar e classificar o Índice de Massa Corpórea (IMC) duma pessoa;
+- 📍 [Task044](source/task044.py):
+  Calcular valor total dum produto referente à forma de pagamento;
 
 ## 💡 Desenvolvimento Próprio
 
