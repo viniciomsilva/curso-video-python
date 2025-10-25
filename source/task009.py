@@ -1,5 +1,8 @@
 # 009
-# FAÇA UM PROGRAMA QUE LEIA UM NÚMERO INTEIRO QUALQUER E MOSTRE A SUA TABUADA
+# Faça um programa que leia um número inteiro qualquer e mostre a sua tabuada.
+
+# 049
+# Refaça a tarefa 009, mostrando a tabuada utilizando o laço for/range.
 
 from cli.io import printf
 

@@ -143,6 +143,11 @@ avanço no conhecimento geral básico da linguagem Python.
   Contagem regressiva;
 - 📍 [Task047](source/task047.py):
   Mostrar apenas os números pares dum intervalo;
+- 📍 [Task048](source/task048.py):
+  Somar todos os valores ímpares múltiplos de 3 num intervalo;
+- 📍 [Task049](source/task009.py):
+  Mostrar a tabuada de um número (utilizando laço de repetição **FOR/RANGE**);\
+  *Essa tarefa já foi revolvida na **Task009**!*
 
 ## 💡 Desenvolvimento Próprio
 
