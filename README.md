@@ -148,6 +148,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task049](source/task009.py):
   Mostrar a tabuada de um número (utilizando laço de repetição **FOR/RANGE**);\
   *Essa tarefa já foi revolvida na **Task009**!*
+- 📍 [Task050](source/task050.py):
+  Somar os números pares num intervalo de seis valores;
 
 ## 💡 Desenvolvimento Próprio
 
