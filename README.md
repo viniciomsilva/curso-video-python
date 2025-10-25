@@ -58,13 +58,13 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task007](source/task007.py):
   Calcular a média entre duas notas;
 - 📍 [Task008](source/task008.py):
-  Mostra as variações dum valor em metros;
+  Mostrar as variações dum valor em metros;
 - 📍 [Task009](source/task009.py):
   Calcular tabuada;
 - 📍 [Task010](source/task010.py):
-  Converte um valor em R\$ (real) para US\$ (dólar) e € (euro);
+  Converter um valor em R\$ (real) para US\$ (dólar) e € (euro);
 - 📍 [Task011](source/task011.py):
-  Calcula a quantidade de tinta para pintar uma área;
+  Calcular a quantidade de tinta para pintar uma área;
 - 📍 [Task012](source/task012.py):
   Calcular o desconto no preço dum produto;
 - 📍 [Task013](source/task013.py):
@@ -96,7 +96,7 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task026](source/task026.py):
   Contador de letra 'A';
 - 📍 [Task027](source/task027.py):
-  Mostra o nome e o sobrenome de uma pessoa;
+  Mostrar nome e sobrenome de uma pessoa;
 - 📍 [Task028](source/task028.py):
   Jogo de adivinhar o número;
 - 📍 [Task029](source/task029.py):
@@ -150,6 +150,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi revolvida na **Task009**!*
 - 📍 [Task050](source/task050.py):
   Somar os números pares num intervalo de seis valores;
+- 📍 [Task051](source/task051.py):
+  Calcular a Progressão Aritmética;
 
 ## 💡 Desenvolvimento Próprio
 
