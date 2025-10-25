@@ -141,6 +141,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Jogo Jokenpô ✊ 🖐️ ✌️;
 - 📍 [Task046](source/task046.py):
   Contagem regressiva;
+- 📍 [Task047](source/task047.py):
+  Mostrar apenas os números pares dum intervalo;
 
 ## 💡 Desenvolvimento Próprio
 
