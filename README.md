@@ -161,6 +161,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task055](source/task033.py):
   Mostrar o maior e o menor pesos dentre cinco pessoas, usando **FOR/RANGE**;\
   *Essa tarefa já foi resolvida na **Task033**!*
+- 📍 [Task056](source/task056.py):
+  Analisar dados de pessoas;
 
 ## 💡 Desenvolvimento Próprio
 
