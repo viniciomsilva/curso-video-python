@@ -156,6 +156,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Mostrar se um número é primo ou não;
 - 📍 [Task053](source/task053.py):
   Mostrar se uma entrada do usuário é um palíndromo ou não;
+- 📍 [Task054](source/task054.py):
+  Mostrar a quantidade de adultos e menores de idade;
 
 ## 💡 Desenvolvimento Próprio
 
