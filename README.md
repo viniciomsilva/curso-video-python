@@ -158,6 +158,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Mostrar se uma entrada do usuário é um palíndromo ou não;
 - 📍 [Task054](source/task054.py):
   Mostrar a quantidade de adultos e menores de idade;
+- 📍 [Task055](source/task033.py):
+  Mostrar o maior e o menor pesos dentre cinco pessoas, usando **FOR/RANGE**;\
+  *Essa tarefa já foi resolvida na **Task033**!*
 
 ## 💡 Desenvolvimento Próprio
 
