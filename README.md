@@ -152,6 +152,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Somar os números pares num intervalo de seis valores;
 - 📍 [Task051](source/task051.py):
   Calcular a Progressão Aritmética;
+- 📍 [Task052](source/task052.py):
+  Mostrar se um número é primo ou não;
 
 ## 💡 Desenvolvimento Próprio
 
