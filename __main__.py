@@ -1,9 +1,10 @@
-from time import sleep
+import sys
 
 from classes.app import App
 from cli.io import printf
 from cli.io import inputf
-from scripts.terminal import clear
+from cli.wait import wait
+from scripts import terminal as tm
 
 
 def print_menu(mini_apps) -> None:
@@ -25,26 +26,39 @@ def print_menu(mini_apps) -> None:
 
 def main() -> None:
     app = App()
+    exit_cmds = ["n", "no", "exit"]
+    option = ""
 
     while True:
         try:
-            clear()
+            tm.clear()
             print_menu(app.mini_apps)
 
-            option = int(
+            option = (
                 inputf(
                     "Escolha um mini-app: ",
                     start="\n",
                     style="bold",
                     color="yellow",
                 )
+                .lower()
+                .strip()
             )
 
-            if option < 0:
-                break
-
-            clear()
-            app.execute(option)
+            if not option in exit_cmds:
+                tm.clear()
+                app.execute(int(option))
+        except Exception as e:
+            wait(
+                e,
+                time=2,
+                end="\n",
+                style="bold",
+                color="magenta",
+            )
+        finally:
+            if option in exit_cmds:
+                sys.exit()
 
             if (
                 inputf(
@@ -53,16 +67,9 @@ def main() -> None:
                     style="bold",
                     color="yellow",
                 )
-                == "n"
+                in exit_cmds
             ):
-                break
-        except Exception as e:
-            printf(
-                e,
-                style="bold",
-                color="magenta",
-            )
-            sleep(2)
+                sys.exit()
 
 
 if __name__ == "__main__":

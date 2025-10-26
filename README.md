@@ -154,6 +154,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Calcular a Progressão Aritmética;
 - 📍 [Task052](source/task052.py):
   Mostrar se um número é primo ou não;
+- 📍 [Task053](source/task053.py):
+  Mostrar se uma entrada do usuário é um palíndromo ou não;
 
 ## 💡 Desenvolvimento Próprio
 

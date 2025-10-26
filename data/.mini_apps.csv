@@ -48,3 +48,4 @@ task 048|Somar os números ímpares múltiplos de 3 num intervalo;
 task 050|Somar os números pares intervalo de seis valores;
 task 051|Calcular PA;
 task 052|Mostrar se um número é primo ou não;
+task 053|Mostrar se a entrada do usuário é um palíndromo ou não;
