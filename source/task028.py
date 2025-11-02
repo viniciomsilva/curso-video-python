@@ -1,7 +1,12 @@
 # 028
-# ESCREVA UM PROGRAMA QUE FAÇA O PC "PENSAR" NUM NÚMERO INTEIRO ENTRE 0 E 5 E
-# PEÇA AO USUÁRIO PARA ADIVINHAR O NÚMERO ESCOLHIDO.
-# O PROGRAMA DEVERÁ ESCREVER NA TELA SE O USUÁRIO VENCEU OU NÃO.
+# Escreva um programa que faça o pc "pensar" num número inteiro entre 0 e 5 e
+# peça ao usuário para adivinhar o número escolhido.
+# O programa deverá escrever na tela se o usuário venceu ou não.
+
+# 058
+# Melhore o jogo do DESAFIO 28 onde o computador vai pensar num número entre 0 e
+# 10. Só que agora o jogador vai tentar adivinhar até acertar, mostrando no
+# final quantos palpites foram necessários para vencer.
 
 from time import sleep
 from random import randint

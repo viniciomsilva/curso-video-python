@@ -165,6 +165,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Analisar dados de pessoas;
 - 📍 [Task057](source/task057.py):
   Validar se o sexo digitado é 'M' ou 'F';
+- 📍 [Task058](source/task028.py):
+  Melhorar o jogo de adivinhar o número com estrutura de repetição WHILE;\
+  *Essa tarefa já foi resolvida na **Task028**!*
 
 ## 💡 Desenvolvimento Próprio
 
