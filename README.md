@@ -168,6 +168,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task058](source/task028.py):
   Melhorar o jogo de adivinhar o número com estrutura de repetição WHILE;\
   *Essa tarefa já foi resolvida na **Task028**!*
+- 📍 [Task059](source/task059.py):
+  Fazer diversas operações matemáticas numa lista de números;
 
 ## 💡 Desenvolvimento Próprio
 
