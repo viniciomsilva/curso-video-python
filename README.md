@@ -170,6 +170,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task028**!*
 - 📍 [Task059](source/task059.py):
   Fazer diversas operações matemáticas numa lista de números;
+- 📍 [Task060](source/task060.py):
+  Calcular o fatorial;
 
 ## 💡 Desenvolvimento Próprio
 
