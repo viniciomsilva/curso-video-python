@@ -1,6 +1,7 @@
 import sys
 
 from classes.app import App
+from cli.io import EXIT_CMDS
 from cli.io import printf
 from cli.io import inputf
 from cli.wait import wait
@@ -26,7 +27,6 @@ def print_menu(mini_apps) -> None:
 
 def main() -> None:
     app = App()
-    exit_cmds = ["n", "no", "exit"]
     option = ""
 
     while True:
@@ -45,7 +45,7 @@ def main() -> None:
                 .strip()
             )
 
-            if not option in exit_cmds:
+            if not option in EXIT_CMDS:
                 tm.clear()
                 app.execute(int(option))
         except Exception as e:
@@ -57,7 +57,7 @@ def main() -> None:
                 color="magenta",
             )
         finally:
-            if option in exit_cmds:
+            if option in EXIT_CMDS:
                 sys.exit()
 
             if (
@@ -67,7 +67,7 @@ def main() -> None:
                     style="bold",
                     color="yellow",
                 )
-                in exit_cmds
+                in EXIT_CMDS
             ):
                 sys.exit()
 

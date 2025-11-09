@@ -175,6 +175,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task061](source/task051.py):
   Melhorar o cálculo da PA com estrutura de repetição WHILE;\
   *Essa tarefa já foi resolvida na **Task051**!*
+- 📍 [Task062](source/task051.py):
+  Adicionar mais termos à PA;\
+  *Essa tarefa já foi resolvida na **Task051**!*
 
 ## 💡 Desenvolvimento Próprio
 

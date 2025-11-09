@@ -1,6 +1,9 @@
 from scripts.custom import customize
 
 
+EXIT_CMDS = ["n", "no", "exit"]
+
+
 def inputf(
     prompt: object = "",
     start: str = "",
