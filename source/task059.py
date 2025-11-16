@@ -7,7 +7,21 @@
 #   [5] Sair do programa
 # Seu programa deverá realizar a operação solicitada em cada caso.
 
+# 064
+# Crie um programa que leia vários números inteiros pelo teclado. O programa só
+# vai parar quando o usuário digitar o valor 999, que é a condição de parada.
+# No final, mostre quantos números foram digitados e qual foi a soma entre eles.
+# Obs.: Desconsidere a flag.
+
+# 065
+# Crie um programa que leia vários números inteiros pelo teclado. No final da
+# execução, mostre a média entre todos os valores e qual é o maior e o menor
+# valores lidos. O programa deve perguntar ao usuário se ele quer ou não a
+# digitar mais valores.
+
 from math import prod
+from statistics import mean
+from time import sleep
 
 from cli.io import printf
 from cli.io import inputf
@@ -20,8 +34,9 @@ __options = [
     "[2] Multiplicar",
     "[3] Maior",
     "[4] Menor",
-    "[5] Novos valores",
-    "[6] Adicionar valores",
+    "[5] Média",
+    "[6] Novos valores",
+    "[7] Adicionar valores",
     "[0] Sair",
 ]
 
@@ -55,6 +70,11 @@ def __print_numbers(numbers: list):
         ", ".join(map(str, numbers)),
         style="bold",
     )
+    printf(
+        "Quantidade: {} números ".format(len(numbers)),
+        style="bold",
+        end="\n\n"
+    )
 
 
 def __print_menu():
@@ -84,9 +104,11 @@ def run():
             case "4":
                 rps = "O menor valor é: {}".format(min(numbers))
             case "5":
+                rps = "A média é: {:.2f}".format(mean(numbers))
+            case "6":
                 numbers = []
                 __add_new_values(numbers)
-            case "6":
+            case "7":
                 __add_new_values(numbers)
             case "0":
                 break
@@ -103,3 +125,4 @@ def run():
             style="bold",
             color="cyan",
         )
+        sleep(2)

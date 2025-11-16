@@ -178,6 +178,14 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task062](source/task051.py):
   Adicionar mais termos à PA;\
   *Essa tarefa já foi resolvida na **Task051**!*
+- 📍 [Task063](source/task063.py):
+  Calcular a quantidade de termos digitados da Sequência de Fibonacci;
+- 📍 [Task064](source/task059.py):
+  Mostrar a quantidade de números digitados e a soma entre eles;\
+  *Essa tarefa já foi resolvida na **Task059**!*
+- 📍 [Task065](source/task059.py):
+  Calcular a média entre vários números digitados;\
+  *Essa tarefa já foi resolvida na **Task059**!*
 
 ## 💡 Desenvolvimento Próprio
 
