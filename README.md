@@ -180,12 +180,15 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task051**!*
 - 📍 [Task063](source/task063.py):
   Calcular a quantidade de termos digitados da Sequência de Fibonacci;
-- 📍 [Task064](source/task059.py):
+- 📍 [Task064 & Task066](source/task059.py):
   Mostrar a quantidade de números digitados e a soma entre eles;\
-  *Essa tarefa já foi resolvida na **Task059**!*
+  *Essas tarefas já foram resolvidas na **Task059**!*
 - 📍 [Task065](source/task059.py):
   Calcular a média entre vários números digitados;\
   *Essa tarefa já foi resolvida na **Task059**!*
+- 📍 [Task067](source/task009.py):
+  Mostrar a tabuada de vários números (utilizando laço de repetição **WHILE**);\
+  *Essa tarefa já foi revolvida na **Task009**!*
 
 ## 💡 Desenvolvimento Próprio
 

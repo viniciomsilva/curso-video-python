@@ -4,7 +4,15 @@
 # 049
 # Refaça a tarefa 009, mostrando a tabuada utilizando o laço for/range.
 
+# 067
+# Faça um programa que mostre a tabuada de vários números, um de cada vez, para
+# cada valor digitado pelo usuário. O programa será interrompido quando o número
+# for negativo.
+
 from cli.io import printf
+from cli.io import inputf
+from cli.io import EXIT_CMDS
+from scripts.terminal import clear
 
 
 def __add(num):
@@ -80,9 +88,23 @@ def __div(num):
 
 
 def run():
-    num = int(input("Digite um número: "))
+    while True:
+        num = int(input("Digite um número: "))
 
-    __add(num)
-    __sub(num)
-    __mul(num)
-    __div(num)
+        __add(num)
+        __sub(num)
+        __mul(num)
+        __div(num)
+
+        if (
+            inputf(
+                "Quer a tabuada de outro número? [S/N] ",
+                start="\n",
+                style="bold",
+                color="yellow",
+            )
+            in EXIT_CMDS
+        ):
+            break
+
+        clear()
