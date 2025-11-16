@@ -14,7 +14,7 @@ def inputf(
 
 
 def printf(
-    value: object,
+    value: object = "",
     start: str = "",
     end: str = "\n",
     style: str = "",

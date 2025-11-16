@@ -166,14 +166,14 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task057](source/task057.py):
   Validar se o sexo digitado é 'M' ou 'F';
 - 📍 [Task058](source/task028.py):
-  Melhorar o jogo de adivinhar o número com estrutura de repetição WHILE;\
+  Melhorar o jogo de adivinhar o número com estrutura de repetição **WHILE**;\
   *Essa tarefa já foi resolvida na **Task028**!*
 - 📍 [Task059](source/task059.py):
   Fazer diversas operações matemáticas numa lista de números;
 - 📍 [Task060](source/task060.py):
   Calcular o fatorial;
 - 📍 [Task061](source/task051.py):
-  Melhorar o cálculo da PA com estrutura de repetição WHILE;\
+  Melhorar o cálculo da PA com estrutura de repetição **WHILE**;\
   *Essa tarefa já foi resolvida na **Task051**!*
 - 📍 [Task062](source/task051.py):
   Adicionar mais termos à PA;\
@@ -189,6 +189,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task067](source/task009.py):
   Mostrar a tabuada de vários números (utilizando laço de repetição **WHILE**);\
   *Essa tarefa já foi revolvida na **Task009**!*
+- 📍 [Task068](source/task068.py):
+  Jogo de PAR ou ÍMPAR;
 
 ## 💡 Desenvolvimento Próprio
 
