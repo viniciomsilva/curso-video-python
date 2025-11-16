@@ -191,6 +191,9 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi revolvida na **Task009**!*
 - 📍 [Task068](source/task068.py):
   Jogo de PAR ou ÍMPAR;
+- 📍 [Task069](source/task056.py):
+  Analisar dados de pessoas;\
+  *Essa tarefa já foi revolvida na **Task056**!*
 
 ## 💡 Desenvolvimento Próprio
 

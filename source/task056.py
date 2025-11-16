@@ -5,14 +5,21 @@
 #   - Qual é o nome do homem mais velho
 #   - Quantas mulheres têm menos de vinte anos
 
+# 069
+# Crie um programa que leia a idade e o sexo de várias pessoas. A cada pessoa
+# cadastrada, o programa deverá perguntar se o usuário quer ou não continuar. No
+# final, mostre:
+#   - Quantas pessoas têm mais de 18 anos
+#   - Quantos homens foram cadastrados
+#   - Quantas mulheres têm menos de 20 anos
+
+from statistics import mean
+
 from classes.person import Person
-from cli.io import inputf
+from cli.io import EXIT_CMDS
 from cli.io import printf
+from cli.io import inputf
 from cli.wait import wait
-
-
-def __avg(x: list) -> float:
-    return sum(x) / len(x)
 
 
 def __age(person: Person) -> int:
@@ -23,13 +30,19 @@ def __sex(people: list[Person], sex: str) -> list[Person]:
     return list(filter(lambda x: x.info["sex"] in sex, people))
 
 
-def __older_man(people: list[Person]) -> Person | None:
+def __older_man(people: list[Person]) -> tuple:
     men = __sex(people, "masc")
 
     if not men:
-        return None
+        return None, 0
 
-    return sorted(men, key=__age, reverse=True)[0]
+    return sorted(men, key=__age, reverse=True)[0], len(men)
+
+
+def __adults(people: list[Person]) -> int:
+    adults = list(filter(lambda x: x.age > 18, people))
+
+    return len(adults)
 
 
 def __young_women(people: list[Person]) -> list[Person] | None:
@@ -45,9 +58,8 @@ def run():
     rps = ""
     people: list[Person] = []
 
-    qnt = int(input("Quantidade de pessoas: "))
-    for i in range(qnt):
-        printf("Dados da {}ª pessoa: ".format(i + 1), start="\n", style="bold")
+    while True:
+        printf("Nova pessoa: ", start="\n", style="bold")
 
         name = input("Nome: ").title().strip()
         birth = input("Ano de nascimento: ")
@@ -55,13 +67,25 @@ def run():
 
         people.append(Person(name, int(birth), sex))
 
-    older_man = __older_man(people)
+        if (
+            inputf(
+                "Cadastrar outra pessoa? [S/N] ",
+                style="bold",
+                color="yellow",
+            )
+            in EXIT_CMDS
+        ):
+            break
+
+    older_man, number_of_men = __older_man(people)
     young_women = __young_women(people)
     rps = "Média de idade: {:.1f} anos!".format(
-        __avg([person.age for person in people]),
+        mean([person.age for person in people]),
     )
+    rps += "\nQuantidade de adultos: {}".format(__adults(people))
 
     if older_man:
+        rps += "\nQuantidade homens: {}".format(number_of_men)
         rps += "\n{} é o homem mais velho com {} anos!".format(
             older_man.info["name"],
             older_man.info["age"],
