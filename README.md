@@ -194,6 +194,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task069](source/task056.py):
   Analisar dados de pessoas;\
   *Essa tarefa já foi revolvida na **Task056**!*
+- 📍 [Task070](source/task070.py):
+  Analisar dados duma compra;
 
 ## 💡 Desenvolvimento Próprio
 
