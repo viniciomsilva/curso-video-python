@@ -196,6 +196,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi revolvida na **Task056**!*
 - 📍 [Task070](source/task070.py):
   Analisar dados duma compra;
+- 📍 [Task071](source/task071.py):
+  Simular caixa eletrônico;
 
 ## 💡 Desenvolvimento Próprio
 
