@@ -9,6 +9,7 @@ Este curso é de 2017, mas estas resoluções foram desenvolvidas em 2025.
   - [🗺️ Sobre o Curso](#️-sobre-o-curso)
     - [🌎 Mundo #1: Fundamentos](#-mundo-1-fundamentos)
     - [🌎 Mundo #2: Estruturas de Controle](#-mundo-2-estruturas-de-controle)
+    - [🌎 Mundo #3: Estruturas Compostas](#-mundo-3-estruturas-compostas)
   - [💡 Desenvolvimento Próprio](#-desenvolvimento-próprio)
 
 ## 🧭 Preparando o Ambiente
@@ -198,6 +199,11 @@ avanço no conhecimento geral básico da linguagem Python.
   Analisar dados duma compra;
 - 📍 [Task071](source/task071.py):
   Simular caixa eletrônico;
+
+### 🌎 Mundo \#3: Estruturas Compostas
+
+- 📍 [Task072](source/task072.py):
+  Mostrar o número por extenso (entre 0 e 20);
 
 ## 💡 Desenvolvimento Próprio
 
