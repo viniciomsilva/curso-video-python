@@ -204,6 +204,8 @@ avanço no conhecimento geral básico da linguagem Python.
 
 - 📍 [Task072](source/task072.py):
   Mostrar o número por extenso (entre 0 e 20);
+- 📍 [Task073](source/task073.py):
+  Mostrar a classificação do Campeonato Brasileiro;
 
 ## 💡 Desenvolvimento Próprio
 
