@@ -4,14 +4,6 @@ Repositório com as resoluções das atividades do Curso Básico de Python3 do c
 do YouTube 🔗 [Curso em Vídeo](https://www.youtube.com/c/CursoemV%C3%ADdeo).
 Este curso é de 2017, mas estas resoluções foram desenvolvidas em 2025.
 
-- [Curso de 🐍 Python3: Curso em Vídeo](#curso-de--python3-curso-em-vídeo)
-  - [🧭 Preparando o Ambiente](#-preparando-o-ambiente)
-  - [🗺️ Sobre o Curso](#️-sobre-o-curso)
-    - [🌎 Mundo #1: Fundamentos](#-mundo-1-fundamentos)
-    - [🌎 Mundo #2: Estruturas de Controle](#-mundo-2-estruturas-de-controle)
-    - [🌎 Mundo #3: Estruturas Compostas](#-mundo-3-estruturas-compostas)
-  - [💡 Desenvolvimento Próprio](#-desenvolvimento-próprio)
-
 ## 🧭 Preparando o Ambiente
 
 **Versão do Python3:** `python3.12` ou superior.
@@ -206,6 +198,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Mostrar o número por extenso (entre 0 e 20);
 - 📍 [Task073](source/task073.py):
   Mostrar a classificação do Campeonato Brasileiro;
+- 📍 [Task074](source/task033.py):
+  Mostrar o maior e o menor valor dentre uma lista aleatória de valores;\
+  *Essa tarefa já foi revolvida na **Task033**!*
 
 ## 💡 Desenvolvimento Próprio
 
