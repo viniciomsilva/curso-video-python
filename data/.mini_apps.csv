@@ -60,4 +60,5 @@ task 070|Analisar dados de uma compra;
 task 071|Simular caixa eletrônico;
 task 072|Mostrar o número por extenso (entre 0 e 20);
 task 073|Mostrar a classificação do Campeonato Brasileiro;
-task 075|Analisar o números digitados e armazenados numa lista;
+task 075|Analisar os números digitados e armazenados numa lista;
+task 075|Mostrar produtos de forma tabular;
