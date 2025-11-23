@@ -201,6 +201,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task074](source/task033.py):
   Mostrar o maior e o menor valor dentre uma lista aleatória de valores;\
   *Essa tarefa já foi revolvida na **Task033**!*
+- 📍 [Task075](source/task075.py):
+  Analisar números digitados e armazenados numa lista;
 
 ## 💡 Desenvolvimento Próprio
 
