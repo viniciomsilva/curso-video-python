@@ -205,6 +205,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Analisar os números digitados e armazenados numa lista;
 - 📍 [Task076](source/task076.py):
   Mostrar produtos de formar tabular;
+- 📍 [Task077](source/task077.py):
+  Mostrar as vogais de uma palavra numa lista de palavras;
 
 ## 💡 Desenvolvimento Próprio
 
