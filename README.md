@@ -113,7 +113,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Analisar se um empréstimo pode ou não ser aprovado referente ao valor do
   salário do cliente;
 - 📍 [Task037](/source/task037.py):
-  Converter um número inteiro em base decimal para binário, octal ou hexadecimal;
+  Converter um número inteiro em base decimal para binário, octal ou 
+  hexadecimal;
 - 📍 [Task038](/source/task038.py):
   Mostrar qual dos dois valores é maior, ou se são iguais;
 - 📍 [Task039](/source/task039.py):
@@ -207,6 +208,10 @@ avanço no conhecimento geral básico da linguagem Python.
   Mostrar produtos de formar tabular;
 - 📍 [Task077](source/task077.py):
   Mostrar as vogais de uma palavra numa lista de palavras;
+- 📍 [Task078](source/task033.py):
+  Mostrar o maior e o menor valor e suas respectivas posições dentre uma lista
+  de valores;\
+  *Essa tarefa já foi resolvida na **Task033**!*
 
 ## 💡 Desenvolvimento Próprio
 
