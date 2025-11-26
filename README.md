@@ -216,6 +216,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Guardar apenas valores únicos numa lista e mostrá-los em ordem crescente;
 - 📍 [Task080](source/task080.py)
   Adicionar cinco valores numa lista, em ordem crescente;
+- 📍 [Task081](source/task075.py):
+  Analisar os números digitados e armazenados numa lista;\
+  *Essa tarefa já foi resolvida na **Task075**!*
 
 ## 💡 Desenvolvimento Próprio
 
