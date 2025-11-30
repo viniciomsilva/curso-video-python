@@ -65,3 +65,4 @@ task 076|Mostrar produtos de forma tabular;
 task 077|Mostrar as vogais de uma palavra numa lista de palavras;
 task 079|Guardar apenas valores únicos numa lista e mostrá-los em ordem crescente;
 task 080|Adicionar cinco valores numa lista, em ordem crescente;
+task 081|Analisar se uma expressão matemática é válida;
