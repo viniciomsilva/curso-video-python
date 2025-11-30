@@ -219,6 +219,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task081](source/task075.py):
   Analisar os números digitados e armazenados numa lista;\
   *Essa tarefa já foi resolvida na **Task075**!*
+- 📍 [Task082](source/task075.py):
+  Mostrar os números pares e ímpares digitados;\
+  *Essa tarefa já foi resolvida na **Task075**!*
 
 ## 💡 Desenvolvimento Próprio
 

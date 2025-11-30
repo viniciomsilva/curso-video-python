@@ -12,6 +12,12 @@
 #   - A lista de valores ordenada de forma decrescente
 #   - Se o valor 5 foi digitado e está ou não na lista
 
+# 082
+# Crie um programa que vai ler vários números e colocá-los numa lista.
+# Depois disso, crie duas listas que vão conter apenas os valores pares
+# e ímpares digitados, respectivamente. Ao final, mostre o conteúdo das
+# três listas geradas.
+
 from cli.io import EXIT_CMDS
 from cli.io import inputf
 from cli.io import printf
@@ -33,9 +39,11 @@ def run():
         if input("Quer adicionar outros? [S/N] ").lower().strip() in EXIT_CMDS:
             break
 
-    pairs = set(filter(lambda n: n % 2 == 0, numbers))
+    even = set(filter(lambda n: n % 2 == 0, numbers))
+    odd = set(filter(lambda n: n % 2 != 0, numbers))
 
-    msg += f"A lista completa tem {len(numbers)} números"
+    msg += f"A lista completa: {numbers}"
+    msg += f"A lista completa tem {len(numbers)} números."
     msg += f"\nO número 5 aparece {numbers.count(5)} vez(es)!"
     msg += f"\nO número 9 aparece {numbers.count(9)} vez(es)!"
     if 3 in numbers:
@@ -43,6 +51,7 @@ def run():
     else:
         msg += "\nO números 3 não está na lista!"
     msg += f"\nEm ordem decrescente: {sorted(numbers, reverse=True)}"
-    msg += "\nOs números pares são: {}!".format(", ".join(map(str, pairs)))
+    msg += f"\nOs números pares são: {even}!"
+    msg += f"\nOs números ímpares são: {odd}!"
 
-    printf(msg, start="\n")
+    printf(msg, start="\n", style="bold")
