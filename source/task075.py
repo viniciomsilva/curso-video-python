@@ -18,6 +18,11 @@
 # e ímpares digitados, respectivamente. Ao final, mostre o conteúdo das
 # três listas geradas.
 
+# 085
+# Crie um programa onde o usuário possa digitar sete valores numéricos e
+# cadastre-os numa lista única que mantenha separados os valores pares e
+# ímpares. No final, mostre os valores pares e ímpares em ordem crescente.
+
 from cli.io import EXIT_CMDS
 from cli.io import inputf
 from cli.io import printf
@@ -51,7 +56,7 @@ def run():
     else:
         msg += "\nO números 3 não está na lista!"
     msg += f"\nEm ordem decrescente: {sorted(numbers, reverse=True)}"
-    msg += f"\nOs números pares são: {even}!"
-    msg += f"\nOs números ímpares são: {odd}!"
+    msg += f"\nOs números pares são: {sorted(even)}!"
+    msg += f"\nOs números ímpares são: {sorted(odd)}!"
 
     printf(msg, start="\n", style="bold")
