@@ -222,6 +222,10 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task082](source/task075.py):
   Mostrar os números pares e ímpares digitados;\
   *Essa tarefa já foi resolvida na **Task075**!*
+- 📍 [Task083](source/task083.py):
+  Analisar se uma expressão matemática é válida;
+- 📍 [Task084](source/task084.py):
+  Analisar o peso de pessoas;
 
 ## 💡 Desenvolvimento Próprio
 

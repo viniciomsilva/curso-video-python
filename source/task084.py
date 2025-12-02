@@ -1,0 +1,47 @@
+# 084
+# Faça um programa que leia o nome peso de várias pessoas, guardando tudo numa
+# lista. No final, mostre:
+#   - Quantas pessoas foram cadastradas
+#   - Uma listagem com as pessoas mais pesadas
+#   - Uma listagem com as pessoas mais leves
+
+from cli.io import EXIT_CMDS
+
+
+def __name_people_weight(p: list, w: float):
+    return [y["name"] for y in filter(lambda x: x["weight"] == w, p)]
+
+
+def run():
+    people = []
+    fatter = 0
+    tinner = 0
+
+    while True:
+        name = input("Nome: ").strip().title()
+        weight = float(input("Peso (KG): ").strip())
+
+        if weight > fatter:
+            fatter = weight
+        if weight < tinner or tinner == 0:
+            tinner = weight
+
+        people.append({"name": name, "weight": weight})
+
+        if input("Cadastrar outra? [s/n] ").strip() in EXIT_CMDS:
+            break
+
+    print(f"\nQuantidade de pessoas: {len(people)}")
+    print(
+        "Maior peso: {}kg. As pessoas com ele são: {}".format(
+            fatter,
+            ", ".join(__name_people_weight(people, fatter)),
+        )
+    )
+
+    print(
+        "Menor peso: {}kg. As pessoas com ele são: {}".format(
+            tinner,
+            ", ".join(__name_people_weight(people, tinner)),
+        )
+    )
