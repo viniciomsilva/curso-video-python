@@ -226,6 +226,14 @@ avanço no conhecimento geral básico da linguagem Python.
   Analisar se uma expressão matemática é válida;
 - 📍 [Task084](source/task084.py):
   Analisar o peso de pessoas;
+- 📍 [Task085](source/task075.py):
+  Mostrar os números pares e ímpares digitados;\
+  *Essa tarefa já foi resolvida na **Task075**!*
+- 📍 [Task086](source/task086.py):
+  Mostrar uma matriz 3x3;
+- 📍 [Task087](source/task086.py):
+  Mostrar uma matriz 3x3 e operações matemáticas com dados dessa matriz;\
+  *Essa tarefa já foi resolvida na **Task086**!*
 
 ## 💡 Desenvolvimento Próprio
 
