@@ -234,6 +234,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task087](source/task086.py):
   Mostrar uma matriz 3x3 e operações matemáticas com dados dessa matriz;\
   *Essa tarefa já foi resolvida na **Task086**!*
+- 📍 [Task088](source/task088.py):
+  Sortear jogos da MEGA SENA;
 
 ## 💡 Desenvolvimento Próprio
 
