@@ -236,6 +236,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task086**!*
 - 📍 [Task088](source/task088.py):
   Sortear jogos da MEGA SENA;
+- 📍 [Task089](source/task089.py):
+  Mostrar os dados de alunos juntamente da média e das notas individuais;
 
 ## 💡 Desenvolvimento Próprio
 
