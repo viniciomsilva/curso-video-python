@@ -245,6 +245,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Jogo de dados aleatório (automático);
 - 📍 [Task092](source/task092.py):
   Calcular idade de aposentadoria, caso trabalhe;
+- 📍 [Task093](source/task093.py):
+  Mostrar aproveitamento dum jogador de futebol;
 
 ## 💡 Desenvolvimento Próprio
 
