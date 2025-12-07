@@ -238,6 +238,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Sortear jogos da MEGA SENA;
 - 📍 [Task089](source/task089.py):
   Mostrar os dados de alunos juntamente da média e das notas individuais;
+- 📍 [Task090](source/task007.py):
+  Calcular a média de duas notas de um aluno e mostrar a situação;\
+  *Essa tarefa já foi resolvida na **Task007**!*
 
 ## 💡 Desenvolvimento Próprio
 

@@ -1,43 +1,61 @@
 # 007
-# DESENVOLVA UM PROGRAMA QUE LEIA DUAS NOTAS DE UM ALUNO, CALCULE E MOSTRE A SUA
-# MÉDIA
+# Desenvolva um programa que leia duas notas de um aluno, calcule e
+# mostre a sua média
 
 # 040
-# CRIE UM PROGRAMA QUE LEIA DUAS NOTAS DE UM ALUNO, CALCULE A MÉDIA E MOSTRE A
-# SITUAÇÃO DELE DE ACORDO COM A MÉDIA
-# 	- ABAIXO DE 5.0:	REPROVADO
-# 	- ENTRE 5.0 E 6.9:	RECUPERAÇÃO
-# 	- ACIMA DE 7.0:		APROVADO
+# crie um programa que leia duas notas de um aluno, calcule a média e
+# mostre a situação dele de acordo com ela:
+# 	- Abaixo de 5.0:	Reprovado
+# 	- Entre 5.0 e 6.9:	Recuperação
+# 	- Acima de 7.0:		Aprovado
 
-from time import sleep
+# 090
+# Faça um programa que leia nome e média de um aluno, guardando também a
+# situação. No final, mostre o conteúdo da estrutura na tela.
+
+from statistics import mean
 
 from cli.io import printf
 from cli.wait import wait
 
 
 def run():
-    grade1 = float(input("Digite a 1ª nota: "))
-    grade2 = float(input("Digite a 2ª nota: "))
+    # init variables
+    msg = {"content": "", "color": ""}
+    student = {"name": "", "grades": [0, 0], "avg": 0}
 
-    average = (grade1 + grade2) / 2
+    # user interaction
+    student["name"] = input("Nome do(a) aluno(a): ").strip().title()
 
+    for i in range(2):
+        student["grades"][i] = float(
+            input(
+                "{}ª nota de {}: ".format(
+                    i + 1,
+                    student["name"],
+                )
+            )
+        )
+
+    # processing
     wait("Calculando...")
 
-    if average >= 7:
-        printf(
-            "Aluno(a) APROVADO(A) com média {:.1f}!".format(average),
-            style="bold",
-            color="cyan",
-        )
-    elif 7 > average >= 5:
-        printf(
-            "Aluno(a) DE RECUPERAÇÃO com média {:.1f}!".format(average),
-            style="bold",
-            color="yellow",
-        )
+    student["avg"] = mean(student["grades"])
+    msg["content"] = f"com média {student['avg']:.1f}!"
+
+    if student["avg"] >= 7:
+        msg["content"] = f"{student['name']} APROVADO(A) {msg['content']}"
+        msg["color"] = "cyan"
+    elif 5 <= student["avg"] < 7:
+        msg["content"] = f"{student['name']} DE RECUPERAÇÃO {msg['content']}"
+        msg["color"] = "yellow"
     else:
-        printf(
-            "Aluno(a) REPROVADO(A) com média {:.1f}!".format(average),
-            style="bold",
-            color="magenta",
-        )
+        msg["content"] = f"{student['name']} REPROVADO {msg['content']}"
+        msg["color"] = "magenta"
+
+    # output
+    printf(
+        msg["content"],
+        style="bold",
+        color=msg["color"],
+    )
