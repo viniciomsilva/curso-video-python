@@ -241,6 +241,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task090](source/task007.py):
   Calcular a média de duas notas de um aluno e mostrar a situação;\
   *Essa tarefa já foi resolvida na **Task007**!*
+- 📍 [Task091](source/task091.py):
+  Jogo de dados aleatório (automático);
 
 ## 💡 Desenvolvimento Próprio
 
