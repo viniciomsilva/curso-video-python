@@ -72,6 +72,7 @@ from source import task086
 from source import task088
 from source import task089
 from source import task091
+from source import task092
 
 
 class App:
@@ -245,5 +246,7 @@ class App:
                 task089.run()
             case 72:
                 task091.run()
+            case 73:
+                task092.run()
             case _:
                 raise Exception("Mini-app not found.")

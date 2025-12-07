@@ -243,6 +243,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task007**!*
 - 📍 [Task091](source/task091.py):
   Jogo de dados aleatório (automático);
+- 📍 [Task092](source/task092.py):
+  Calcular idade de aposentadoria, caso trabalhe;
 
 ## 💡 Desenvolvimento Próprio
 
