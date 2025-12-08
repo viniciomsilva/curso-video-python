@@ -13,6 +13,17 @@
 #   - Quantos homens foram cadastrados
 #   - Quantas mulheres têm menos de 20 anos
 
+# 094
+# Crie um programa que leia no nome, sexo e idade de várias pessoas,
+# guardando os dados de cada pessoa num dicionário e todos eles numa lista.
+# No final, mostre:
+#   - Quantas pessoas foram cadastradas
+#   - A média de idade do grupo
+#   - Uma lista com todas as mulheres
+#   - Uma lista com todas as pessoas com idade acima da média
+
+# TODO Refatorar (melhorar) a lógica desse arquivo
+
 from statistics import mean
 
 from classes.person import Person
@@ -39,10 +50,10 @@ def __older_man(people: list[Person]) -> tuple:
     return sorted(men, key=__age, reverse=True)[0], len(men)
 
 
-def __adults(people: list[Person]) -> int:
-    adults = list(filter(lambda x: x.age > 18, people))
+def __adults(people: list[Person], age=18.0) -> tuple:
+    adults = list(filter(lambda x: x.age >= age, people))
 
-    return len(adults)
+    return adults, len(adults)
 
 
 def __young_women(people: list[Person]) -> list[Person] | None:
@@ -77,12 +88,16 @@ def run():
         ):
             break
 
+    age_mean = mean([person.age for person in people])
+    above_names = [x.info["name"] for x in __adults(people, age_mean)[0]]
     older_man, number_of_men = __older_man(people)
     young_women = __young_women(people)
-    rps = "Média de idade: {:.1f} anos!".format(
-        mean([person.age for person in people]),
-    )
-    rps += "\nQuantidade de adultos: {}".format(__adults(people))
+    women_names = [p.info["name"] for p in __sex(people, "fem")]
+
+    rps += "Quantidade de pessoas: {}".format(len(people))
+    rps += "\nMédia de idade: {:.1f} anos!".format(age_mean)
+    rps += "\nPessoas com idade acima da média: {}".format(", ".join(above_names))
+    rps += "\nQuantidade de adultos: {}".format(__adults(people)[1])
 
     if older_man:
         rps += "\nQuantidade homens: {}".format(number_of_men)
@@ -92,6 +107,8 @@ def run():
         )
     else:
         rps += "\nNão há homens!!!"
+
+    rps += "\nAs mulheres cadastradas: {}".format(", ".join(women_names))
 
     if young_women:
         rps += "\nHá {} mulheres com MENOS de 20 anos!".format(len(young_women))

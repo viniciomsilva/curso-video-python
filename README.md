@@ -247,6 +247,9 @@ avanço no conhecimento geral básico da linguagem Python.
   Calcular idade de aposentadoria, caso trabalhe;
 - 📍 [Task093](source/task093.py):
   Mostrar aproveitamento dum jogador de futebol;
+- 📍 [Task094](source/task056.py):
+  Analisar dados de pessoas;\
+  *Essa tarefa já foi revolvida na **Task056**!*
 
 ## 💡 Desenvolvimento Próprio
 
