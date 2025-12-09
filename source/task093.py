@@ -5,26 +5,121 @@
 # tudo isso será guardado em um dicionário, incluído o total de gols
 # feitos durante o campeonato.
 
+# 095
+# Aprimore o DESAFIO 093 para que ele funciona com vários jogadores,
+# incluindo um sistema de visualização de detalhes do aproveitamento
+# de cada jogador.
+
+from cli.io import EXIT_CMDS
+from cli.io import inputf
+from cli.io import printf
+from cli.wait import wait
+from scripts.terminal import clear
+
+
+def __print_players(players):
+    clear()
+    printf(
+        "Jogadores",
+        end="\n\n",
+        style="bold",
+        color="cyan",
+    )
+    print(
+        "{:4} | {:20} | {:8} | {:5}".format(
+            "Cod.",
+            "Nome",
+            "Partidas",
+            "Total",
+        )
+    )
+
+    for i, p in enumerate(players):
+        print(
+            "{:<4} | {:20} | {:^8} | {:^5}".format(
+                i,
+                p["name"],
+                p["matches"],
+                p["total"],
+            )
+        )
+
+
+def __print_player_data(player):
+    clear()
+    printf(f"Resumo dos gols do jogador: {player["name"]}", style="bold")
+    print(f"Quantidade de partidas jogadas: {player["matches"]}")
+    print("Gols por partida: ")
+
+    for i, g in enumerate(player["goals"]):
+        print("  > {}ª partida: {} gol(s) feito(s)".format(i + 1, g))
+
 
 def run():
-    player = {}
+    players = []
 
-    player["name"] = input("Nome: ").strip().title()
-    player["matches"] = int(input("N.º de partidas: "))
+    # input
+    while True:
+        printf("Novo jogador", style="bold")
 
-    player["goals"] = []
+        name = input("Nome: ").strip().title()
+        matches = int(input("N.º de partidas: "))
 
-    for i in range(player["matches"]):
-        goals = int(input(f"  > N.º de gols na {i + 1}º partida: "))
-        player["goals"].append(goals)
+        goals = []
 
-    player["utilization"] = sum(player["goals"])
+        for i in range(matches):
+            n = int(input(f"  > N.º de gols na {i + 1}º partida: "))
+            goals.append(n)
+
+        players.append(
+            {
+                "name": name,
+                "matches": matches,
+                "goals": goals,
+                "total": sum(goals),
+            }
+        )
+
+        opt = (
+            inputf(
+                "Cadastrar outro jogador? [S/N] ",
+                start="\n",
+                style="bold",
+                color="yellow",
+            )
+            .strip()
+            .lower()
+        )
+        clear()
+
+        if opt in EXIT_CMDS:
+            break
 
     # output
-    print("-" * 30)
-    print(f"Dados do jogador: {player['name']}")
-    print(f"Quantidade de gols: {player['utilization']}")
-    print(f"Quantidade de partidas: {player['matches']}")
-    print(f"Gols por partida: ")
-    for i, v in enumerate(player["goals"]):
-        print(f"  > {i + 1}ª partida: {v}")
+    while True:
+        __print_players(players)
+
+        opt = inputf(
+            "Ver mais detalhes do jogador: ",
+            start="\n",
+        ).strip()
+
+        if opt in EXIT_CMDS:
+            break
+        elif opt.isnumeric():
+            opt = int(opt)
+
+            if 0 <= opt < len(players):
+                __print_player_data(players[opt])
+                inputf(
+                    "Pressione qualquer tecla para continuar...",
+                    start="\n",
+                    style="bold",
+                    color="yellow",
+                )
+                continue
+        wait(
+            "Desculpe! Opção inválida. Tente novamente!",
+            end="\n",
+            color="magenta",
+        )

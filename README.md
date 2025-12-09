@@ -250,6 +250,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task094](source/task056.py):
   Analisar dados de pessoas;\
   *Essa tarefa já foi revolvida na **Task056**!*
+- 📍 [Task095](source/task093.py):
+  Mostrar aproveitamento de jogadores de futebol;\
+  *Essa tarefa já foi revolvida na **Task093**!*
 
 ## 💡 Desenvolvimento Próprio
 
