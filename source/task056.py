@@ -1,29 +1,17 @@
-# 056
-# Desenvolva um programa que leia nome, idade e sexo de quatro pessoas. No final
-# mostre:
-#   - A média de idade do grupo
-#   - Qual é o nome do homem mais velho
-#   - Quantas mulheres têm menos de vinte anos
+# 056, 069 e 094
+# Crie um programa que leia: nome, idade e sexo de várias pessoas.
+# No final, mostre as seguintes análises:
 
-# 069
-# Crie um programa que leia a idade e o sexo de várias pessoas. A cada pessoa
-# cadastrada, o programa deverá perguntar se o usuário quer ou não continuar. No
-# final, mostre:
-#   - Quantas pessoas têm mais de 18 anos
-#   - Quantos homens foram cadastrados
-#   - Quantas mulheres têm menos de 20 anos
-
-# 094
-# Crie um programa que leia no nome, sexo e idade de várias pessoas,
-# guardando os dados de cada pessoa num dicionário e todos eles numa lista.
-# No final, mostre:
 #   - Quantas pessoas foram cadastradas
 #   - A média de idade do grupo
-#   - Uma lista com todas as mulheres
+#   - Quantas pessoas têm mais de 18 anos
 #   - Uma lista com todas as pessoas com idade acima da média
+#   - Quantos homens foram cadastrados
+#   - Qual é o nome do homem mais velho
+#   - Uma lista com todas as mulheres
+#   - Quantas mulheres têm menos de 20 anos
 
-# TODO Refatorar (melhorar) a lógica desse arquivo
-
+from datetime import date
 from statistics import mean
 
 from classes.person import Person
@@ -31,89 +19,130 @@ from cli.io import EXIT_CMDS
 from cli.io import printf
 from cli.io import inputf
 from cli.wait import wait
+from scripts.terminal import clear
 
 
-def __age(person: Person) -> int:
+def __age(person: Person):
     return person.age
 
 
-def __sex(people: list[Person], sex: str) -> list[Person]:
+def __filter_age(people: list[Person], age, greater=True):
+    if greater:
+        return list(filter(lambda p: p.age > age, people))
+    return list(filter(lambda p: p.age < age, people))
+
+
+def __filter_sex(people: list[Person], sex):
     return list(filter(lambda x: x.info["sex"] in sex, people))
 
 
-def __older_man(people: list[Person]) -> tuple:
-    men = __sex(people, "masc")
+def __analyse(people: list[Person]):
+    analysis = []
 
-    if not men:
-        return None, 0
+    men = __filter_sex(people, "m")
+    women = __filter_sex(people, "f")
+    age_mean = mean([p.age for p in people])
+    adults = __filter_age(people, 18)
+    people_above_mean_age = __filter_age(people, age_mean)
 
-    return sorted(men, key=__age, reverse=True)[0], len(men)
+    analysis.append("- Quantidade de pessoas: {}".format(len(people)))
+    analysis.append("- Quantidade de adultos: {}".format(len(adults)))
+    analysis.append("- Média de idade do grupo: {}".format(age_mean))
+    analysis.append(
+        "- Pessoas com idade acima da média: {}".format(
+            [(p.info["name"], p.age) for p in people_above_mean_age]
+        )
+    )
 
+    if men:
+        old_man = sorted(men, key=__age, reverse=True)[0]
 
-def __adults(people: list[Person], age=18.0) -> tuple:
-    adults = list(filter(lambda x: x.age >= age, people))
+        analysis.append("- Quantidade de homens: {}".format(len(men)))
+        analysis.append(
+            "  - O homem mais velho é {} com {} anos!".format(
+                old_man.info["name"],
+                old_man.age,
+            )
+        )
+    else:
+        analysis.append("- Não há homens!")
 
-    return adults, len(adults)
+    if women:
+        young_women = __filter_age(women, 20, greater=False)
 
+        analysis.append(
+            "- Todas as mulheres: {}".format(
+                [w.info["name"] for w in women],
+            )
+        )
+        analysis.append(
+            "  - Quantidade de mulheres jovens: {}".format(
+                len(young_women),
+            )
+        )
+    else:
+        analysis.append("- Não há mulheres!")
 
-def __young_women(people: list[Person]) -> list[Person] | None:
-    women = __sex(people, "fem")
-
-    if not women:
-        return None
-
-    return list(filter(lambda x: x.age < 20, women))
+    return analysis
 
 
 def run():
-    rps = ""
+    year = date.today().year
     people: list[Person] = []
+    wait_times = [
+        ("Iniciando análise...", 1),
+        ("Analisando...", 3),
+        ("Terminando a análise...", 1),
+    ]
 
+    # input
     while True:
-        printf("Nova pessoa: ", start="\n", style="bold")
+        printf("Nova pessoa: ", style="bold")
 
         name = input("Nome: ").title().strip()
-        birth = input("Ano de nascimento: ")
-        sex = input("Sexo: [M] Masc [F] Fem: ").lower().strip()
 
-        people.append(Person(name, int(birth), sex))
+        while True:
+            birth = input("Ano de nascimento: ").strip()
 
-        if (
-            inputf(
-                "Cadastrar outra pessoa? [S/N] ",
-                style="bold",
-                color="yellow",
-            )
-            in EXIT_CMDS
-        ):
+            if birth.isnumeric():
+                birth = int(birth)
+
+                if birth <= year:
+                    break
+
+            printf("Por favor, tente novamente! ", color="magenta")
+
+        while True:
+            sex = input("Sexo: [M] Masc [F] Fem: ").lower().strip()[0]
+
+            if sex in "fm":
+                break
+
+            printf("Por favor, tente novamente! ", color="magenta")
+
+        people.append(Person(name, birth, sex))
+        opt = inputf(
+            "Cadastrar outra pessoa? [S/N] ",
+            style="bold",
+            color="yellow",
+        )
+
+        if opt in EXIT_CMDS:
             break
 
-    age_mean = mean([person.age for person in people])
-    above_names = [x.info["name"] for x in __adults(people, age_mean)[0]]
-    older_man, number_of_men = __older_man(people)
-    young_women = __young_women(people)
-    women_names = [p.info["name"] for p in __sex(people, "fem")]
+        clear()
 
-    rps += "Quantidade de pessoas: {}".format(len(people))
-    rps += "\nMédia de idade: {:.1f} anos!".format(age_mean)
-    rps += "\nPessoas com idade acima da média: {}".format(", ".join(above_names))
-    rps += "\nQuantidade de adultos: {}".format(__adults(people)[1])
+    # analysis
+    analysis = __analyse(people)
 
-    if older_man:
-        rps += "\nQuantidade homens: {}".format(number_of_men)
-        rps += "\n{} é o homem mais velho com {} anos!".format(
-            older_man.info["name"],
-            older_man.info["age"],
-        )
-    else:
-        rps += "\nNão há homens!!!"
+    # output
+    for wt in wait_times:
+        wait(wt[0], time=wt[1], end="")
 
-    rps += "\nAs mulheres cadastradas: {}".format(", ".join(women_names))
+    clear()
+    printf("Análise concluída...", end="\n\n", style="bold", color="cyan")
 
-    if young_women:
-        rps += "\nHá {} mulheres com MENOS de 20 anos!".format(len(young_women))
-    else:
-        rps += "\nNão há mulheres com MENOS de 20 anos!!!"
+    for data in analysis:
+        printf(data, style="bold")
 
-    wait("Analisando...")
-    printf(rps, style="bold")
+    print()
