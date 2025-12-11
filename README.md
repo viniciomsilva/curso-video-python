@@ -256,6 +256,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task096](source/task011.py):
   Calcular área;\
   *Essa tarefa já foi revolvida na **Task011**!*
+- 📍 [Task097](source/hello_world.py):
+  Mostrar mensagens num print especial;\
+  *Essa tarefa já foi revolvida no **HelloWorld**!*
 
 ## 💡 Desenvolvimento Próprio
 
