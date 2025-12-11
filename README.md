@@ -253,6 +253,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task095](source/task093.py):
   Mostrar aproveitamento de jogadores de futebol;\
   *Essa tarefa já foi revolvida na **Task093**!*
+- 📍 [Task096](source/task011.py):
+  Calcular área;\
+  *Essa tarefa já foi revolvida na **Task011**!*
 
 ## 💡 Desenvolvimento Próprio
 

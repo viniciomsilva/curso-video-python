@@ -1,28 +1,42 @@
 # 011
-# FAÇA UM PROGRAMA QUE LEIA A LARGURA E A ALTURA DE UMA PAREDE EM METROS.
-# CALCULE SUA ÁREA E A QUANTIDADE DE TINTA NECESSÁRIA PARA PINTÁ-LA, SABENDO QUE
-# CADA 1L DE TINTA PINTA UMA ÁREA DE 2M²
+# Faça um programa que leia a largura e a altura de uma parede em metros.
+# Calcule sua área e a quantidade de tinta necessária para pintá-la, sabendo que
+# cada 1l de tinta pinta uma área de 2m²
 
+# 096
+# Faça um programa que tenha uma função chama área, que receba as dimensões dum
+# tereno retangular (largura e comprimento) e mostre a área do terreno.
+
+from cli.io import printf
 from scripts.custom import customize
 
 
+def __area(w: float, h: float):
+    return w * h
+
+
+def __ink(a, ink_a):
+    return a / ink_a
+
+
 def run():
-    width = float(input("Digite a largura em metros: "))
-    height = float(input("Digite a altura em metros.: "))
+    width = float(input("Largura (m): "))
+    height = float(input("Altura ou Comprimento (m): "))
 
-    area = width * height
+    area = __area(width, height)
 
-    print(
-        "\nVocê precisará de {} de tinta para pintar uma área de {}".format(
+    printf(
+        "Você precisará de {} de tinta para pintar uma área de {}!".format(
             customize(
-                "{:.1f}L".format(area / 2),
+                f"{__ink(area, 2):.1f}L",
                 style="under",
                 color="cyan",
             ),
             customize(
-                "{:.2f}m²".format(area),
+                f"{area:.2f}m²",
                 style="under",
                 color="magenta",
             ),
-        )
+        ),
+        start="\n",
     )
