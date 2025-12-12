@@ -17,6 +17,7 @@ def printf(
     value: object = "",
     start: str = "",
     end: str = "\n",
+    flush: bool = True,
     style: str = "",
     color: str = "",
     back: str = "",
@@ -24,4 +25,5 @@ def printf(
     print(
         customize(f"{start}{value}", style, color, back),
         end=end,
+        flush=flush,
     )

@@ -259,6 +259,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task097](source/hello_world.py):
   Mostrar mensagens num print especial;\
   *Essa tarefa já foi revolvida no **HelloWorld**!*
+- 📍 [Task098](source/task098.py):
+  Mostrar contagem personalizada;
 
 ## 💡 Desenvolvimento Próprio
 
