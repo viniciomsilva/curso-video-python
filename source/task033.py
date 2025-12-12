@@ -9,6 +9,11 @@
 # No final, mostre qual foi o maior e o menor valor digitado e as suas
 # respectivas posições na lista.
 
+# 099
+# Faça um programa que tenha uma função chamada maior, que receba vários
+# parâmetros com valores inteiros. Seu programa tem que analisar todos os
+# valores e dizer qual deles é o maior.
+
 from random import randint
 
 from cli.io import printf

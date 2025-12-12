@@ -261,6 +261,9 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi revolvida no **HelloWorld**!*
 - 📍 [Task098](source/task098.py):
   Mostrar contagem personalizada;
+- 📍 [Task099](source/task033.py):
+  Mostrar o maior valor dentre uma série de números, usando **DEF**;\
+  *Essa tarefa já foi resolvida na **Task033**!*
 
 ## 💡 Desenvolvimento Próprio
 
