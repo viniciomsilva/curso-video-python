@@ -264,6 +264,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task099](source/task033.py):
   Mostrar o maior valor dentre uma série de números, usando **DEF**;\
   *Essa tarefa já foi resolvida na **Task033**!*
+- 📍 [Task100](source/task100.py):
+  Sortear valores aleatórios e mostrar a soma dos valores pares;
 
 ## 💡 Desenvolvimento Próprio
 
