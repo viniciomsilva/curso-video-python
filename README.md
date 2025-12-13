@@ -266,6 +266,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task033**!*
 - 📍 [Task100](source/task100.py):
   Sortear valores aleatórios e mostrar a soma dos valores pares;
+- 📍 [Task110](source/task101.py):
+  Analisar se o voto é obrigatório ou facultativo;
 
 ## 💡 Desenvolvimento Próprio
 
