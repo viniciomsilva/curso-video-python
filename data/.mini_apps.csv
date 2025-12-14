@@ -77,3 +77,4 @@ task 098|Mostrar contagem personalizada;
 task 100|Sortear valores aleatórios e mostrar a soma dos valores pares;
 task 101|Analisar se o voto é obrigatório ou facultativo;
 task 104|Validar apenas a entrada de números inteiros;
+task 105|Calcular a situação de uma sala de aula, considerando as notas;

@@ -276,6 +276,8 @@ avanço no conhecimento geral básico da linguagem Python.
   *Essa tarefa já foi resolvida na **Task093**!*
 - 📍 [Task104](source/task104.py):
   Validar apenas a entrada de números inteiros;
+- 📍 [Task105](source/task105.py):
+  Calcular a situação de uma sala de aula, considerando as notas;
 
 ## 💡 Desenvolvimento Próprio
 
