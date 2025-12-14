@@ -274,6 +274,8 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task103](source/task093.py):
   Mostrar aproveitamento dum jogador de futebol, mesmo sem dados corretos;\
   *Essa tarefa já foi resolvida na **Task093**!*
+- 📍 [Task104](source/task104.py):
+  Validar apenas a entrada de números inteiros;
 
 ## 💡 Desenvolvimento Próprio
 
