@@ -271,6 +271,9 @@ avanço no conhecimento geral básico da linguagem Python.
 - 📍 [Task102](source/task060.py):
   Calcular o fatorial dum número e mostrar, ou não, o cálculo;\
   *Essa tarefa já foi resolvida na **Task060**!*
+- 📍 [Task103](source/task093.py):
+  Mostrar aproveitamento dum jogador de futebol, mesmo sem dados corretos;\
+  *Essa tarefa já foi resolvida na **Task093**!*
 
 ## 💡 Desenvolvimento Próprio
 

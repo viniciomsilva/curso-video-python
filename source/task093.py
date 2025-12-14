@@ -10,6 +10,12 @@
 # incluindo um sistema de visualização de detalhes do aproveitamento
 # de cada jogador.
 
+# 103
+# Faça um programa que tenha uma função chamada ficha(), que receba dois
+# parâmetros opcionais: o nome de um jogador e quantos gols ele marcou.
+# O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum
+# dado não tenha sido informado corretamente.
+
 from cli.io import EXIT_CMDS
 from cli.io import inputf
 from cli.io import printf
@@ -62,10 +68,11 @@ def run():
     while True:
         printf("Novo jogador", style="bold")
 
-        name = input("Nome: ").strip().title()
-        matches = int(input("N.º de partidas: "))
+        name = input("Nome: ").strip()
+        matches = input("N.º de partidas: ").strip()
 
         goals = []
+        matches = int(matches) if matches and matches.isnumeric() else 0
 
         for i in range(matches):
             n = int(input(f"  > N.º de gols na {i + 1}º partida: "))
@@ -73,7 +80,7 @@ def run():
 
         players.append(
             {
-                "name": name,
+                "name": name.title() if name else "<empty>",
                 "matches": matches,
                 "goals": goals,
                 "total": sum(goals),
@@ -100,7 +107,7 @@ def run():
         __print_players(players)
 
         opt = inputf(
-            "Ver mais detalhes do jogador: ",
+            "Ver mais detalhes do jogador (exit para sair): ",
             start="\n",
         ).strip()
 
