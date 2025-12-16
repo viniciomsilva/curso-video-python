@@ -280,6 +280,8 @@ avanço no conhecimento geral básico da linguagem Python.
   Calcular a situação de uma sala de aula, considerando as notas;
 - 📍 [Task106](source/task106.py):
   Entrar no Interactive Help para um request do usuário;
+- 📍 [Tasks 107 to 112](source/task107.py):
+  Pacote de tratamento de entradas e saídas de números monetários em BRL;
 
 ## 💡 Desenvolvimento Próprio
 
