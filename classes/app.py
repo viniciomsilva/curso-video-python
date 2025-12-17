@@ -1,5 +1,5 @@
 from scripts.database import read_csv
-from source import hello_world, task106, task107
+from source import hello_world, task106, task107, task114
 from source import task001
 from source import task002
 from source import task003
@@ -270,5 +270,7 @@ class App:
                 task106.run()
             case 81:
                 task107.run()
+            case 82:
+                task114.run()
             case _:
                 raise Exception("Mini-app not found.")
