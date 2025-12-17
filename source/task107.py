@@ -29,12 +29,12 @@
 # funcionar como a função input(), mas com uma validação de dados para aceitar
 # apenas valores que sejam monetários.
 
-from .pkg_task107.money import summary
-from .pkg_task107.validate import read_float
+from cli.io import inputf_flo
+from scripts.money import summary
 
 
 def run():
-    v = read_float("Valor: R$ ")
-    p = read_float("Percentual (%): ")
+    v = inputf_flo("Valor: R$ ")
+    p = inputf_flo("Percentual (%): ")
 
     summary(v, p)
