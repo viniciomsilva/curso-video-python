@@ -282,6 +282,11 @@ avanço no conhecimento geral básico da linguagem Python.
   Entrar no Interactive Help para um request do usuário;
 - 📍 [Tasks 107 to 112](source/task107.py):
   Pacote de tratamento de entradas e saídas de números monetários em BRL;
+- 📍 [Task113](source/task104.py):
+  Refatorar as funções de validação de entrada de dados numéricos;\
+  
+  - [cli.io.inputf_int](/cli/io.py): valida entrada de *int*;
+  - [cli.io.inputf_flo](/cli/io.py): valida entrada de *float*.
 
 ## 💡 Desenvolvimento Próprio
 

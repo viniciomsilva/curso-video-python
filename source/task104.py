@@ -2,23 +2,20 @@
 # Faça um programa que tenha a função leiInt(), que vai funcionar como a função
 # input() do Python, validando apenas as entradas numéricas.
 
-from cli.io import printf
+# 113
+# Reescreva a função leiaInt() que fizemos no desafio 104, incluindo agora a
+# possibilidade da digitação de uma número inválido. Aproveite e crie também uma
+# função leiaFloat() com a mesma funcionalidade.
 
-
-def __input_int(prompt: str = "") -> int:
-    while True:
-        try:
-            return int(input(prompt).strip())
-        except:
-            printf("Por favor! ", end="", color="magenta")
+from cli.io import inputf_int
+from cli.io import inputf_flo
 
 
 def run():
-    num = __input_int("Digite um número: ")
+    print("Tratamento de erro na entrada de números inteiros...")
+    num_int = inputf_int("Digite um número inteiro: ")
+    print(f"Valor inteiro digitado: {num_int}")
 
-    printf(
-        f"😊 Você digitou o número {num}!",
-        start="\n",
-        style="bold",
-        color="cyan",
-    )
+    print("\nTratamento de erro na entrada de números decimais...")
+    num_flo = inputf_flo("Digite um número decimal: ")
+    print(f"Valor decimal digitado: {num_flo}")
