@@ -290,6 +290,8 @@ avanço no conhecimento geral básico da linguagem Python.
 
 - 📍 [Task114](source/task114.py):
   Saber se o site [Pudim](http://www.pudim.com.br) está acessível ou não;
+- 📍 [Task115](source/task115.py):
+  Cadastrar e ler pessoas dum arquivo de texto;
 
 ## 💡 Desenvolvimento Próprio
 

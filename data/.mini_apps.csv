@@ -81,3 +81,4 @@ task 105|Calcular a situação de uma sala de aula, considerando as notas;
 task 106|Entrar no Interactive Help para um request do usuário;
 task 107|Pacote de tratamento de entradas e saídas de números monetários em BRL;
 task 114|Saber se o site Pudim está acessível ou não;
+task 115|Cadastrar e ler pessoas dum arquivo de texto;
