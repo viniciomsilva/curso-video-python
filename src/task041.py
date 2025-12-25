@@ -1,27 +1,28 @@
 # 041
-# A CONFEDERAÇÃO NACIONAL DE NATAÇÃO PRECISA DE UM PROGRAMA QUE LEIA O ANO DE
-# NASCIMENTO DE UM ATLETA E MOSTRE SUA CATEGORIA, DE ACORDO COM A IDADE:
-# 	- ATÉ 9 ANOS:	MIRIM
-# 	- ATÉ 14 ANOS:	INFANTIL
-# 	- ATÉ 19 ANOS:	JÚNIOR
-# 	- ATÉ 20 ANOS:  SÊNIOR
-# 	- ACIMA:	    MASTER
+# A Confederação Nacional de Natação precisa de um programa que leia o ano de
+# nascimento de um atleta e mostre sua categoria, de acordo com a idade:
+#   - Até 9 anos (mirim);
+#   - Até 14 anos (infantil);
+#   - Até 19 anos (júnior);
+#   - Até 20 anos (sênior);
+#   - Acima (master).
 
-from datetime import date
-
+from cli.io import inputf_int
 from cli.io import printf
+from cli.ux import THIS_YEAR
 
 
-def run():
+if __name__ == "__main__":
     rps = {
         "content": "",
         "back": "",
     }
-    birth = int(input("Data de nascimento: "))
 
-    age = date.today().year - birth
+    birth = inputf_int("Ano de nascimento: ")
+    age = THIS_YEAR - birth
 
-    rps["content"] = " Ele(a) tem {} anos. ".format(age)
+    rps["content"] = f" Ele(a) tem {age} anos. "
+
     if age <= 9:
         rps["content"] += "Categoria MIRIM. "
         rps["back"] = "green"
@@ -44,7 +45,3 @@ def run():
         style="bold",
         back=rps["back"],
     )
-
-
-if __name__ == "__main__":
-    run()

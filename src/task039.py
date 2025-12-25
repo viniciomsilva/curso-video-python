@@ -1,23 +1,22 @@
 # 039
-# FAÇA UM PROGRAMA QUE LEIA O ANO DE NASCIMENTO DE UM JOVEM E INFORME, DE ACORDO
-# COM SUA IDADE:
-# 	- SE ELE AINDA VAI SE ALISTA AO SERVIÇO MILITAR
-# 	- SE ESTÁ NA HORA DE SE ALISTA AO SERVIÇO MILITAR
-# 	- SE JÁ PASSOU DO TEMPO DE SE ALISTAR AO SERVIÇO MILITAR
-# O PROGRAMA TAMBÉM DEVERÁ MOSTRAR O TEMPO QUE FALTA OU QUE PASSOU DO PRAZO
+# Faça um programa que leia o ano de nascimento de um jovem e informe, de acordo
+# com sua idade:
+#   - Se ele ainda vai se alista ao serviço militar;
+#   - Se está na hora de se alista ao serviço militar;
+#   - Se já passou do tempo de se alistar ao serviço militar.
+# O programa também deverá mostrar o tempo que falta ou que passou do prazo.
 
-from datetime import date
-
+from cli.io import inputf_int
 from cli.io import printf
+from cli.ux import THIS_YEAR
 
 
-def run():
-    year_birth = int(input("Digite o ano de nascimento: "))
+if __name__ == "__main__":
+    birth = inputf_int("Digite o ano de nascimento: ")
 
-    this_year = date.today().year
-    age = this_year - year_birth
+    age = THIS_YEAR - birth
 
-    if year_birth > this_year:
+    if birth > THIS_YEAR:
         printf(
             "Ops! Ano de nascimento inválido.",
             style="bold",
@@ -48,7 +47,3 @@ def run():
                 style="bold",
                 color="cyan",
             )
-
-
-if __name__ == "__main__":
-    run()

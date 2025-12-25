@@ -25,7 +25,7 @@ def __even_odd(values: list[int], iseven: bool = True) -> tuple[list[int], int]:
     return n, sum(n[:])
 
 
-def run():
+if __name__ == "__main__":
     limit = int(input("Quantidade de valores a serem sorteados: ").strip())
 
     values = __draw_numbers(limit)
@@ -35,7 +35,3 @@ def run():
     print("\nValores sorteados: {}".format(values))
     print("O valores pares são: {}. E somam: {}".format(even, se))
     print("O valores ímpares são: {}. E somam: {}".format(odd, so))
-
-
-if __name__ == "__main__":
-    run()

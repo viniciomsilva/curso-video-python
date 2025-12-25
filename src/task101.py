@@ -3,13 +3,12 @@
 # parâmetro o ano de nascimento de uma pessoa, retornando uma valor literal
 # indicando se ela tem voto NEGADO, OBRIGATÓRIO ou OPCIONAL nas eleições.
 
-from datetime import date
-
 from cli.io import printf
+from cli.ux import THIS_YEAR
 
 
 def __vote(birth: int) -> str:
-    age = date.today().year - birth
+    age = THIS_YEAR - birth
 
     if age < 16:
         return f"Com {age} anos o voto é NEGADO!"
@@ -19,11 +18,7 @@ def __vote(birth: int) -> str:
     return f"Com {age} anos, o voto é OBRIGATÓRIO!"
 
 
-def run():
+if __name__ == "__main__":
     birth = int(input("Ano de nascimento: "))
 
     printf(__vote(birth), style="bold")
-
-
-if __name__ == "__main__":
-    run()

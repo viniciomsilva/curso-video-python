@@ -1,14 +1,16 @@
 # 038
-# ESCREVA UM PROGRAMA QUE LEIA DOIS VALORES INTEIROS COMPARE-OS, MOSTRANDO NA
-# TELA UMA MENSAGEM:
-# 	- O PRIMEIRO VALOR É MAIOR
-# 	- O SEGUNDO VALOR É MAIOR
-# 	- NÃO EXISTE MAIOR, OS DOIS SÃO IGUAIS
+# Escreva um programa que leia dois valores inteiros compare-os, mostrando na
+# tela uma mensagem:
+#   - O primeiro valor é maior;
+#   - O segundo valor é maior;
+#   - Não existe maior, os dois são iguais.
+
+from cli.io import inputf_int
 
 
-def run():
-    num1 = int(input("Digite o 1º valor: "))
-    num2 = int(input("Digite o 2º valor: "))
+if __name__ == "__main__":
+    num1 = inputf_int("Digite o 1º valor: ")
+    num2 = inputf_int("Digite o 2º valor: ")
 
     if num1 == num2:
         print("Ambos os valores são iguais!")
@@ -16,7 +18,3 @@ def run():
         print("{} é maior que {}".format(num1, num2))
     else:
         print("{} é maior que {}".format(num2, num1))
-
-
-if __name__ == "__main__":
-    run()

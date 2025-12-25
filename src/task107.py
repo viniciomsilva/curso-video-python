@@ -30,15 +30,79 @@
 # apenas valores que sejam monetários.
 
 from cli.io import inputf_flo
-from scripts.money import summary
+from cli.ux import brl
 
 
-def run():
-    v = inputf_flo("Valor: R$ ")
-    p = inputf_flo("Percentual (%): ")
+def __increase(
+    value: float,
+    percentage: float,
+    format: bool = False,
+) -> str | float:
+    r = value * (1 + percentage / 100)
 
-    summary(v, p)
+    return brl(r) if format else r
+
+
+def __decrease(
+    value: float,
+    percentage: float,
+    format: bool = False,
+) -> str | float:
+    r = value * (1 - percentage / 100)
+
+    return brl(r) if format else r
+
+
+def __double(
+    value: float,
+    format: bool = False,
+) -> str | float:
+    r = value * 2
+
+    return brl(r) if format else r
+
+
+def __half(
+    value: float,
+    format: bool = False,
+) -> str | float:
+    r = value / 2
+
+    return brl(r) if format else r
+
+
+def __summary(value: float, percentage: float):
+    print("\nResumo")
+    print(
+        ">> {} com {:.1f}% de incremento: {}".format(
+            brl(value),
+            percentage,
+            __increase(value, percentage, True),
+        )
+    )
+    print(
+        ">> {} com {:.1f}% de decremento: {}".format(
+            brl(value),
+            percentage,
+            __decrease(value, percentage, True),
+        )
+    )
+    print(
+        ">> A metade de {}: {}".format(
+            brl(value),
+            __half(value, True),
+        )
+    )
+    print(
+        ">> O dobro de {}: {}".format(
+            brl(value),
+            __double(value, True),
+        )
+    )
 
 
 if __name__ == "__main__":
-    run()
+    v = inputf_flo("Valor: R$ ")
+    p = inputf_flo("Percentual (%): ")
+
+    __summary(v, p)

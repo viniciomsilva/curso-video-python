@@ -8,20 +8,23 @@
 #   - A soma dos valores da terceira coluna
 #   - O maior valor da segunda linha
 
+from cli.io import inputf_int
 
-def run():
-    matrix = []
+
+if __name__ == "__main__":
+    values: list[int] = []
+    matrix: list[list[int]] = []
     sum_even = 0
 
     for i in range(9):
-        n = int(input(f"{i + 1}o. valor: "))
+        n = inputf_int(f"{i + 1}o. valor: ")
 
         if n % 2 == 0:
             sum_even += n
 
-        matrix.append(n)
+        values.append(n)
 
-    matrix = [matrix[i : i + 3] for i in range(0, 9, 3)]
+    matrix = [values[i : i + 3] for i in range(0, 9, 3)]
 
     print()
     print("-" * 23)
@@ -40,7 +43,3 @@ def run():
             sum([matrix[i][2] for i in range(3)]),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

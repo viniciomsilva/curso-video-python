@@ -16,15 +16,16 @@
 # O programa deverá ser capaz de mostrar a ficha do jogador, mesmo que algum
 # dado não tenha sido informado corretamente.
 
-from cli.io import EXIT_CMDS
 from cli.io import inputf
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
-from cli.wait import wait
-from scripts.terminal import clear
+from cli.ux import wait
+from cli import terminal as tm
 
 
-def __print_players(players):
-    clear()
+def __print_players(players: list[dict[str, str | int | list[int]]]) -> None:
+    tm.clear()
     printf(
         "Jogadores",
         end="\n\n",
@@ -51,31 +52,30 @@ def __print_players(players):
         )
 
 
-def __print_player_data(player):
-    clear()
+def __print_player_data(player: dict[str, str | int | list[int]]) -> None:
+    tm.clear()
     printf(f"Resumo dos gols do jogador: {player["name"]}", style="bold")
     print(f"Quantidade de partidas jogadas: {player["matches"]}")
     print("Gols por partida: ")
 
-    for i, g in enumerate(player["goals"]):
-        print("  > {}ª partida: {} gol(s) feito(s)".format(i + 1, g))
+    for i, g in enumerate(player["goals"]):  # type: ignore
+        print(f"  > {i + 1}ª partida: {g} gol(s) feito(s)")  # type: ignore
 
 
-def run():
-    players = []
+if __name__ == "__main__":
+    players: list[dict[str, str | int | list[int]]] = []
 
     # input
     while True:
         printf("Novo jogador", style="bold")
 
         name = input("Nome: ").strip()
-        matches = input("N.º de partidas: ").strip()
+        matches = inputf_int("N.º de partidas: ")
 
-        goals = []
-        matches = int(matches) if matches and matches.isnumeric() else 0
+        goals: list[int] = []
 
         for i in range(matches):
-            n = int(input(f"  > N.º de gols na {i + 1}º partida: "))
+            n = inputf_int(f"  > N.º de gols na {i + 1}º partida: ")
             goals.append(n)
 
         players.append(
@@ -87,50 +87,38 @@ def run():
             }
         )
 
-        opt = (
-            inputf(
-                "Cadastrar outro jogador? [S/N] ",
-                start="\n",
-                style="bold",
-                color="yellow",
-            )
-            .strip()
-            .lower()
-        )
-        clear()
-
-        if opt in EXIT_CMDS:
+        if leave(
+            "Cadastrar outro jogador? [S/N] ",
+            start="\n",
+            style="bold",
+            color="yellow",
+        ):
             break
+
+        tm.clear()
 
     # output
     while True:
         __print_players(players)
 
-        opt = inputf(
-            "Ver mais detalhes do jogador (exit para sair): ",
+        opt = inputf_int(
+            "Ver mais detalhes do jogador (-1 para sair): ",
             start="\n",
-        ).strip()
+        )
 
-        if opt in EXIT_CMDS:
+        if opt == -1:
             break
-        elif opt.isnumeric():
-            opt = int(opt)
-
-            if 0 <= opt < len(players):
-                __print_player_data(players[opt])
-                inputf(
-                    "Pressione qualquer tecla para continuar...",
-                    start="\n",
-                    style="bold",
-                    color="yellow",
-                )
-                continue
+        elif opt < len(players):
+            __print_player_data(players[opt])
+            inputf(
+                "Pressione qualquer tecla para continuar...",
+                start="\n",
+                style="bold",
+                color="yellow",
+            )
+            continue
         wait(
             "Desculpe! Opção inválida. Tente novamente!",
             end="\n",
             color="magenta",
         )
-
-
-if __name__ == "__main__":
-    run()

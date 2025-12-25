@@ -4,35 +4,29 @@
 # adicionado. No final, serão exibidos todos os valores únicos digitados,
 # em ordem crescente.
 
-from cli.io import EXIT_CMDS
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def run():
-    values = []
+if __name__ == "__main__":
+    values: list[int] = []
 
     while True:
-        v = input("Digite um valor: ")
+        v = inputf_int("Digite um valor: ")
 
-        if not v.isnumeric():
-            print("Por favor! ", end="")
-            continue
-        elif not v in values:
+        if not v in values:
             values.append(v)
 
-        if input("Quer continuar? [S/N] ").strip().lower() in EXIT_CMDS:
+        if leave("Quer continuar? [y/n] "):
             break
 
     wait("Analisando...")
     printf(
         "Você digitou os valores: {}".format(
-            sorted(map(int, values)),
+            sorted(values),
         ),
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

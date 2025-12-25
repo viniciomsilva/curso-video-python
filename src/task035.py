@@ -1,28 +1,29 @@
 # 035
-# DESENVOLVA UM PROGRAMA QUE LEIA O COMPRIMENTO DE TRÊS SEGMENTOS DE RETA E DIGA
-# AO USUÁRIO SE ELES PODEM OU NÃO FORMAR UM TRIÂNGULO.
+# Desenvolva um programa que leia o comprimento de três segmentos de reta e diga
+# ao usuário se eles podem ou não formar um triângulo.
 
-# REGRA DA DESIGUALDADE TRIANGULAR
-#   A SOMA DE DOIS QUAISQUER SEGMENTOS DEVE SER MAIOR QUE O TERCEIRO
+# Regra da desigualdade triangular:
+#   - A soma de dois quaisquer segmentos deve ser maior que o terceiro.
 
 # 042
-# REFAÇA O DESAFIO 035 DOS TRIÂNGULOS, ACRESCENTANDO O RECURSO DE MOSTRAR QUE
-# TIPO DE TRIÂNGULO SERÁ FORMADO.
-# 	- EQUILÁTERO:	TODOS OS LADOS IGUAIS
-# 	- ISÓSCELES:	DOIS LADOS IGUAIS
-# 	- ESCALENO:     TODOS OS LADOS DIFERENTES
+# Refaça o desafio 035 dos triângulos, acrescentando o recurso de mostrar que
+# tipo de triângulo será formado:
+#   - Equilátero (todos os lados iguais);
+#   - Isósceles (dois lados iguais);
+#   - Escaleno (todos os lados diferentes).
 
+from cli.io import inputf_flo
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def __is_triangle(a, b, c):
+def __is_triangle(a: float, b: float, c: float):
     # Triangular inequality rule:
     # The sum of any two segments must be greater than the third.
     return a + b > c and a + c > b and b + c > a
 
 
-def __form_triangle(segments):
+def __form_triangle(segments: list[float]) -> dict[str, str]:
     response = {
         "msg": "👎 Não formam um triângulo.",
         "color": "magenta",
@@ -31,22 +32,24 @@ def __form_triangle(segments):
     if __is_triangle(segments[0], segments[1], segments[2]):
         response["color"] = "cyan"
 
-        match len(set(segments)):  # set does not allow duplicated data
+        match set(segments).__len__():  # set does not allow duplicated data
             case 1:
                 response["msg"] = "👍 Formam um triângulo equilátero."
             case 2:
                 response["msg"] = "👍 Formam um triângulo isósceles."
             case 3:
                 response["msg"] = "👍 Formam um triângulo escaleno."
+            case _:
+                ...
 
     return response
 
 
-def run():
-    segments = []
+if __name__ == "__main__":
+    segments: list[float] = []
 
     for i in range(3):
-        seg = float(input("Valor do {}º segmento: ".format(i + 1)))
+        seg = inputf_flo(f"Valor do {(i + 1)}º segmento: ")
         segments.append(seg)
 
     wait("Analisando...")
@@ -57,7 +60,3 @@ def run():
         style="bold",
         color=response["color"],
     )
-
-
-if __name__ == "__main__":
-    run()

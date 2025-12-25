@@ -1,12 +1,12 @@
 # 001
-# FAÇA UM PROGRAMA QUE LEIA O NOME DE UMA PESSOA E MOSTRE UMA MENSAGEM
-# DE BOAS VINDAS
+# Faça um programa que leia o nome de uma pessoa e mostre uma mensagem
+# de boas vindas.
 
 from cli.io import inputf
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     name = inputf("Qual é o seu nome? ", style="bold")
 
     printf(
@@ -16,7 +16,3 @@ def run():
         start="\n",
         style="bold",
     )
-
-
-if __name__ == "__main__":
-    run()

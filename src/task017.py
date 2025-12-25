@@ -1,15 +1,16 @@
 # 017
-# FAÇA UM PROGRAMA QUE LEIA O COMPRIMENTO DOS CATETOS OPOSTO E ADJACENTE
-# DE UM TRIANGULO RETÂNGULO, CALCULE E MOSTRE O COMPRIMENTO DA HIPOTENUSA
+# Faça um programa que leia o comprimento dos catetos oposto e adjacente
+# de um triangulo retângulo, calcule e mostre o comprimento da hipotenusa.
 
 from math import hypot
 
+from cli.io import inputf_flo
 from cli.io import printf
 
 
-def run():
-    a = float(input("Digite o valor de A: "))
-    b = float(input("Digite o valor de B: "))
+if __name__ == "__main__":
+    a = inputf_flo("Digite o valor de A: ")
+    b = inputf_flo("Digite o valor de B: ")
 
     printf(
         "A hipotenusa vale: {:.2f}".format(hypot(a, b)),
@@ -17,7 +18,3 @@ def run():
         style="under",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

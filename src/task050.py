@@ -5,7 +5,7 @@
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     s = 0
 
     for i in range(6):
@@ -20,7 +20,3 @@ def run():
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

@@ -4,7 +4,7 @@
 # suas vogais.
 
 
-def run():
+if __name__ == "__main__":
     words = (
         "aprender",
         "programar",
@@ -29,7 +29,3 @@ def run():
                 ", ".join(vowels),
             )
         )
-
-
-if __name__ == "__main__":
-    run()

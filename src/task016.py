@@ -1,13 +1,14 @@
 # 016
-# CRIE UM PROGRAMA QUE LEIA UM NÚMERO REAL QUALQUER E MOSTRE SUA PORÇÃO INTEIRA
+# Crie um programa que leia um número real qualquer e mostre sua porção inteira.
 
 from math import trunc
 
-from scripts.custom import customize
+from cli.io import inputf_flo
+from cli.ux import customize
 
 
-def run():
-    num = float(input("Digite um número real qualquer: "))
+if __name__ == "__main__":
+    num = inputf_flo("Digite um número real qualquer: ")
 
     print(
         "\nA parte inteira do número digitado é: {}".format(
@@ -18,7 +19,3 @@ def run():
             ),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

@@ -18,7 +18,7 @@ class MusicPlayer:
             )
             .resolve()
         )
-        self.__playlist: list = self.__load_playlist()
+        self.__playlist: list[dict[str, str]] = self.__load_playlist()
         mixer.init()
 
     @staticmethod
@@ -26,10 +26,10 @@ class MusicPlayer:
         mixer.quit()
 
     @property
-    def playlist(self) -> list:
+    def playlist(self) -> list[dict[str, str]]:
         return self.__playlist
 
-    def __load_playlist(self) -> list:
+    def __load_playlist(self) -> list[dict[str, str]]:
         return [
             {
                 "title": data[0],
@@ -39,7 +39,7 @@ class MusicPlayer:
             for data in db.read_csv("playlist.csv")
         ]
 
-    def select(self, option: int) -> dict:
+    def select(self, option: int) -> dict[str, str]:
         if option <= 0 or option > len(self.__playlist):
             raise Exception("Music does not exists.")
 

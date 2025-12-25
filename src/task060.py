@@ -8,8 +8,9 @@
 # show, que será um valor lógico (opcional), indicando se será mostrado, ou não,
 # o processo de cálculo.
 
+from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
 def __factorial(num: int, show: bool = False) -> str:
@@ -23,8 +24,8 @@ def __factorial(num: int, show: bool = False) -> str:
         str: Factorial result.
 
     Examples:
-        __factorial(4) -> '4! = 24'
-        __factorial(4, True) -> '4! = 4 * 3 * 2 * 1 = 24'
+        >>> __factorial(4) -> '4! = 24'
+        >>> __factorial(4, True) -> '4! = 4 * 3 * 2 * 1 = 24'
     """
     from math import factorial as fc
 
@@ -39,8 +40,8 @@ def __factorial(num: int, show: bool = False) -> str:
     return r
 
 
-def run():
-    num = int(input("Digite um número: "))
+if __name__ == "__main__":
+    num = inputf_int("Digite um número: ")
     show = bool(input("Quer ver o cálculo? "))
 
     wait("Calculando...")
@@ -49,7 +50,3 @@ def run():
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

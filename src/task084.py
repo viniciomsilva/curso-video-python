@@ -5,21 +5,25 @@
 #   - Uma listagem com as pessoas mais pesadas
 #   - Uma listagem com as pessoas mais leves
 
-from cli.io import EXIT_CMDS
+from cli.io import inputf_flo
+from cli.io import leave
 
 
-def __name_people_weight(p: list, w: float):
-    return [y["name"] for y in filter(lambda x: x["weight"] == w, p)]
+def __name_people_weight(
+    p: list[dict[str, str | float]],
+    w: float,
+) -> list[str]:
+    return [str(y["name"]) for y in filter(lambda x: x["weight"] == w, p)]
 
 
-def run():
-    people = []
+if __name__ == "__main__":
+    people: list[dict[str, str | float]] = []
     fatter = 0
     tinner = 0
 
     while True:
         name = input("Nome: ").strip().title()
-        weight = float(input("Peso (KG): ").strip())
+        weight = inputf_flo("Peso (KG): ")
 
         if weight > fatter:
             fatter = weight
@@ -28,7 +32,7 @@ def run():
 
         people.append({"name": name, "weight": weight})
 
-        if input("Cadastrar outra? [s/n] ").strip() in EXIT_CMDS:
+        if leave("Cadastrar outra? [s/n] "):
             break
 
     print(f"\nQuantidade de pessoas: {len(people)}")
@@ -38,14 +42,9 @@ def run():
             ", ".join(__name_people_weight(people, fatter)),
         )
     )
-
     print(
         "Menor peso: {}kg. As pessoas com ele são: {}".format(
             tinner,
             ", ".join(__name_people_weight(people, tinner)),
         )
     )
-
-
-if __name__ == "__main__":
-    run()

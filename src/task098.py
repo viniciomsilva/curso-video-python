@@ -30,7 +30,7 @@ def __count(start: int, stop: int, step: int = 1) -> None:
     sleep(1)
 
 
-def run():
+if __name__ == "__main__":
     printf("Contagem: 1 - 10. Passo: 1", style="bold", color="cyan")
     __count(1, 10)
     printf("Contagem: 10 - 0. Passo: 2", start="\n", style="bold", color="cyan")
@@ -50,7 +50,3 @@ def run():
         color="cyan",
     )
     __count(start, stop, step)
-
-
-if __name__ == "__main__":
-    run()

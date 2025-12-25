@@ -6,16 +6,17 @@
 from time import sleep
 from random import sample
 
+from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def run():
+if __name__ == "__main__":
     numbers = range(1, 61)
-
-    quant = int(input("Quantos jogos quer gerar? "))
+    quant = inputf_int("Quantos jogos quer gerar? ")
 
     wait("Gerando os jogos...")
+
     for i in range(quant):
         game = sorted(sample(numbers, 6))
 
@@ -33,7 +34,3 @@ def run():
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

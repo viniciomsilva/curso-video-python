@@ -1,11 +1,12 @@
 # 047
-# CRIE UM PROGRAMA QUE MOSTRE TODOS OS NÚMEROS PARES NUM INTERVALO DE 1 A 50.
+# Crie um programa que mostre todos os números pares num intervalo de 1 a 50.
 
+from cli.io import inputf_int
 from cli.io import printf
 
 
-def run():
-    final = int(input("Até: "))
+if __name__ == "__main__":
+    final = inputf_int("Até: ")
 
     print()
     for i in range(2, final + 1, 2):
@@ -16,7 +17,3 @@ def run():
         style="bold",
         color="green",
     )
-
-
-if __name__ == "__main__":
-    run()

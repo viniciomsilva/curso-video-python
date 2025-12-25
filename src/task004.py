@@ -1,39 +1,25 @@
 # 004
-# FAÇA UM PROGRAMA QUE LEIA ALGO DO TECLADO E MOSTRE NA TELA O SEU TIPO
-# PRIMITIVO E TODAS AS INFORMAÇÕES POSSÍVEIS SOBRE ELE
+# Faça um programa que leia algo do teclado e mostre na tela o seu tipo
+# primitivo e todas as informações possíveis sobre ele.
 
-from scripts.custom import customize
+from cli.ux import customize
 
 
-def istrue(condition):
+def __is_true(condition: bool) -> str:
     return (
-        "{}".format(
-            customize(
-                " SIM ",
-                back="cyan",
-            )
-        )
+        f"{customize(" SIM ", back="cyan")}"
         if condition
-        else "{}".format(
-            customize(
-                " NÃO ",
-                back="magenta",
-            )
-        )
+        else f"{customize(" NÃO ", back="magenta")}"
     )
 
 
-def run():
+if __name__ == "__main__":
     anything = input("Digite alguma coisa: ")
 
-    print("É espaço?       {}".format(istrue(anything.isspace())))
-    print("É minúsculo?    {}".format(istrue(anything.islower())))
-    print("É maiúsculo?    {}".format(istrue(anything.isupper())))
-    print("É capitalizado? {}".format(istrue(anything.istitle())))
-    print("É alfanumérico? {}".format(istrue(anything.isalpha())))
-    print("É só numérico?  {}".format(istrue(anything.isnumeric())))
-    print("É decimal?      {}".format(istrue(anything.isdecimal())))
-
-
-if __name__ == "__main__":
-    run()
+    print(f"É espaço?       {__is_true(anything.isspace())}")
+    print(f"É minúsculo?    {__is_true(anything.islower())}")
+    print(f"É maiúsculo?    {__is_true(anything.isupper())}")
+    print(f"É capitalizado? {__is_true(anything.istitle())}")
+    print(f"É alfanumérico? {__is_true(anything.isalpha())}")
+    print(f"É só numérico?  {__is_true(anything.isnumeric())}")
+    print(f"É decimal?      {__is_true(anything.isdecimal())}")

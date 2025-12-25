@@ -1,13 +1,10 @@
 # 030
-# CRIE UM PROGRAMA QUE LEIA UM NÚMERO INTEIRO QUALQUER E MOSTRE NA TELA SE ELE É
-# PAR OU ÍMPAR.
+# Crie um programa que leia um número inteiro qualquer e mostre na tela se ele é
+# par ou ímpar.
 
-
-def run():
-    num = int(input("Digite um número inteiro qualquer: "))
-
-    print("Este número é par!" if num % 2 == 0 else "Este número é ímpar!")
-
+from cli.io import inputf_int
 
 if __name__ == "__main__":
-    run()
+    num = inputf_int("Digite um número inteiro qualquer: ")
+
+    print("Este número é par!" if num % 2 == 0 else "Este número é ímpar!")

@@ -5,7 +5,7 @@
 from urllib.request import urlopen
 
 
-def run():
+if __name__ == "__main__":
     url = "http://www.pudim.com.br"
 
     try:
@@ -15,7 +15,3 @@ def run():
             raise
     except:
         print(f"O site: {url} NÃO está acessível!")
-
-
-if __name__ == "__main__":
-    run()

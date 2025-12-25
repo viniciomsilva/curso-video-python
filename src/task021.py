@@ -1,13 +1,14 @@
 # 021
-# FAÇA UM PROGRAMA EM PYTHON QUE ABRA E REPRODUZA UM ÁUDIO DE UM ARQUIVO MP3
+# Faça um programa em python que abra e reproduza um áudio de um arquivo MP3.
 
 from classes.music_player import MusicPlayer
-from cli.io import inputf
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
-from scripts.terminal import clear
+from cli.terminal import clear
 
 
-def print_playlist(playlist: list):
+def __print_playlist(playlist: list[dict[str, str]]) -> None:
     clear()
     printf(
         "Músicas Disponíveis",
@@ -27,24 +28,33 @@ def print_playlist(playlist: list):
     print()
 
 
-def run():
+if __name__ == "__main__":
     player = MusicPlayer()
 
     while True:
         try:
-            print_playlist(player.playlist)
-            song = player.select(int(input("Escolha uma música: ")))
+            __print_playlist(player.playlist)
+
+            op = inputf_int("Escolha uma música: ")
+            song = player.select(op)
 
             printf(
                 "Tocando: {}, {}".format(
-                    str(song["title"]).title(),
-                    str(song["artist"]).title(),
+                    song["title"].title(),
+                    song["artist"].title(),
                 ),
                 style="bold",
                 color="green",
             )
 
             player.play()
+
+            if leave(
+                "Quer ouvir outra? [y/n]: ",
+                style="bold",
+                color="yellow",
+            ):
+                break
         except:
             printf(
                 "Por favor! Escolha uma opção válida.",
@@ -52,19 +62,5 @@ def run():
                 style="bold",
                 color="magenta",
             )
-        finally:
-            if (
-                inputf(
-                    "Quer ouvir outra? [y/n]: ",
-                    style="bold",
-                    color="yellow",
-                )
-                == "n"
-            ):
-                break
 
     player.quit()
-
-
-if __name__ == "__main__":
-    run()

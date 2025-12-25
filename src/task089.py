@@ -5,7 +5,7 @@
 
 from statistics import mean
 
-from cli.io import EXIT_CMDS
+from cli.io import __EXIT_CMDS
 
 
 def run():
@@ -21,7 +21,7 @@ def run():
 
         students.append({"name": name, "notes": notes})
 
-        if input("Quer continuar? [s/n] ") in EXIT_CMDS:
+        if input("Quer continuar? [s/n] ") in __EXIT_CMDS:
             break
 
     print(f"\nNo | Aluno(a) {' ':11} Média")

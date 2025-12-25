@@ -5,12 +5,14 @@
 
 from scripts.database import read_csv
 
+from cli.io import inputf_int
 
-def run():
+
+if __name__ == "__main__":
     numbers = tuple(data[0] for data in read_csv("numbers_in_words.csv"))
 
     while True:
-        i = int(input("Digite um número entre 0 e 20: "))
+        i = inputf_int("Digite um número entre 0 e 20: ")
 
         if 0 <= i <= 20:
             break
@@ -18,7 +20,3 @@ def run():
         print("Por favor! ", end="")
 
     print(f"Você digitou o número {numbers[i]}")
-
-
-if __name__ == "__main__":
-    run()

@@ -1,17 +1,18 @@
 # 018
-# FAÇA UM PROGRAMA QUE LEIA O VALOR DE UM ÂNGULO QUALQUER E MOSTRE NA TELA OS
-# VALORES DO SENO, COSSENO E TANGENTE
+# Faça um programa que leia o valor de um ângulo qualquer e mostre na tela os
+# valores do seno, cosseno e tangente.
 
 from math import cos
 from math import radians
 from math import sin
 from math import tan
 
+from cli.io import inputf_flo
 from cli.io import printf
 
 
-def run():
-    angle = float(input("Digite um ângulo: "))
+if __name__ == "__main__":
+    angle = inputf_flo("Digite um ângulo: ")
 
     printf(
         " Sin({:.1f}º) = {:.6f} ".format(
@@ -38,7 +39,3 @@ def run():
         style="bold",
         back="magenta",
     )
-
-
-if __name__ == "__main__":
-    run()

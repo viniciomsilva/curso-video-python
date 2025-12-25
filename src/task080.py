@@ -3,14 +3,16 @@
 # numéricos e cadastre-os numa lista, já na posição correta de inserção
 # (sem usar o sorted()). No final, mostre a lista ordenada na tela.
 
+from cli.io import inputf_int
 
-def run():
+
+if __name__ == "__main__":
     length = 0
     current = 0
-    values = []
+    values: list[int] = []
 
     for _ in range(5):
-        value = int(input("Digite um valor: ").strip())
+        value = inputf_int("Digite um valor: ")
 
         current = 0 if length == 0 else length
 
@@ -22,8 +24,8 @@ def run():
         values.insert(current, value)
         length = len(values)
 
-    print(f"Os valores digitados foram: {values}")
-
-
-if __name__ == "__main__":
-    run()
+    print(
+        "Os valores digitados foram: {}".format(
+            ", ".join(map(str, values)),
+        )
+    )

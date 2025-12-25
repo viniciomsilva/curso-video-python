@@ -1,5 +1,5 @@
 # 059
-# Crie um programa que leia dois valores e mostre um menu.
+# Crie um programa que leia dois valores e mostre um menu:
 #   [1] Somar
 #   [2] Multiplicar
 #   [3] Maior
@@ -23,13 +23,13 @@ from math import prod
 from statistics import mean
 from time import sleep
 
+from cli.io import inputf_int
 from cli.io import printf
-from cli.io import inputf
-from cli.wait import wait
-from scripts import terminal
+from cli.ux import wait
+from cli import terminal
 
 
-__options = [
+__OPTIONS = (
     "[1] Somar",
     "[2] Multiplicar",
     "[3] Maior",
@@ -38,28 +38,22 @@ __options = [
     "[6] Novos valores",
     "[7] Adicionar valores",
     "[0] Sair",
-]
+)
 
 
-def __add_new_values(numbers: list):
+def __add_new_values(numbers: list[int]) -> None:
     while True:
-        n = inputf("Qual valor quer adicionar? ").strip()
+        n = inputf_int("Qual valor quer adicionar? ")
 
-        if not n.isnumeric():
-            printf(
-                "Digite um valor inteiro...",
-                style="bold",
-                color="magenta",
-            )
-        elif n == "0":
+        if n == 0:
             break
         else:
-            numbers.append(int(n))
+            numbers.append(n)
 
     terminal.clear()
 
 
-def __print_numbers(numbers: list):
+def __print_numbers(numbers: list[int]) -> None:
     printf(
         "Valores: ",
         start="\n",
@@ -70,19 +64,15 @@ def __print_numbers(numbers: list):
         ", ".join(map(str, numbers)),
         style="bold",
     )
-    printf(
-        "Quantidade: {} números ".format(len(numbers)),
-        style="bold",
-        end="\n\n"
-    )
+    printf("Quantidade: {} números ".format(len(numbers)), style="bold", end="\n\n")
 
 
 def __print_menu():
-    print(" ".join(__options))
+    print(" ".join(__OPTIONS))
 
 
-def run():
-    numbers = []
+if __name__ == "__main__":
+    numbers: list[int] = []
     rps = ""
 
     __add_new_values(numbers)
@@ -90,27 +80,27 @@ def run():
     while True:
         __print_numbers(numbers)
         __print_menu()
-        option = inputf("Digite a opção: ", start="\n").strip()
+        option = inputf_int("Digite a opção: ", start="\n")
 
         wait("Processando...", end="\n")
 
         match option:
-            case "1":
+            case 1:
                 rps = "A soma é: {}".format(sum(numbers))
-            case "2":
+            case 2:
                 rps = "A multiplicação é: {}".format(prod(numbers))
-            case "3":
+            case 3:
                 rps = "O maior valor é: {}".format(max(numbers))
-            case "4":
+            case 4:
                 rps = "O menor valor é: {}".format(min(numbers))
-            case "5":
+            case 5:
                 rps = "A média é: {:.2f}".format(mean(numbers))
-            case "6":
+            case 6:
                 numbers = []
                 __add_new_values(numbers)
-            case "7":
+            case 7:
                 __add_new_values(numbers)
-            case "0":
+            case 0:
                 break
             case _:
                 printf(
@@ -126,7 +116,3 @@ def run():
             color="cyan",
         )
         sleep(2)
-
-
-if __name__ == "__main__":
-    run()

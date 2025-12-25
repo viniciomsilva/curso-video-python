@@ -7,10 +7,10 @@
 from cli.io import inputf
 from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import clear
+from cli.ux import wait
 from scripts.database import write
 from scripts.database import read_csv
-from scripts.terminal import clear
 
 
 def __load() -> list[list[str | int]]:
@@ -48,7 +48,7 @@ def __print_people(people: list[list[str | int]]):
         print(f"Nome: {p[0]:<28} | Nascimento: {p[1]:6}")
 
 
-def run():
+if __name__ == "__main__":
     people = __load()
 
     while True:
@@ -70,7 +70,3 @@ def run():
                 break
             case _:
                 wait("🙁 Opção está indisponível!", color="cyan")
-
-
-if __name__ == "__main__":
-    run()

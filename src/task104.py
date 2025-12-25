@@ -11,7 +11,7 @@ from cli.io import inputf_int
 from cli.io import inputf_flo
 
 
-def run():
+if __name__ == "__main__":
     print("Tratamento de erro na entrada de números inteiros...")
     num_int = inputf_int("Digite um número inteiro: ")
     print(f"Valor inteiro digitado: {num_int}")
@@ -19,7 +19,3 @@ def run():
     print("\nTratamento de erro na entrada de números decimais...")
     num_flo = inputf_flo("Digite um número decimal: ")
     print(f"Valor decimal digitado: {num_flo}")
-
-
-if __name__ == "__main__":
-    run()

@@ -6,13 +6,12 @@
 from time import sleep
 from random import randint
 
-from cli.wait import wait
+from cli.ux import wait
 
 
-def run():
-    players = {}
+if __name__ == "__main__":
+    players: dict[str, str | int] = {}
 
-    # drawing values
     for i in range(4):
         n = randint(1, 6)
         players[f"player{i}"] = n
@@ -20,14 +19,8 @@ def run():
         print(f"player{i} sorteou: {n}")
         sleep(2)
 
-    # ranking values
     ranking = sorted(players.items(), key=lambda p: p[1], reverse=True)
 
-    # output
     wait("Classificando---------------")
     for i, v in enumerate(ranking):
         print(f"{i + 1}º lugar: {v[0]} >> {v[1]}")
-
-
-if __name__ == "__main__":
-    run()

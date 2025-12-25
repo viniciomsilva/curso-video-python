@@ -1,26 +1,22 @@
 # 032
-# FAÇA UM PROGRAMA QUE LEIA UM ANO QUALQUER E MOSTRE SE ELE É BISSEXTO.
+# Faça um programa que leia um ano qualquer e mostre se ele é bissexto.
+# - Regra dos bissextos:
+#   - Para anos centenários: deve-se ser divisível por 400;
+#   - Para anos normais: deve-se ser divisível por 4.
 
-# REGRA DOS BISSEXTOS
-# PARA ANOS CENTENÁRIOS
-#   DEVE-SE SER DIVISÍVEL POR 400
-# PARA ANOS NORMAIS
-#   DEVE-SE SER DIVISÍVEL POR 4
-
-
-from datetime import date
-
+from cli.io import inputf_int
 from cli.io import printf
+from cli.ux import THIS_YEAR
 
 
-def __calc(year):
+def __calc(year: int) -> bool:
     return year % 4 == 0 and year % 100 != 0 or year % 400 == 0
 
 
-def run():
-    year = int(input("Digite um ano qualquer (yyyy): "))
+if __name__ == "__main__":
+    year = inputf_int("Digite um ano qualquer (yyyy): ")
 
-    year = year if year > 0 else date.today().year
+    year = year if year > 0 else THIS_YEAR
 
     if __calc(year):
         printf(
@@ -36,7 +32,3 @@ def run():
             style="bold",
             color="magenta",
         )
-
-
-if __name__ == "__main__":
-    run()

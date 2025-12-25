@@ -1,11 +1,11 @@
 # 002
-# ESCREVA UM PROGRAMA QUE LEIA O DIA, O MÊS E O ANO DE NASCIMENTO DE UMA PESSOA
-# E MOSTRE-OS
+# Escreva um programa que leia o dia, o mês e o ano de nascimento de uma pessoa
+# e mostre-os.
 
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     dd = input("Digite o dia: ")
     mm = input("Digite o mês: ")
     yy = input("Agora, digite o ano: ")
@@ -16,7 +16,3 @@ def run():
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

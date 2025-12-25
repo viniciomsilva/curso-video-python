@@ -9,13 +9,13 @@
 # cada valor digitado pelo usuário. O programa será interrompido quando o número
 # for negativo.
 
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
-from cli.io import inputf
-from cli.io import EXIT_CMDS
-from scripts.terminal import clear
+from cli.ux import clear
 
 
-def __add(num):
+def __add(num: int):
     printf(
         "{:=<30}".format("Adição "),
         start="\n",
@@ -30,7 +30,7 @@ def __add(num):
         )
 
 
-def __sub(num):
+def __sub(num: int):
     printf(
         "{:=<30}".format("Subtração "),
         start="\n",
@@ -45,7 +45,7 @@ def __sub(num):
         )
 
 
-def __mul(num):
+def __mul(num: int):
     printf(
         "{:=<30}".format("Multiplicação "),
         start="\n",
@@ -64,7 +64,7 @@ def __mul(num):
             )
 
 
-def __div(num):
+def __div(num: int):
     printf(
         "{:=<30}".format("Divisão "),
         start="\n",
@@ -87,28 +87,21 @@ def __div(num):
             )
 
 
-def run():
+if __name__ == "__main__":
     while True:
-        num = int(input("Digite um número: "))
+        num = inputf_int("Digite um número: ")
 
         __add(num)
         __sub(num)
         __mul(num)
         __div(num)
 
-        if (
-            inputf(
-                "Quer a tabuada de outro número? [S/N] ",
-                start="\n",
-                style="bold",
-                color="yellow",
-            )
-            in EXIT_CMDS
+        if leave(
+            "Quer a tabuada de outro número? [S/N] ",
+            start="\n",
+            style="bold",
+            color="yellow",
         ):
             break
 
         clear()
-
-
-if __name__ == "__main__":
-    run()

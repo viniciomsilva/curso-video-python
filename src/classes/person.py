@@ -1,4 +1,4 @@
-from datetime import date
+from cli.ux import THIS_YEAR
 
 
 class Person:
@@ -10,10 +10,10 @@ class Person:
 
     @property
     def age(self) -> int:
-        return date.today().year - self.__birth
+        return THIS_YEAR - self.__birth
 
     @property
-    def info(self) -> dict:
+    def info(self) -> dict[str, str | int]:
         return {
             "name": self.__name,
             "age": self.age,

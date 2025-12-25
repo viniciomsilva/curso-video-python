@@ -8,15 +8,14 @@
 # 10. Só que agora o jogador vai tentar adivinhar até acertar, mostrando no
 # final quantos palpites foram necessários para vencer.
 
-from time import sleep
 from random import randint
 
-from cli.io import inputf
+from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def run():
+if __name__ == "__main__":
     win = False
     attempt = 1
     draw_num = randint(1, 10)
@@ -33,11 +32,9 @@ def run():
     )
 
     while not win and attempt <= 4:
-        num = int(
-            inputf(
-                "Digite sua {}º tentativa: ".format(attempt),
-                start="\n",
-            )
+        num = inputf_int(
+            f"Digite sua {attempt}º tentativa: ",
+            start="\n",
         )
 
         wait("Processando...", end="\n")
@@ -59,12 +56,8 @@ def run():
 
     if not win:
         printf(
-            "HA HA!!! Eu ganhei! Estava pensando no {}".format(draw_num),
+            f"HA HA!!! Eu ganhei! Estava pensando no {draw_num}",
             start="\n",
             style="bold",
             color="magenta",
         )
-
-
-if __name__ == "__main__":
-    run()

@@ -1,17 +1,19 @@
 # 029
-# ESCREVA UM PROGRAMA QUE LEIA A VELOCIDADE DE UM CARRO.
-# SE ELE ULTRAPASSAR 80KM/H, MOSTRE UMA MENSAGEM DIZENDO QUE ELE FOI MULTADO.
-# A MULTA VAI CUSTAR R$ 7,00 POR CADA KM ACIMA DO LIMITE.
+# Escreva um programa que leia a velocidade de um carro.
+# Se ele ultrapassar 80km/h, mostre uma mensagem dizendo que ele foi multado.
+# A multa vai custar R$ 7,00 para cada km acima do limite.
 
+from cli.io import inputf_flo
 from cli.io import printf
+from cli.ux import brl
 
 
-def __calc(speed):
+def __calc(speed: float) -> float:
     return (speed - 80) * 7
 
 
-def run():
-    speed = float(input("Digite a velocidade do carro (km/h): "))
+if __name__ == "__main__":
+    speed = inputf_flo("Digite a velocidade do carro (km/h): ")
 
     if speed <= 80:
         printf(
@@ -21,11 +23,7 @@ def run():
         )
     else:
         printf(
-            "Você foi multado em R$ {:.2f}!".format(__calc(speed)),
+            "Você foi multado em {}!".format(brl(__calc(speed))),
             style="bold",
             color="magenta",
         )
-
-
-if __name__ == "__main__":
-    run()

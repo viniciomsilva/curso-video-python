@@ -1,10 +1,12 @@
 # 008
-# ESCREVA UM PROGRAMA QUE LEIA UM VALOR EM METROS E MOSTRE-O EM CENTÍMETROS E
-# MILÍMETROS
+# Escreva um programa que leia um valor em metros e mostre-o em centímetros e
+# milímetros.
+
+from cli.io import inputf_flo
 
 
-def run():
-    num = float(input("Digite um valor em metros: "))
+if __name__ == "__main__":
+    num = inputf_flo("Digite um valor em metros: ")
 
     print("Em quilômetros: {}km".format(num / 1000))
     print("Em hectômetros: {}hm".format(num / 100))
@@ -12,7 +14,3 @@ def run():
     print("Em decímetros.: {:.0f}dc".format(num * 10))
     print("Em centímetros: {:.0f}cm".format(num * 100))
     print("Em milímetros.: {:.0f}mm".format(num * 1000))
-
-
-if __name__ == "__main__":
-    run()

@@ -1,33 +1,34 @@
 # 043
-# DESENVOLVA UM PROGRAMA QUE LEIA O PESO E A ALTURA DE UMA PESSOA, CALCULE O IMC
-# E MOSTRE O STATUS DE ACORDO COM A TABELA ABAIXO:
-# 	- ABAIXO DE 18.5:	ABAIXO DO PESO
-# 	- ENTRE 18.5 E 25:	PESO IDEAL
-# 	- 25 ATÉ 30:		SOBREPESO
-# 	- 30 ATÉ 40:		OBESIDADE
-# 	- ACIMA DE 40:		OBESIDADE MÓRBIDA
+# Desenvolva um programa que leia o peso e a altura de uma pessoa, calcule o imc
+# e mostre o status de acordo com a tabela abaixo:
+#   - Abaixo de 18.5 (abaixo do peso);
+#   - Entre 18.5 e 25 (peso ideal);
+#   - 25 até 30 (sobrepeso);
+#   - 30 até 40 (obesidade);
+#   - Acima de 40 (obesidade mórbida).
 
+from cli.io import inputf_flo
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def __calc(w, h):
+def __calc(w: float, h: float) -> float:
     return w / pow(h, 2)
 
 
-def run():
+if __name__ == "__main__":
     msg = {
         "color": "",
         "content": "",
     }
 
-    weight = float(input("Peso (kg): "))
-    height = float(input("Altura (m): "))
+    weight = inputf_flo("Peso (kg): ")
+    height = inputf_flo("Altura (m): ")
 
     wait("Calculando...")
 
     imc = __calc(weight, height)
-    msg["content"] = "Seu IMC é de {}. ".format(round(imc, 1))
+    msg["content"] = f"Seu IMC é de {round(imc, 1)}. "
 
     if imc < 18.5:
         msg["color"] = "yellow"
@@ -50,7 +51,3 @@ def run():
         style="bold",
         color=msg["color"],
     )
-
-
-if __name__ == "__main__":
-    run()

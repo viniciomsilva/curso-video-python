@@ -5,7 +5,7 @@
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     while True:
         sex = input("Digite o sexo [M/F]: ").strip()[0]
 
@@ -22,7 +22,3 @@ def run():
                 style="bold",
                 color="magenta",
             )
-
-
-if __name__ == "__main__":
-    run()

@@ -1,11 +1,11 @@
 # 025
-# CRIE UM PROGRAMA QUE LEIA O NOME DE UMA PESSOA E DIGA SE ELA TEM "SILVA" NO
-# NOME
+# Crie um programa que leia o nome de uma pessoa e diga se ela tem "silva" no
+# nome.
 
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     name = input("Digite o seu nome completo: ").strip().lower()
 
     if "silva" in name:
@@ -22,7 +22,3 @@ def run():
             style="bold",
             color="cyan",
         )
-
-
-if __name__ == "__main__":
-    run()

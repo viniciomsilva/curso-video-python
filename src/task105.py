@@ -11,7 +11,10 @@
 from statistics import mean
 
 
-def __avg(*grades, status: bool = False) -> dict:
+def __avg(
+    *grades: float,
+    status: bool = False,
+) -> dict[str, str | int | float]:
     """Calculate average of a classroom.
 
     Args:
@@ -31,7 +34,7 @@ def __avg(*grades, status: bool = False) -> dict:
     """
 
     m = mean(grades)
-    r = {
+    r: dict[str, str | int | float] = {
         "len": len(grades),
         "highest": max(grades),
         "lowest": min(grades),
@@ -49,9 +52,5 @@ def __avg(*grades, status: bool = False) -> dict:
     return r
 
 
-def run():
-    print(__avg(2.5, 6, 9, 7, status=True))
-
-
 if __name__ == "__main__":
-    run()
+    print(__avg(2.5, 6, 9, 7, status=True))

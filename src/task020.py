@@ -1,31 +1,23 @@
 # 020
-# O MESMO PROFESSOR DO DESAFIO ANTERIOR QUER SORTEAR A ORDEM DE APRESENTAÇÃO DE
-# TRABALHOS DOS ALUNOS. FAÇA UM PROGRAMA QUE LEIA O NOME DOS QUATRO ALUNOS E
-# MOSTRE A ORDEM SORTEADA
+# O mesmo professor do desafio anterior quer sortear a ordem de apresentação de
+# trabalhos dos alunos. Faça um programa que leia o nome dos quatro alunos e
+# mostre a ordem sorteada.
 
 from random import sample
 
+from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
+from task019 import read_students
 
 
-def __reorder(data):
+def __reorder(data: list[str]) -> list[str]:
     return sample(data, len(data))
 
 
-def run():
-    students = []
-    qnt_students = int(input("Digite a quantidade de alunos: "))
-
-    printf(
-        "Agora digite os nomes deles",
-        start="\n",
-        style="bold",
-        color="yellow",
-    )
-    for i in range(qnt_students):
-        student = input("Nome do(a) {}º aluno(a): ".format(i + 1))
-        students.append(student.title().strip())
+if __name__ == "__main__":
+    qnt_students = inputf_int("Digite a quantidade de alunos: ")
+    students: list[str] = read_students(qnt_students)
 
     wait("Sorteando...")
 
@@ -39,7 +31,3 @@ def run():
             "{}º aluno(a): {}".format(i + 1, student),
             style="bold",
         )
-
-
-if __name__ == "__main__":
-    run()

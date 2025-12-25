@@ -1,12 +1,13 @@
 # 005
-# FAÇA UM PROGRAMA QUE LEIA UM NÚMERO INTEIRO E MOSTRE NA TELA O SEU SUCESSOR E
-# ANTECESSOR
+# Faça um programa que leia um número inteiro e mostre na tela o seu sucessor e
+# antecessor.
 
 from cli.io import printf
+from cli.io import inputf_int
 
 
-def run():
-    num = int(input("Digite um número inteiro qualquer: "))
+if __name__ == "__main__":
+    num = inputf_int("Digite um número inteiro qualquer: ")
 
     printf(
         " Antecessor: {:4} ".format(num - 1),
@@ -19,7 +20,3 @@ def run():
         style="bold",
         back="magenta",
     )
-
-
-if __name__ == "__main__":
-    run()

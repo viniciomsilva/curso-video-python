@@ -2,17 +2,20 @@ from csv import reader
 from pathlib import Path
 
 
-DATA_PATH = Path.joinpath(Path(__file__).parent.parent.parent, "data").resolve()
+__DATA_PATH = Path.joinpath(
+    Path(__file__).parent.parent.parent,
+    "data",
+).resolve()
 
 
 def read_csv(
     filename: str,
     mode: str = "r",
     delimiter: str = ",",
-) -> list[str | None]:
+) -> list[list[str]]:
     try:
         with open(
-            file=Path.joinpath(DATA_PATH, filename).resolve(),
+            file=Path.joinpath(__DATA_PATH, filename).resolve(),
             mode=mode,
         ) as file:
             data = reader(
@@ -20,20 +23,20 @@ def read_csv(
                 dialect="excel",
                 delimiter=delimiter,
             )
-            return [str(d) for d in data]
+            return [d for d in data]
     except Exception as e:
         print(e)
         return []
 
 
 def write(
-    *args: tuple[list[object]],
+    *args: list[object],
     filename: str,
     mode: str = "w",
 ) -> bool:
     try:
         with open(
-            file=Path.joinpath(DATA_PATH, filename).resolve(),
+            file=Path.joinpath(__DATA_PATH, filename).resolve(),
             mode=mode,
             encoding="utf-8",
         ) as file:
@@ -47,4 +50,4 @@ def write(
 
 
 if __name__ == "__main__":
-    print(DATA_PATH)
+    print(__DATA_PATH)

@@ -1,13 +1,13 @@
 # 026
-# CRIE UM PROGRAMA QUE LEIA UMA FRASE PELO TECLADO E MOSTRE:
-#   QUANTAS VEZES APARECEM A LETRA 'A'
-#   EM QUE POSIÇÃO ELA APARECE A PRIMEIRA VEZ
-#   EM QUE POSIÇÃO ELA APARECE A ULTIMA VEZ
+# Crie um programa que leia uma frase pelo teclado e mostre:
+#   - Quantas vezes aparecem a letra 'A';
+#   - Em que posição ela aparece a primeira vez;
+#   - Em que posição ela aparece a ultima vez.
 
-from scripts.custom import customize
+from cli.ux import customize
 
 
-def run():
+if __name__ == "__main__":
     phrase = input("Digite uma frase qualquer: ").strip().lower()
 
     first = phrase.find("a")
@@ -44,7 +44,3 @@ def run():
             )
         )
     )
-
-
-if __name__ == "__main__":
-    run()

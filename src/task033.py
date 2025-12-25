@@ -16,26 +16,27 @@
 
 from random import randint
 
+from cli.io import inputf_int
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     mn = 0
     mx = 0
-    pos_mn = []
-    pos_mx = []
-    values = []
+    pos_mn: list[int] = []
+    pos_mx: list[int] = []
+    values: list[int] = []
 
     printf("Digite -1 para gerar aleatoriamente...", color="yellow")
-    qnt = int(input("Quantidade de valores: "))
+    qnt = inputf_int("Quantidade de valores: ")
 
     if qnt <= 0:
         values = [randint(1, 100) for _ in range(5)]
         printf("Valores sorteados: {}.".format(", ".join(map(str, values))))
     else:
         for i in range(qnt):
-            number = int(input("Digite o {}º valor: ".format(i + 1)).strip())
-            values.append(number)
+            num = inputf_int(f"Digite o {(i + 1)}º valor: ")
+            values.append(num)
 
     mn = min(values)
     mx = max(values)
@@ -63,7 +64,3 @@ def run():
         style="bold",
         back="magenta",
     )
-
-
-if __name__ == "__main__":
-    run()

@@ -6,11 +6,11 @@
 
 from cli.io import inputf
 from cli.io import printf
-from cli.wait import wait
-from scripts.terminal import clear
+from cli.ux import wait
+from cli.ux import clear
 
 
-def run():
+if __name__ == "__main__":
     while True:
         clear()
         printf(
@@ -47,7 +47,3 @@ def run():
 
         wait(f"Acessando o manual de {request}...")
         help(request)
-
-
-if __name__ == "__main__":
-    run()

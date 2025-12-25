@@ -10,24 +10,25 @@
 # Melhore o DESAFIO 61, perguntando ao usuário se ele quer adicionar mais alguns
 # termos. O programa encerra quando ele digitar que quer mais 0 termos.
 
-from cli.io import EXIT_CMDS
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
 
 
-def __calc(f, r, n):
+def __calc(f: int, r: int, n: int) -> int:
     return f + (n - 1) * r
 
 
-def run():
-    ap = []
+if __name__ == "__main__":
+    ap: list[int] = []
     current = 1
 
-    first = int(input("Primeiro termo: "))
-    reason = int(input("Razão: "))
+    first = inputf_int("Primeiro termo: ")
+    reason = inputf_int("Razão: ")
 
     while True:
-        n = int(input("Quantos termos? "))
+        n = inputf_int("Quantos termos? ")
 
         for i in range(current, (current + n)):
             ap.append(__calc(first, reason, i))
@@ -44,11 +45,7 @@ def run():
             color="cyan",
         )
 
-        if input("Adicionar mais termos? [y/n]: ") in EXIT_CMDS:
+        if leave("Adicionar mais termos? [y/n]: "):
             break
 
         current = len(ap) + 1
-
-
-if __name__ == "__main__":
-    run()

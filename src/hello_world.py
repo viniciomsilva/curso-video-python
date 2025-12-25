@@ -5,16 +5,8 @@
 # Faça um programa que tenha uma função chama escreva, que receba um texto
 # qualquer como parâmetro e mostre uma mensagem com tamanho adaptável.
 
-# Ex.:
-# escreva("Olá, Mundo!")
-
-# Saída:
-# ~~~~~~~~~~~~~~~
-#   Olá, Mundo!
-# ~~~~~~~~~~~~~~~
-
 from cli.io import printf
-from scripts.custom import customize
+from cli.ux import customize
 
 
 def __title(msg: str):
@@ -25,11 +17,7 @@ def __title(msg: str):
     printf(line)
 
 
-def run():
+if __name__ == "__main__":
     __title("Hello World!")
     __title("Vinicio Silva!")
     __title("Curso de Python no YouTube: Curso em Vídeo!")
-
-
-if __name__ == "__main__":
-    run()

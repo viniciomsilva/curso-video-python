@@ -4,10 +4,11 @@
 
 from math import sqrt
 
+from cli.io import inputf_int
 from cli.io import printf
 
 
-def __isprime(n):
+def __is_prime(n: int) -> bool:
     if n < 2:
         return False
 
@@ -18,13 +19,13 @@ def __isprime(n):
     return True
 
 
-def run():
+if __name__ == "__main__":
     rps = {"content": "", "color": ""}
-    num = int(input("Digite o número: "))
+    num = inputf_int("Digite o número: ")
 
-    rps["content"] = "O número {} ".format(num)
+    rps["content"] = f"O número {num} "
 
-    if __isprime(num):
+    if __is_prime(num):
         rps["color"] = "cyan"
         rps["content"] += "É PRIMO!"
     else:
@@ -37,7 +38,3 @@ def run():
         style="bold",
         color=rps["color"],
     )
-
-
-if __name__ == "__main__":
-    run()

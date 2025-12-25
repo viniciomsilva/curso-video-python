@@ -1,22 +1,24 @@
 # 036
-# ESCREVA UM PROGRAMA PARA APROVAR O EMPRÉSTIMO BANCÁRIO PARA A COMPRA DE UMA
-# CASA. O PROGRAMA DEVE PERGUNTAR O VALOR TOTAL DA CASA, O SALÁRIO DO COMPRADOR
-# E EM QUANTOS ANOS ELE VAI PAGAR.
-# CALCULE O VALOR DA PRESTAÇÃO MENSAL, SABENDO QUE ELA NÃO PODE EXCEDER 30% DO
-# SALÁRIO OU ENTÃO O EMPRÉSTIMO NÃO SERÁ APROVADO.
+# Escreva um programa para aprovar o empréstimo bancário para a compra de uma
+# casa. o programa deve perguntar o valor total da casa, o salário do comprador
+# e em quantos anos ele vai pagar.
+# Calcule o valor da prestação mensal, sabendo que ela não pode exceder 30% do
+# salário ou então o empréstimo não será aprovado.
 
+from cli.io import inputf_flo
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import wait
+from cli.ux import brl
 
 
-def __calc(monthly_installment, salary):
+def __calc(monthly_installment: float, salary: float) -> bool:
     return monthly_installment <= (salary * 0.3)
 
 
 def run():
-    house_value = float(input("Digite o valor total do imóvel: R$ "))
-    salary = float(input("Digite o salário do comprador: R$ "))
-    years = float(input("Digite o quantidade de anos: "))
+    house_value = inputf_flo("Digite o valor total do imóvel: R$ ")
+    salary = inputf_flo("Digite o salário do comprador: R$ ")
+    years = inputf_flo("Digite o quantidade de anos: ")
 
     monthly_installment = house_value / years / 12
 
@@ -36,8 +38,8 @@ def run():
         )
 
     print(
-        "Parcela mensal de R$ {:.2f}".format(
-            monthly_installment,
+        "Parcela mensal de {}".format(
+            brl(monthly_installment),
         )
     )
     print(

@@ -5,33 +5,27 @@
 # o salário. Calcule e acrescente, além da idade, com quando anos a pessoa
 # vai se aposentar.
 
-from datetime import date
+from cli.io import inputf_flo
+from cli.io import inputf_int
+from cli.ux import THIS_YEAR
 
-from classes.person import Person
 
-
-def run():
-    year = date.today().year
-
+if __name__ == "__main__":
     name = input("Nome: ").strip().title()
-    birth = int(input("Ano de nascimento: "))
+    birth = inputf_int("Ano de nascimento: ")
 
-    person = Person(name, birth).info
-    del person["sex"]
+    age = THIS_YEAR - birth
+    person: dict[str, str | int | float] = {"name": name, "age": age}
 
-    if person["age"] >= 18:
-        ctps = int(input("N.º CTPS: "))
+    if age >= 18:
+        ctps = inputf_int("N.º CTPS: ")
 
         if ctps != 0:
             person["ctps"] = ctps
-            person["year_hiring"] = int(input("Ano de contratação: "))
-            person["salary"] = float(input("Salário: R$ "))
-            person["retirement"] = person["age"] + 35 - (year - person["year_hiring"])
+            person["year_hiring"] = inputf_int("Ano de contratação: ")
+            person["salary"] = inputf_flo("Salário: R$ ")
+            person["retirement"] = age + 35 - (THIS_YEAR - person["year_hiring"])
 
     print("-" * 30)
     for k, v in person.items():
         print(f"  > Chave '{k}' tem valor: {v}")
-
-
-if __name__ == "__main__":
-    run()

@@ -6,13 +6,13 @@ from re import sub
 from cli.io import printf
 
 
-def __ispalindrome(x: str):
+def __is_palindrome(x: str) -> bool:
     txt = sub(r"[^a-z0-9]", "", x.lower())
 
     return txt[::-1] == txt
 
 
-def run():
+if __name__ == "__main__":
     rps = {
         "color": "",
         "content": "",
@@ -20,7 +20,7 @@ def run():
     x = input("Digite uma palavra, frase ou número: ")
 
     rps["content"] = x.capitalize().strip()
-    if __ispalindrome(x):
+    if __is_palindrome(x):
         rps["color"] = "cyan"
         rps["content"] += " é um palíndromo!"
     else:
@@ -33,7 +33,3 @@ def run():
         style="bold",
         color=rps["color"],
     )
-
-
-if __name__ == "__main__":
-    run()

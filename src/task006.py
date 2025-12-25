@@ -1,14 +1,15 @@
 # 006
-# CRIE UM PROGRAMA QUE LEIA UM NÚMERO E MOSTRE O SEU DOBRO, O TRIPLO E A RAIZ
-# QUADRADA
+# Crie um programa que leia um número e mostre o seu dobro, o triplo e a raiz
+# quadrada.
 
 from math import sqrt
 
 from cli.io import printf
+from cli.io import inputf_int
 
 
-def run():
-    num = int(input("Digite um número inteiro: "))
+if __name__ == "__main__":
+    num = inputf_int("Digite um número inteiro: ")
 
     printf(
         " Dobro........: {:8} ".format(num * 2),
@@ -26,7 +27,3 @@ def run():
         style="bold",
         back="yellow",
     )
-
-
-if __name__ == "__main__":
-    run()

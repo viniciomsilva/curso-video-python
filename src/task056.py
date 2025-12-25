@@ -11,33 +11,40 @@
 #   - Uma lista com todas as mulheres
 #   - Quantas mulheres têm menos de 20 anos
 
-from datetime import date
 from statistics import mean
 
 from classes.person import Person
-from cli.io import EXIT_CMDS
+from cli.io import inputf_int
 from cli.io import printf
-from cli.io import inputf
-from cli.wait import wait
-from scripts.terminal import clear
+from cli.io import leave
+from cli.ux import THIS_YEAR
+from cli.ux import wait
+from cli.ux import clear
 
 
-def __age(person: Person):
+def __age(person: Person) -> int:
     return person.age
 
 
-def __filter_age(people: list[Person], age, greater=True):
+def __filter_age(
+    people: list[Person],
+    age: float,
+    greater: bool = True,
+) -> list[Person]:
     if greater:
         return list(filter(lambda p: p.age > age, people))
     return list(filter(lambda p: p.age < age, people))
 
 
-def __filter_sex(people: list[Person], sex):
-    return list(filter(lambda x: x.info["sex"] in sex, people))
+def __filter_sex(
+    people: list[Person],
+    sex: str,
+) -> list[Person]:
+    return list(filter(lambda x: str(x.info["sex"]) in sex, people))
 
 
-def __analyse(people: list[Person]):
-    analysis = []
+def __analyse(people: list[Person]) -> list[str]:
+    analysis: list[str] = []
 
     men = __filter_sex(people, "m")
     women = __filter_sex(people, "f")
@@ -86,14 +93,13 @@ def __analyse(people: list[Person]):
     return analysis
 
 
-def run():
-    year = date.today().year
+if __name__ == "__main__":
     people: list[Person] = []
-    wait_times = [
+    wait_times = (
         ("Iniciando análise...", 1),
         ("Analisando...", 3),
         ("Terminando a análise...", 1),
-    ]
+    )
 
     # input
     while True:
@@ -102,15 +108,10 @@ def run():
         name = input("Nome: ").title().strip()
 
         while True:
-            birth = input("Ano de nascimento: ").strip()
+            birth = inputf_int("Ano de nascimento: ")
 
-            if birth.isnumeric():
-                birth = int(birth)
-
-                if birth <= year:
-                    break
-
-            printf("Por favor, tente novamente! ", color="magenta")
+            if birth <= THIS_YEAR:
+                break
 
         while True:
             sex = input("Sexo: [M] Masc [F] Fem: ").lower().strip()[0]
@@ -121,13 +122,12 @@ def run():
             printf("Por favor, tente novamente! ", color="magenta")
 
         people.append(Person(name, birth, sex))
-        opt = inputf(
-            "Cadastrar outra pessoa? [S/N] ",
+
+        if leave(
+            "Cadastrar outra pessoa? [y/n] ",
             style="bold",
             color="yellow",
-        )
-
-        if opt in EXIT_CMDS:
+        ):
             break
 
         clear()
@@ -146,7 +146,3 @@ def run():
         printf(data, style="bold")
 
     print()
-
-
-if __name__ == "__main__":
-    run()

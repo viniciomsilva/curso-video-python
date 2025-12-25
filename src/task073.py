@@ -8,13 +8,16 @@
 
 # Dados do Campeonato Brasileiro de 20/nov/2025
 
+from typing import Iterable
+
+from cli.io import inputf_int
 from cli.io import inputf
 from cli.io import printf
+from cli.ux import clear
 from scripts.database import read_csv
-from scripts.terminal import clear
 
 
-def __rps(txt):
+def __rps(txt: object) -> None:
     printf(
         txt,
         start="\n",
@@ -23,12 +26,12 @@ def __rps(txt):
     )
 
 
-def __show(values, end="\n"):
+def __show(values: Iterable[str], end: str = "\n") -> None:
     for value in values:
         print(value, end=end)
 
 
-def __menu():
+def __menu() -> None:
     options = (
         "[1] Todos",
         "[2] Cinco Primeiros",
@@ -40,33 +43,33 @@ def __menu():
     __show(options, end=" ")
 
 
-def run():
-    rps = ""
+if __name__ == "__main__":
     teams = tuple([data[0] for data in read_csv("teams.csv")])
 
     while True:
         __menu()
-        option = inputf("O que você quer ver? ", start="\n").strip()
+        option = inputf_int("O que você quer ver? ", start="\n")
 
         match option:
-            case "1":
+            case 1:
                 __rps("Todos:")
                 __show(teams)
-            case "2":
+            case 2:
                 __rps("Os cinco primeiros colocados:")
                 __show(teams[:5])
-            case "3":
+            case 3:
                 __rps("Os quatro últimos colocados:")
                 __show(teams[-4:])
-            case "4":
+            case 4:
                 team = input("De qual time? ").strip().title()
                 __rps(f"O {team} está na {teams.index(team) + 1}ª posição.")
-            case "5":
+            case 5:
                 __rps("Os quatro últimos colocados:")
                 __show(sorted(teams))
-
-            case "0":
+            case 0:
                 break
+            case _:
+                ...
 
         inputf(
             "Digite qualquer tecla para continuar...",
@@ -75,7 +78,3 @@ def run():
             color="green",
         )
         clear()
-
-
-if __name__ == "__main__":
-    run()

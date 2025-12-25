@@ -5,10 +5,11 @@
 
 from random import randint
 
+from cli.io import inputf_int
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     victories = 0
     pc = 0
     me = {
@@ -20,14 +21,18 @@ def run():
     while True:
         try:
             pc = randint(1, 10)
-            num = input("Qual número você escolhe? ").strip()
+            num = inputf_int("Qual número você escolhe? ")
             option = input("Par ou Ímpar? [P/I] ").strip()[0]
 
-            if not num.isnumeric() or not option in "PpIi":
+            if option in "Pp":
+                option = 0
+            elif option in "Ii":
+                option = 1
+            else:
                 raise Exception("Digite uma opção válida!!!")
 
-            me["num"] = int(num)
-            me["option"] = 0 if option in "Pp" else 1
+            me["num"] = num
+            me["option"] = option
             total = pc + me["num"]
 
             if total % 2 == me["option"]:
@@ -53,7 +58,7 @@ def run():
 
     if victories > 0:
         printf(
-            "🥳 Parabéns! Você ganhou {} vezes!".format(victories),
+            f"🥳 Parabéns! Você ganhou {victories} vezes!",
             style="bold",
             color="cyan",
         )
@@ -63,7 +68,3 @@ def run():
             style="bold",
             color="magenta",
         )
-
-
-if __name__ == "__main__":
-    run()

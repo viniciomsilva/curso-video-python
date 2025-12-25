@@ -1,7 +1,9 @@
 # 010
-# CRIEI UM CONVERSOR DE REAL PARA DÓLAR
+# Crie um conversor de real para dólar.
 
+from cli.io import inputf_flo
 from cli.io import printf
+from cli.ux import brl
 
 
 # BCB in 5/9/25
@@ -9,21 +11,17 @@ __USD = 5.3962
 __EUR = 6.3449
 
 
-def run():
-    brl = float(input("Digite um valor em R$: "))
+if __name__ == "__main__":
+    value = inputf_flo("Digite um valor em R$: ")
 
     printf(
-        "BRL R$ {:.4f} = USD US$ {:.4f}".format(brl, brl / __USD),
+        "BRL {} = USD US{}".format(brl(value), brl(value / __USD, sing="$")),
         start="\n",
         style="bold",
         color="cyan",
     )
     printf(
-        "BRL R$ {:.4f} = EUR   € {:.4f}".format(brl, brl / __EUR),
+        "BRL {} = EUR   €{}".format(brl(value), brl(value / __EUR, sing="")),
         style="bold",
         color="magenta",
     )
-
-
-if __name__ == "__main__":
-    run()

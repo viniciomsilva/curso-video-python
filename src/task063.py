@@ -3,14 +3,15 @@
 # n primeiros elementos duma Sequência de Fibonacci.
 #   Ex.: 0 -> 1 -> 1 -> 2 -> 3 -> 5 -> 8 ...
 
-from cli.wait import wait
+from cli.io import inputf_int
+from cli.ux import wait
 
 
-def run():
+if __name__ == "__main__":
     p = 0
     c = 1
     seq = [p, c]
-    n = int(input("Quantos números da sequência? "))
+    n = inputf_int("Quantos números da sequência? ")
 
     for i in range(2, n):
         seq.append(p + c)
@@ -19,7 +20,3 @@ def run():
 
     wait("Calculando...")
     print("{}, Fim. Razão: {:.3f}".format(", ".join(map(str, seq)), (c / p)))
-
-
-if __name__ == "__main__":
-    run()

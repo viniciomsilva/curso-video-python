@@ -2,10 +2,10 @@ from re import sub
 from re import search
 
 from classes.missing_input_error import MissingInputError
-from scripts.custom import customize
+from cli.ux import customize
 
 
-EXIT_CMDS = ("n", "no", "exit")
+__EXIT_CMDS = ("n", "no", "exit", "leave", "stop")
 
 
 def inputf(
@@ -84,4 +84,23 @@ def printf(
         customize(f"{start}{value}", style, color, back),
         end=end,
         flush=flush,
+    )
+
+
+def leave(
+    prompt: object,
+    start: str = "\n",
+    style: str = "",
+    color: str = "",
+) -> bool:
+    return (
+        True
+        if inputf(
+            prompt,
+            start,
+            style,
+            color,
+        ).lower().strip()
+        in __EXIT_CMDS
+        else False
     )

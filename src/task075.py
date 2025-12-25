@@ -23,44 +23,38 @@
 # cadastre-os numa lista única que mantenha separados os valores pares e
 # ímpares. No final, mostre os valores pares e ímpares em ordem crescente.
 
-from cli.io import EXIT_CMDS
-from cli.io import inputf
+from cli.io import inputf_int
+from cli.io import leave
 from cli.io import printf
 
 
-def run():
+if __name__ == "__main__":
     msg = ""
-    numbers = []
+    numbers: list[int] = []
 
     while True:
-        n = inputf("Digite um número inteiro: ", start="\n").strip()
-
-        if not n.isnumeric():
-            printf("Por favor! ", end="", color="red")
-            continue
+        n = inputf_int("Digite um número inteiro: ", start="\n")
 
         numbers.append(int(n))
 
-        if input("Quer adicionar outros? [S/N] ").lower().strip() in EXIT_CMDS:
+        if leave("Quer adicionar outros? [S/N] "):
             break
 
     even = set(filter(lambda n: n % 2 == 0, numbers))
     odd = set(filter(lambda n: n % 2 != 0, numbers))
 
     msg += f"A lista completa: {numbers}"
-    msg += f"A lista completa tem {len(numbers)} números."
+    msg += f"A lista completa tem {numbers.__len__()} números."
     msg += f"\nO número 5 aparece {numbers.count(5)} vez(es)!"
     msg += f"\nO número 9 aparece {numbers.count(9)} vez(es)!"
+
     if 3 in numbers:
         msg += f"\nO primeiro 3 está na {numbers.index(3) + 1}ª posição!"
     else:
         msg += "\nO números 3 não está na lista!"
+
     msg += f"\nEm ordem decrescente: {sorted(numbers, reverse=True)}"
     msg += f"\nOs números pares são: {sorted(even)}!"
     msg += f"\nOs números ímpares são: {sorted(odd)}!"
 
     printf(msg, start="\n", style="bold")
-
-
-if __name__ == "__main__":
-    run()

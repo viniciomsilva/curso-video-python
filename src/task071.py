@@ -6,11 +6,13 @@
 # Obs.: Considere que o caixa possui cédulas de R$ 50,00, R$ 20,00, R$ 10,00 e
 # R$ 1,00.
 
+from cli.io import inputf_int
 from cli.io import printf
-from cli.wait import wait
+from cli.ux import brl
+from cli.ux import wait
 
 
-def run():
+if __name__ == "__main__":
     combination = {
         "50": 0,
         "20": 0,
@@ -19,7 +21,7 @@ def run():
         "1": 0,
     }
     msg = ""
-    value = int(input("Valor a ser sacado: R$ "))
+    value = inputf_int("Valor a ser sacado: R$ ")
 
     wait("Calculando cédulas...")
 
@@ -28,14 +30,10 @@ def run():
         value %= int(i)
 
         if combination[i] != 0:
-            msg += f"\n{combination[i]} x R$ {i},00"
+            msg += f"\n{combination[i]} x {brl(i)}"
 
     printf(
         msg,
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

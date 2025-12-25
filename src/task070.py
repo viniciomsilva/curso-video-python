@@ -5,20 +5,22 @@
 #   - Quantos produtos custam mais de R$ 1.000,00;
 #   - Qual é o nome do produto mais barato.
 
-from cli.io import EXIT_CMDS
 from cli.io import inputf
+from cli.io import inputf_flo
+from cli.io import leave
 from cli.io import printf
+from cli.ux import brl
 
 
-def run():
+if __name__ == "__main__":
     total = 0
     expensive = 0
     cheap = 0
     name_cheapest = ""
 
     while True:
-        name = inputf("Nome do produto: ", start="\n")
-        price = float(input("Preço do produto: R$ "))
+        name = inputf("Nome do produto: ", start="\n").strip()
+        price = inputf_flo("Preço do produto: R$ ")
 
         total += price
 
@@ -29,18 +31,15 @@ def run():
             cheap = price
             name_cheapest = name
 
-        if (
-            inputf(
-                "Quer continuar? [S/N] ",
-                color="yellow",
-            ).strip()
-            in EXIT_CMDS
+        if leave(
+            "Quer continuar? [S/N] ",
+            color="yellow",
         ):
             break
 
-    rps = f"Total: R$ {total:.2f}"
+    rps = f"Total: {brl(total)}"
     rps += f"\nQuantidade de produtos caros: {expensive}"
-    rps += f"\nProduto mais barato: {name_cheapest} (R$ {cheap:.2f})"
+    rps += f"\nProduto mais barato: {name_cheapest} ({brl(cheap)})"
 
     printf(
         rps,
@@ -48,7 +47,3 @@ def run():
         style="bold",
         color="cyan",
     )
-
-
-if __name__ == "__main__":
-    run()

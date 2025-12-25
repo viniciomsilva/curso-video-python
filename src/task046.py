@@ -1,16 +1,17 @@
 # 046
-# FAÇA UM PROGRAMA QUE MOSTRE A CONTAGEM REGRESSIVA PARA A QUEIMA DE FOGOS DE
-# ARTIFÍCIO, INDO DE 10 A 0 COM PAUSA DE 1 SEGUNDO.
+# Faça um programa que mostre a contagem regressiva para a queima de fogos de
+# artifício, indo de 10 a 0 com pausa de 1 segundo.
 
 from time import sleep
 
+from cli.io import inputf_int
 from cli.io import printf
 
 
-def run():
-    seconds = int(input("Quantidade de segundos: "))
+if __name__ == "__main__":
+    seconds = inputf_int("Quantidade de segundos: ")
 
-    if seconds > 30:
+    if seconds <= 0 or seconds > 30:
         seconds = 30
 
     for i in range(seconds, 0, -1):
@@ -24,7 +25,3 @@ def run():
         "🎉 🎉 🎉",
         start="\n",
     )
-
-
-if __name__ == "__main__":
-    run()

@@ -3,10 +3,10 @@
 # use parênteses. Seu aplicativo deverá analisar se a expressão passada está com
 # os parênteses abertos e fechados na ordem correta.
 
-from asteval import Interpreter
+from asteval import Interpreter  # type: ignore
 
 
-def run():
+if __name__ == "__main__":
     aeval = Interpreter()
 
     while True:
@@ -14,7 +14,7 @@ def run():
             exp = input("Digite uma expressão algébrica: ").strip().lower()
 
             if exp.count("(") == exp.count(")"):
-                rs = aeval(exp)
+                rs = aeval(exp)  # type: ignore
                 break
 
             raise
@@ -23,7 +23,3 @@ def run():
 
     print("A expressão é válida!")
     print(f"E o resultado é: {rs}")
-
-
-if __name__ == "__main__":
-    run()

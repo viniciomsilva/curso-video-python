@@ -2,25 +2,22 @@
 # Crie um programa que leia a data de nascimento de sete pessoas e mostre
 # quantas já atingiram a maioridade e quantas ainda não.
 
-from datetime import date
+from cli.io import inputf_int
+from cli.ux import THIS_YEAR
 
 
-def run():
+if __name__ == "__main__":
     adults = 0
     minors = 0
-    this_year = date.today().year
 
-    qnt = int(input("Quantidade de pessoas: "))
+
+    qnt = inputf_int("Quantidade de pessoas: ")
 
     for i in range(qnt):
-        birth = int(input("Ano de nascimento da {}ª pessoa: ".format(i + 1)))
-        if this_year - birth >= 21:
+        birth = inputf_int(f"Ano de nascimento da {(i + 1)}ª pessoa: ")
+        if THIS_YEAR - birth >= 21:
             adults += 1
         else:
             minors += 1
 
-    print("\nExistem {} adultos e {} menores.".format(adults, minors))
-
-
-if __name__ == "__main__":
-    run()
+    print(f"\nExistem {adults} adultos e {minors} menores.")
